@@ -1518,43 +1518,25 @@
   }
 
   /* ========================================================================
-     TEMA CLARO / ESCURO (COM PERSISTÊNCIA EM LOCALSTORAGE)
+     TEMA CLARO / ESCURO (DELEGA PARA window.applySiteTheme EM index.html)
      ======================================================================== */
-  function applyTheme(theme) {
-    const isDark = theme === "dark";
-    if (isDark) {
-      document.documentElement.setAttribute("data-theme", "dark");
-    } else {
-      document.documentElement.removeAttribute("data-theme");
-    }
-
-    if (el.btnToggleTheme) {
-      el.btnToggleTheme.setAttribute("aria-pressed", String(isDark));
-      const icon = el.btnToggleTheme.querySelector(".theme-icon");
-      const label = el.btnToggleTheme.querySelector(".theme-label");
-      if (icon) icon.textContent = isDark ? "☀️" : "🌙";
-      if (label) label.textContent = isDark ? "Tema Claro" : "Tema Escuro";
-    }
-
-    try {
-      localStorage.setItem("simulado_cetap_theme", isDark ? "dark" : "light");
-    } catch (e) {}
-  }
-
   function initTheme() {
     const current = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
-    applyTheme(current);
+    if (typeof window.applySiteTheme === "function") {
+      window.applySiteTheme(current);
+    }
   }
 
   /* ========================================================================
      EVENTOS GERAIS E INICIALIZAÇÃO
      ======================================================================== */
   function bindEvents() {
-    // Alternância de Tema Claro / Escuro
-    if (el.btnToggleTheme) {
+    // Alternância de Tema Claro / Escuro (fallback caso onclick não esteja definido)
+    if (el.btnToggleTheme && !el.btnToggleTheme.getAttribute("onclick")) {
       el.btnToggleTheme.addEventListener("click", () => {
-        const isDark = document.documentElement.getAttribute("data-theme") === "dark";
-        applyTheme(isDark ? "light" : "dark");
+        if (typeof window.toggleSiteTheme === "function") {
+          window.toggleSiteTheme();
+        }
       });
     }
 

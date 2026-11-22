@@ -6,15 +6,47 @@
   <title>Simulado CETAP — ALEPA 2026 | Nível Médio</title>
   <script>
     (function () {
+      function updateThemeButton(isDark) {
+        var btn = document.getElementById("btn-toggle-theme");
+        if (!btn) return;
+        btn.setAttribute("aria-pressed", String(isDark));
+        var icon = btn.querySelector(".theme-icon");
+        var label = btn.querySelector(".theme-label");
+        if (icon) icon.textContent = isDark ? "☀️" : "🌙";
+        if (label) label.textContent = isDark ? "Tema Claro" : "Tema Escuro";
+      }
+
+      window.applySiteTheme = function (theme) {
+        var isDark = theme === "dark";
+        if (isDark) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+          document.documentElement.removeAttribute("data-theme");
+        }
+        updateThemeButton(isDark);
+        try {
+          localStorage.setItem("simulado_cetap_theme", isDark ? "dark" : "light");
+        } catch (e) {}
+      };
+
+      window.toggleSiteTheme = function () {
+        var isDark = document.documentElement.getAttribute("data-theme") === "dark";
+        window.applySiteTheme(isDark ? "light" : "dark");
+      };
+
       try {
         if (localStorage.getItem("simulado_cetap_theme") === "dark") {
           document.documentElement.setAttribute("data-theme", "dark");
         }
       } catch (e) {}
+
+      document.addEventListener("DOMContentLoaded", function () {
+        updateThemeButton(document.documentElement.getAttribute("data-theme") === "dark");
+      });
     })();
   </script>
-  <link rel="stylesheet" href="css/styles.css" />
-  <link rel="stylesheet" href="css/material.css" />
+  <link rel="stylesheet" href="css/styles.css?v=20261122-dark" />
+  <link rel="stylesheet" href="css/material.css?v=20261122-dark" />
 </head>
 <body>
   <!-- Cabeçalho Institucional (Estilo Caderno de Prova / Plataforma Acadêmica) -->
@@ -28,7 +60,7 @@
         </p>
       </div>
       <div class="header-actions">
-        <button id="btn-toggle-theme" class="btn btn-theme" type="button" aria-pressed="false" title="Alternar entre tema claro e escuro">
+        <button id="btn-toggle-theme" class="btn btn-theme" type="button" onclick="window.toggleSiteTheme && window.toggleSiteTheme()" aria-pressed="false" title="Alternar entre tema claro e escuro">
           <span class="theme-icon" aria-hidden="true">🌙</span>
           <span class="theme-label">Tema Escuro</span>
         </button>
@@ -288,6 +320,6 @@
   <script src="js/material/material_especificos_manutencao.js"></script>
 
   <!-- Motor do Simulado -->
-  <script src="js/app.js"></script>
+  <script src="js/app.js?v=20261122-dark"></script>
 </body>
 </html>

@@ -1,0 +1,422 @@
+/* ==========================================================================
+   MATERIAL DE CONSULTA — Estilo Apostila de Escola / Universidade
+   Visual simples, sóbrio, legível e estruturado em seções.
+   ========================================================================== */
+
+.material-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: var(--drawer-width);
+  max-width: 100vw;
+  height: 100vh;
+  z-index: 150;
+  background: #fcfcfa;
+  border-left: 2px solid #cbd5e1;
+  box-shadow: -6px 0 24px rgba(15, 23, 42, 0.14);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.25s ease, width 0.2s ease;
+}
+
+body.drawer-open .material-drawer {
+  transform: translateX(0);
+}
+
+body.drawer-open.drawer-wide .material-drawer {
+  width: 680px;
+}
+
+/* Cabeçalho do Painel */
+.material-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 13px 16px;
+  background: #f2f4f7;
+  border-bottom: 1px solid #d2dae4;
+  flex-shrink: 0;
+}
+
+.material-badge {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #4a5c70;
+  text-transform: uppercase;
+}
+
+.material-header h2 {
+  margin: 2px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  color: #16293d;
+}
+
+.material-header-btns {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Abas de Disciplinas */
+.material-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 8px 12px 0;
+  background: #f2f4f7;
+  border-bottom: 1px solid #d2dae4;
+  overflow-x: auto;
+  flex-shrink: 0;
+}
+
+.mat-tab {
+  padding: 7px 11px;
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+  background: transparent;
+  color: #475569;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.mat-tab:hover {
+  color: #1a3a5c;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.mat-tab.active {
+  background: #fcfcfa;
+  color: #1a3a5c;
+  border-color: #d2dae4;
+  position: relative;
+  top: 1px;
+}
+
+/* Barra de Busca e Navegação por Seção */
+.material-toolbar {
+  padding: 10px 16px;
+  background: #f7f7f4;
+  border-bottom: 1px solid #e2e5ea;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.material-search-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.material-search-wrap input {
+  width: 100%;
+  padding: 7px 30px 7px 10px;
+  border: 1px solid #c5ced9;
+  border-radius: 4px;
+  background: #ffffff;
+  font-size: 13px;
+  font-family: inherit;
+  color: #1f2933;
+}
+
+.material-search-wrap input:focus {
+  outline: none;
+  border-color: #1a3a5c;
+}
+
+.btn-clear-search {
+  position: absolute;
+  right: 6px;
+  background: transparent;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 2px 5px;
+}
+
+.material-toc-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: #475569;
+}
+
+.material-toc-wrap label {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.material-toc-wrap select {
+  flex: 1;
+  min-width: 0;
+  padding: 5px 8px;
+  border: 1px solid #c5ced9;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #1f2933;
+  font-size: 12.5px;
+  font-family: inherit;
+}
+
+/* Corpo da Apostila (Estilo Material Universitário) */
+.material-content {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 18px 22px 44px;
+  color: #202832;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.apostila-header {
+  border-bottom: 2px solid #1a3a5c;
+  padding-bottom: 10px;
+  margin-bottom: 18px;
+}
+
+.apostila-header h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  color: #16293d;
+}
+
+.apostila-header p {
+  margin: 4px 0 0;
+  font-size: 12.5px;
+  color: #526071;
+}
+
+/* Sumário Clicável no Topo da Disciplina */
+.apostila-toc {
+  background: #f5f5f0;
+  border: 1px solid #dcdcd2;
+  border-radius: 4px;
+  padding: 11px 14px;
+  margin-bottom: 20px;
+}
+
+.apostila-toc-title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #334155;
+  margin: 0 0 6px;
+}
+
+.apostila-toc ol {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13px;
+}
+
+.apostila-toc li {
+  margin: 3px 0;
+}
+
+.apostila-toc a {
+  color: #1a3a5c;
+  text-decoration: none;
+}
+
+.apostila-toc a:hover {
+  text-decoration: underline;
+}
+
+/* Seção da Apostila */
+.mat-section {
+  margin-bottom: 26px;
+  padding-bottom: 18px;
+  border-bottom: 1px dashed #d5dbe3;
+  scroll-margin-top: 12px;
+}
+
+.mat-section:last-child {
+  border-bottom: none;
+}
+
+.mat-section h4 {
+  margin: 0 0 10px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16.5px;
+  color: #1a3a5c;
+  border-bottom: 1px solid #dbe2ea;
+  padding-bottom: 4px;
+}
+
+.mat-section h5 {
+  margin: 13px 0 6px;
+  font-size: 14px;
+  color: #1f3652;
+  font-weight: 700;
+}
+
+.mat-section p {
+  margin: 0 0 9px;
+  text-align: left;
+}
+
+.mat-section ul,
+.mat-section ol {
+  margin: 4px 0 11px;
+  padding-left: 20px;
+}
+
+.mat-section li {
+  margin-bottom: 4px;
+}
+
+/* Bloco de Lei Seca */
+.lei-seca {
+  background: #f8f6ef;
+  border: 1px solid #e0dac7;
+  border-left: 4px solid #7c6a3f;
+  border-radius: 3px;
+  padding: 10px 13px;
+  margin: 10px 0 12px;
+  font-size: 13.2px;
+  line-height: 1.58;
+  color: #26241f;
+}
+
+.lei-seca .lei-titulo {
+  display: block;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #5c4d26;
+  margin-bottom: 5px;
+}
+
+.lei-seca p {
+  margin: 0 0 6px;
+}
+
+.lei-seca p:last-child {
+  margin-bottom: 0;
+}
+
+/* Quadro Resumo / Dica CETAP */
+.quadro-resumo {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-left: 4px solid #1a3a5c;
+  border-radius: 3px;
+  padding: 10px 13px;
+  margin: 10px 0 12px;
+  font-size: 13.3px;
+}
+
+.quadro-resumo strong.quadro-titulo {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #1a3a5c;
+  margin-bottom: 4px;
+}
+
+.quadro-atencao {
+  background: #fffbeb;
+  border: 1px solid #ead89b;
+  border-left: 4px solid #b45309;
+  border-radius: 3px;
+  padding: 10px 13px;
+  margin: 10px 0 12px;
+  font-size: 13.3px;
+}
+
+.quadro-atencao strong.quadro-titulo {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #92400e;
+  margin-bottom: 4px;
+}
+
+/* Caixa de Fórmulas (RLM) */
+.formula-box {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  padding: 9px 12px;
+  margin: 8px 0 11px;
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 13px;
+  color: #1e293b;
+  overflow-x: auto;
+}
+
+/* Tabelas Acadêmicas */
+.tabela-apoio {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0 14px;
+  font-size: 12.8px;
+  background: #ffffff;
+}
+
+.tabela-apoio th,
+.tabela-apoio td {
+  border: 1px solid #cbd5e1;
+  padding: 6px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.tabela-apoio th {
+  background: #e9eef5;
+  color: #16293d;
+  font-weight: 700;
+}
+
+.tabela-apoio tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+/* Destaque de Busca */
+.search-hit {
+  background: #fef08a;
+  color: #1f2933;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+.search-results-banner {
+  background: #eef4fa;
+  border: 1px solid #c4d7ec;
+  border-radius: 4px;
+  padding: 8px 11px;
+  margin-bottom: 14px;
+  font-size: 12.5px;
+  color: #1a3a5c;
+}
+
+.search-empty {
+  padding: 24px 12px;
+  text-align: center;
+  color: #64748b;
+  font-size: 13.5px;
+}
+
+@media (max-width: 720px) {
+  .material-drawer,
+  body.drawer-open.drawer-wide .material-drawer {
+    width: 100vw;
+  }
+  #btn-expand-material {
+    display: none;
+  }
+}

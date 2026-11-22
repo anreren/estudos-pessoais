@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulado CETAP — ALEPA 2026 | Nível Médio</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/material.css" />
+</head>
+<body>
+  <!-- Cabeçalho Institucional (Estilo Caderno de Prova / Plataforma Acadêmica) -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="exam-identity">
+        <div class="exam-kicker">CONCURSO PÚBLICO Nº 001/2026 • ASSEMBLEIA LEGISLATIVA DO ESTADO DO PARÁ (ALEPA) • FUNDAÇÃO CETAP</div>
+        <h1 id="exam-title">Simulado Oficial — Auxiliar Técnico Legislativo: Assistência Administrativa</h1>
+        <p id="exam-subtitle" class="exam-subtitle">
+          Cargo 04 (PL.AL.060) • Nível Médio • 50 Questões (A–E) • 0,2 pt/questão (Nota 0 a 10 • Mínimo 6,0) • Edital 001/2026 + Retificações 002 e 003/2026
+        </p>
+      </div>
+      <div class="header-actions">
+        <button id="btn-toggle-material" class="btn btn-material" type="button" aria-expanded="false" aria-controls="material-drawer">
+          <span class="icon">📖</span>
+          <span class="btn-label">Material de Consulta</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Seletor de Cargo (Bancos de Conhecimentos Específicos 100% Separados) -->
+    <div class="cargo-switcher-bar" role="region" aria-label="Selecionar Cargo do Concurso">
+      <span class="cargo-switcher-label">Cargo selecionado:</span>
+      <div class="cargo-buttons" role="tablist" aria-label="Cargos disponíveis">
+        <button type="button" class="cargo-btn active" data-cargo="adm" role="tab" aria-selected="true">
+          <strong>Cargo 04</strong> — Assistência Administrativa (PL.AL.060)
+        </button>
+        <button type="button" class="cargo-btn" data-cargo="manutencao" role="tab" aria-selected="false">
+          <strong>Cargo 03</strong> — Manutenção de Patrimônio (PL.AL.062)
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Barra de Controles Obrigatórios do Simulado -->
+  <section class="control-bar" aria-label="Controles do Simulado">
+    <div class="control-bar-inner">
+      <!-- Correção Imediata ON/OFF -->
+      <div class="control-group">
+        <label class="toggle-control" for="toggle-immediate">
+          <input type="checkbox" id="toggle-immediate" />
+          <span class="toggle-track" aria-hidden="true">
+            <span class="toggle-thumb"></span>
+          </span>
+          <span class="toggle-text">
+            Correção Imediata: <strong id="immediate-status">OFF</strong>
+          </span>
+        </label>
+      </div>
+
+      <!-- Progresso 0/50 -->
+      <div class="control-group progress-group" aria-live="polite">
+        <span class="stat-label">Questões respondidas:</span>
+        <strong id="answered-counter" class="stat-value">0/50</strong>
+        <div class="progress-track" aria-hidden="true">
+          <div id="progress-fill" class="progress-fill" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <!-- Timer Opcional de 3 Horas -->
+      <div class="control-group timer-group">
+        <label class="timer-opt-label" title="Ativar ou desativar o cronômetro opcional de 3 horas (duração oficial da prova)">
+          <input type="checkbox" id="toggle-timer-enable" />
+          <span>Timer 3h</span>
+        </label>
+        <div id="timer-controls" class="timer-controls is-disabled">
+          <span id="timer-display" class="timer-display">03:00:00</span>
+          <button id="btn-timer-start" class="btn btn-sm btn-outline" type="button" disabled>Iniciar</button>
+          <button id="btn-timer-reset" class="btn btn-sm btn-ghost" type="button" disabled title="Reiniciar para 03:00:00">Zerar</button>
+        </div>
+      </div>
+
+      <!-- Ações Principais -->
+      <div class="control-group actions-group">
+        <button id="btn-finish" class="btn btn-primary" type="button">Finalizar Prova</button>
+        <button id="btn-redo" class="btn btn-secondary" type="button">Refazer</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Área Principal + Painel Lateral Colapsável à Direita -->
+  <div id="workspace" class="workspace">
+    <main class="exam-main" id="exam-main">
+      <!-- Aviso sobre a composição oficial do Edital -->
+      <div class="edital-notice" role="note">
+        <strong>Distribuição oficial da Prova Objetiva (Item 11.5 do Edital 001/2026):</strong>
+        10 de Língua Portuguesa • 10 de Legislação e Ética no Serviço Público • 05 de Noções de Informática • 05 de Raciocínio Lógico • 20 de Conhecimentos Específicos (Total: 50 questões, 0,2 pt cada).
+        <span class="bank-info" id="bank-info"></span>
+      </div>
+
+      <!-- Cartão-Resposta Interativo (no começo do site) -->
+      <section class="answer-card-section" aria-label="Cartão-Resposta Interativo">
+        <div class="answer-card-header">
+          <div>
+            <h2>Cartão-Resposta Interativo</h2>
+            <p class="answer-card-hint">Clique em qualquer número para saltar diretamente até a questão correspondente.</p>
+          </div>
+          <div class="answer-card-legend">
+            <span class="legend-item"><i class="dot dot-empty"></i>Em branco</span>
+            <span class="legend-item"><i class="dot dot-answered"></i>Marcada</span>
+            <span class="legend-item"><i class="dot dot-correct"></i>Acertou</span>
+            <span class="legend-item"><i class="dot dot-wrong"></i>Errou</span>
+            <button id="btn-collapse-card" class="btn btn-sm btn-ghost" type="button" aria-expanded="true">Recolher</button>
+          </div>
+        </div>
+        <div id="answer-card-body" class="answer-card-body">
+          <!-- Preenchido via JS por blocos de disciplina -->
+        </div>
+      </section>
+
+      <!-- Painel de Resultado Final (visível após finalizar) -->
+      <section id="result-panel" class="result-panel hidden" aria-live="polite"></section>
+
+      <!-- Filtro rápido de visualização de disciplina -->
+      <nav class="discipline-filter" aria-label="Navegação rápida por disciplina">
+        <button type="button" class="filter-pill active" data-filter="all">Todas (50)</button>
+        <button type="button" class="filter-pill" data-filter="portugues">Português (01–10)</button>
+        <button type="button" class="filter-pill" data-filter="legislacao">Legislação e Ética (11–20)</button>
+        <button type="button" class="filter-pill" data-filter="informatica">Informática (21–25)</button>
+        <button type="button" class="filter-pill" data-filter="raciocinio">Raciocínio Lógico (26–30)</button>
+        <button type="button" class="filter-pill" data-filter="especificos">Conhecimentos Específicos (31–50)</button>
+      </nav>
+
+      <!-- Lista de Questões do Simulado -->
+      <div id="questions-container" class="questions-container">
+        <!-- Renderizado via js/app.js -->
+      </div>
+
+      <!-- Rodapé da Prova -->
+      <footer class="exam-footer">
+        <button id="btn-finish-bottom" class="btn btn-primary" type="button">Finalizar Prova e Ver Nota</button>
+        <button id="btn-top" class="btn btn-outline" type="button">↑ Voltar ao Cartão-Resposta</button>
+      </footer>
+    </main>
+
+    <!-- Painel Lateral Direito Colapsável — Material de Consulta -->
+    <aside id="material-drawer" class="material-drawer" aria-label="Material de Consulta" aria-hidden="true">
+      <div class="material-header">
+        <div class="material-title-wrap">
+          <span class="material-badge">APOSTILA COMPLETA DO EDITAL</span>
+          <h2>Material de Consulta</h2>
+        </div>
+        <div class="material-header-btns">
+          <button id="btn-expand-material" class="btn btn-sm btn-outline" type="button" title="Alternar largura ampliada">Expandir</button>
+          <button id="btn-close-material" class="btn btn-sm btn-ghost" type="button" aria-label="Fechar material">✕ Fechar</button>
+        </div>
+      </div>
+
+      <!-- Abas de Disciplinas do Material -->
+      <div class="material-tabs" role="tablist" aria-label="Disciplinas do Material">
+        <button type="button" class="mat-tab active" data-mat="portugues" role="tab" aria-selected="true">Português</button>
+        <button type="button" class="mat-tab" data-mat="legislacao" role="tab" aria-selected="false">Legislação &amp; Ética</button>
+        <button type="button" class="mat-tab" data-mat="informatica" role="tab" aria-selected="false">Informática</button>
+        <button type="button" class="mat-tab" data-mat="raciocinio" role="tab" aria-selected="false">Raciocínio Lógico</button>
+        <button type="button" class="mat-tab" data-mat="especificos" role="tab" aria-selected="false">Específicos</button>
+      </div>
+
+      <!-- Busca e Índice Rápido de Seções -->
+      <div class="material-toolbar">
+        <div class="material-search-wrap">
+          <input type="search" id="material-search" placeholder="Buscar no material (ex: crase, art. 92, LGPD, 5.810, temporalidade)..." aria-label="Buscar no material de consulta" />
+          <button id="btn-clear-search" class="btn-clear-search hidden" type="button" title="Limpar busca">✕</button>
+        </div>
+        <div class="material-toc-wrap">
+          <label for="material-toc-select">Ir para a seção:</label>
+          <select id="material-toc-select" aria-label="Selecionar seção do material"></select>
+        </div>
+      </div>
+
+      <!-- Conteúdo da Apostila -->
+      <div id="material-content" class="material-content">
+        <!-- Carregado dinamicamente de js/material/*.js -->
+      </div>
+    </aside>
+  </div>
+
+  <!-- Botão flutuante para abrir o material quando rolado -->
+  <button id="fab-material" class="fab-material" type="button" title="Abrir Material de Consulta">
+    📖 Material
+  </button>
+
+  <!-- Modal: Refazer Simulado -->
+  <div id="modal-redo" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modal-redo-title">
+    <div class="modal-box">
+      <h3 id="modal-redo-title">Refazer o Simulado</h3>
+      <p>Você deseja <strong>trocar as questões</strong> sorteando novas perguntas do banco de questões da Fundação CETAP, ou prefere refazer exatamente as <strong>mesmas 50 questões</strong>?</p>
+      <p class="modal-note" id="modal-bank-summary"></p>
+      <div class="modal-actions">
+        <button id="btn-redo-swap" class="btn btn-primary" type="button">Sim, trocar as questões (Novo Simulado)</button>
+        <button id="btn-redo-same" class="btn btn-secondary" type="button">Não, manter as mesmas questões</button>
+        <button id="btn-redo-cancel" class="btn btn-ghost" type="button">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Confirmação ao Finalizar com Questões em Branco -->
+  <div id="modal-finish" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modal-finish-title">
+    <div class="modal-box">
+      <h3 id="modal-finish-title">Finalizar Prova?</h3>
+      <p id="modal-finish-text"></p>
+      <div class="modal-actions">
+        <button id="btn-finish-confirm" class="btn btn-primary" type="button">Confirmar e Corrigir</button>
+        <button id="btn-finish-cancel" class="btn btn-ghost" type="button">Continuar Respondendo</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Confirmação ao Trocar de Cargo com Questões Respondidas -->
+  <div id="modal-cargo" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modal-cargo-title">
+    <div class="modal-box">
+      <h3 id="modal-cargo-title">Trocar de Cargo?</h3>
+      <p id="modal-cargo-text"></p>
+      <div class="modal-actions">
+        <button id="btn-cargo-confirm" class="btn btn-primary" type="button">Confirmar Troca e Gerar Novo Simulado</button>
+        <button id="btn-cargo-cancel" class="btn btn-ghost" type="button">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bancos de Questões (separados por disciplina e por cargo, compatível com file:// e GitHub Pages) -->
+  <script src="js/banco/questoes_portugues.js"></script>
+  <script src="js/banco/questoes_legislacao.js"></script>
+  <script src="js/banco/questoes_informatica.js"></script>
+  <script src="js/banco/questoes_raciocinio.js"></script>
+  <script src="js/banco/questoes_especificos.js"></script>
+  <script src="js/banco/questoes_especificos_manutencao.js"></script>
+
+  <!-- Material de Consulta (separado por disciplina e por cargo) -->
+  <script src="js/material/material_portugues.js"></script>
+  <script src="js/material/material_legislacao.js"></script>
+  <script src="js/material/material_informatica.js"></script>
+  <script src="js/material/material_raciocinio.js"></script>
+  <script src="js/material/material_especificos.js"></script>
+  <script src="js/material/material_especificos_manutencao.js"></script>
+
+  <!-- Motor do Simulado -->
+  <script src="js/app.js"></script>
+</body>
+</html>

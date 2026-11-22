@@ -120,7 +120,8 @@
     questionsContainer: document.getElementById("questions-container"),
     filterPills: document.querySelectorAll(".filter-pill"),
 
-    // Drawer Material
+    // Drawer Material e Tema
+    btnToggleTheme: document.getElementById("btn-toggle-theme"),
     btnToggleMaterial: document.getElementById("btn-toggle-material"),
     fabMaterial: document.getElementById("fab-material"),
     btnCloseMaterial: document.getElementById("btn-close-material"),
@@ -1030,7 +1031,7 @@
                     <div class="quick-improve-meta">
                       <span class="quick-improve-disc">${escapeHtml(m.q.disciplinaNome)} • Questão ${pad2(m.q.numero)} (${m.status})</span>
                       <strong>${escapeHtml(m.q.topico)}</strong>
-                      <span style="font-size:12.5px; color:#526071;">Seção no material: ${escapeHtml(m.secTitulo)}</span>
+                      <span class="text-muted-inline" style="font-size:12.5px;">Seção no material: ${escapeHtml(m.secTitulo)}</span>
                     </div>
                     <div class="quick-improve-btns">
                       <button type="button" class="btn btn-sm btn-outline missed-chip" data-jump="${m.idx}">Ver Questão</button>
@@ -1051,7 +1052,7 @@
             <span class="result-score-num">${totalHits}/${totalQ}</span>
             <span>acertos (${pct}%)</span>
           </div>
-          <p style="margin:6px 0 0; font-size:13.5px; color:#526071;">
+          <p class="text-muted-inline" style="margin:6px 0 0; font-size:13.5px;">
             ⚡ Treino Rápido #${state.simuladoNumero} • ${escapeHtml(cargo.codigo)} — ${escapeHtml(cargo.nomeCurto)}
           </p>
         </div>
@@ -1169,7 +1170,7 @@
               <span class="result-score-num">${notaFinal.toFixed(1).replace(".", ",")}</span>
               <span>/ 10,0 pontos (${totalHits} de ${totalQ} acertos)</span>
             </div>
-            <p style="margin:6px 0 0; font-size:13.5px; color:#526071;">
+            <p class="text-muted-inline" style="margin:6px 0 0; font-size:13.5px;">
               ${escapeHtml(cargo.codigo)} — ${escapeHtml(cargo.nomeCurto)} • Simulado #${state.simuladoNumero} • Mínimo do Edital (Item 11.42): 6,0 pontos (30 acertos).
             </p>
           </div>
@@ -1517,9 +1518,46 @@
   }
 
   /* ========================================================================
+     TEMA CLARO / ESCURO (COM PERSISTÊNCIA EM LOCALSTORAGE)
+     ======================================================================== */
+  function applyTheme(theme) {
+    const isDark = theme === "dark";
+    if (isDark) {
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+    }
+
+    if (el.btnToggleTheme) {
+      el.btnToggleTheme.setAttribute("aria-pressed", String(isDark));
+      const icon = el.btnToggleTheme.querySelector(".theme-icon");
+      const label = el.btnToggleTheme.querySelector(".theme-label");
+      if (icon) icon.textContent = isDark ? "☀️" : "🌙";
+      if (label) label.textContent = isDark ? "Tema Claro" : "Tema Escuro";
+    }
+
+    try {
+      localStorage.setItem("simulado_cetap_theme", isDark ? "dark" : "light");
+    } catch (e) {}
+  }
+
+  function initTheme() {
+    const current = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+    applyTheme(current);
+  }
+
+  /* ========================================================================
      EVENTOS GERAIS E INICIALIZAÇÃO
      ======================================================================== */
   function bindEvents() {
+    // Alternância de Tema Claro / Escuro
+    if (el.btnToggleTheme) {
+      el.btnToggleTheme.addEventListener("click", () => {
+        const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+        applyTheme(isDark ? "light" : "dark");
+      });
+    }
+
     // Seletor de Cargo
     el.cargoBtns.forEach((btn) => {
       btn.addEventListener("click", () => requestSwitchCargo(btn.dataset.cargo));
@@ -1680,6 +1718,7 @@
   }
 
   function init() {
+    initTheme();
     updateCargoAndModeHeaderUI();
     bindEvents();
     generateNewExam();

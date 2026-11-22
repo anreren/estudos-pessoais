@@ -414,6 +414,24 @@ body {
   color: var(--text-main);
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn-theme {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  padding: 9px 13px;
+}
+
+.btn-theme:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
 .btn-material {
   background: #ffffff;
   color: var(--primary);
@@ -424,6 +442,10 @@ body {
 
 .btn-material:hover {
   background: #f0f5fa;
+}
+
+.text-muted-inline {
+  color: var(--text-muted);
 }
 
 /* ---------- Workspace e Painel Lateral Direito ---------- */
@@ -1335,4 +1357,304 @@ body.drawer-open .fab-material {
   .card-block-label {
     min-width: 100%;
   }
+}
+
+/* ==========================================================================
+   TEMA ESCURO (Dark Mode) — Conforto Visual para Estudos Prolongados
+   ========================================================================== */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-page: #11161d;
+  --bg-surface: #19212c;
+  --bg-subtle: #212b38;
+  --border: #2e3b4e;
+  --border-strong: #43546c;
+  --text-main: #e6edf5;
+  --text-muted: #a6b4c6;
+  --text-light: #8192a8;
+
+  --primary: #5b9bd5;
+  --primary-hover: #4484bf;
+  --primary-soft: #1d2f45;
+  --accent: #31976b;
+  --accent-soft: #153125;
+
+  --correct-bg: #132d21;
+  --correct-border: #34a067;
+  --correct-text: #a7ebc4;
+  --wrong-bg: #33191c;
+  --wrong-border: #df5454;
+  --wrong-text: #f7b8b8;
+  --warn-bg: #332713;
+  --warn-border: #d99326;
+  --warn-text: #f6d594;
+
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+html[data-theme="dark"] .site-header {
+  background: #0e2034;
+  border-bottom-color: #b58d24;
+}
+
+html[data-theme="dark"] .btn-primary {
+  background: #2f6da8;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .btn-primary:hover:not(:disabled) {
+  background: #255a8d;
+}
+
+html[data-theme="dark"] .btn-secondary {
+  background: #1f2b3a;
+  color: #8cc2f2;
+  border-color: #4f8bc4;
+}
+
+html[data-theme="dark"] .btn-secondary:hover:not(:disabled) {
+  background: #26374b;
+}
+
+html[data-theme="dark"] .btn-outline {
+  background: var(--bg-surface);
+  color: var(--text-main);
+  border-color: var(--border-strong);
+}
+
+html[data-theme="dark"] .btn-outline:hover:not(:disabled) {
+  background: var(--bg-subtle);
+}
+
+html[data-theme="dark"] .btn-ghost:hover:not(:disabled) {
+  background: #253141;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .btn-material {
+  background: #22354a;
+  color: #eef5fc;
+  border-color: #456282;
+}
+
+html[data-theme="dark"] .btn-material:hover {
+  background: #2b425c;
+}
+
+html[data-theme="dark"] .cargo-btn.active,
+html[data-theme="dark"] .mode-btn.active {
+  background: #e6edf5;
+  color: #0e2034;
+  border-color: #e6edf5;
+}
+
+html[data-theme="dark"] .mode-btn[data-mode="rapido"].active {
+  background: #473612;
+  color: #fae19e;
+  border-color: #b88d2c;
+}
+
+html[data-theme="dark"] .qty-btn.active {
+  background: #e6edf5;
+  color: #0e2034;
+}
+
+html[data-theme="dark"] .toggle-track {
+  background: #415168;
+}
+
+html[data-theme="dark"] .progress-track {
+  background: #2c384a;
+}
+
+html[data-theme="dark"] .edital-notice {
+  background: #19293c;
+  border-color: #2f4968;
+  border-left-color: #5b9bd5;
+  color: #d6e4f3;
+}
+
+html[data-theme="dark"] .bank-info {
+  color: #6fd3a4;
+}
+
+html[data-theme="dark"] .dot-empty {
+  background: #232f3e;
+}
+
+html[data-theme="dark"] .card-cell {
+  background: #202a37;
+  color: var(--text-main);
+  border-color: var(--border-strong);
+}
+
+html[data-theme="dark"] .card-cell.is-answered {
+  background: #2f6da8;
+  border-color: #5b9bd5;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .card-cell.is-correct {
+  background: #257a4f;
+  border-color: #34a067;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .card-cell.is-wrong {
+  background: #a53131;
+  border-color: #df5454;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .filter-pill {
+  background: var(--bg-surface);
+  color: var(--text-muted);
+}
+
+html[data-theme="dark"] .filter-pill.active {
+  background: #2f6da8;
+  border-color: #5b9bd5;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .discipline-divider {
+  background: #1d2b3b;
+  border-left-color: #5b9bd5;
+}
+
+html[data-theme="dark"] .question-meta {
+  border-bottom-color: var(--border);
+}
+
+html[data-theme="dark"] .question-context {
+  background: #141b24;
+  border-color: var(--border);
+  border-left-color: #5b9bd5;
+  color: #d3dfec;
+}
+
+html[data-theme="dark"] .option-label {
+  background: #1d2633;
+  border-color: var(--border);
+  color: var(--text-main);
+}
+
+html[data-theme="dark"] .option-label:hover {
+  background: #243142;
+  border-color: #567396;
+}
+
+html[data-theme="dark"] .option-label.is-selected {
+  background: #1d324a;
+  border-color: #5b9bd5;
+}
+
+html[data-theme="dark"] .option-label.is-correct {
+  background: var(--correct-bg);
+  border-color: var(--correct-border);
+  color: var(--correct-text);
+}
+
+html[data-theme="dark"] .option-label.is-wrong {
+  background: var(--wrong-bg);
+  border-color: var(--wrong-border);
+  color: var(--wrong-text);
+}
+
+html[data-theme="dark"] .question-feedback.fb-correct {
+  color: var(--correct-text);
+}
+
+html[data-theme="dark"] .question-feedback.fb-wrong {
+  color: var(--wrong-text);
+}
+
+html[data-theme="dark"] .btn-link-material {
+  background: rgba(255, 255, 255, 0.08);
+  color: inherit;
+}
+
+html[data-theme="dark"] .quick-nav-bar {
+  background: #252014;
+  border-color: #5e4b20;
+  border-left-color: #d9a734;
+}
+
+html[data-theme="dark"] .quick-step-badge {
+  background: #2f6da8;
+}
+
+html[data-theme="dark"] .quick-topic-sync {
+  color: #f3d78a;
+}
+
+html[data-theme="dark"] .study-alert {
+  border-color: #6b5122;
+}
+
+html[data-theme="dark"] .study-perfect {
+  border-color: #2b7a51;
+}
+
+html[data-theme="dark"] .reinforce-card.prio-alta {
+  background: #26181c;
+  border-color: #592e33;
+}
+
+html[data-theme="dark"] .reinforce-card.prio-media {
+  background: #262015;
+  border-color: #5b4a26;
+}
+
+html[data-theme="dark"] .prio-badge.alta {
+  border-color: #8f3a3a;
+}
+
+html[data-theme="dark"] .prio-badge.media {
+  border-color: #8e6622;
+}
+
+html[data-theme="dark"] .missed-chip {
+  background: #1b2430;
+  color: var(--text-main);
+  border-color: var(--border-strong);
+}
+
+html[data-theme="dark"] .missed-chip:hover {
+  background: #24354a;
+  border-color: #5b9bd5;
+}
+
+html[data-theme="dark"] .strong-points {
+  background: #13291f;
+  border-color: #275e42;
+  color: #a7ebc4;
+}
+
+html[data-theme="dark"] .quick-improve-item {
+  background: #241d17;
+  border-color: #554229;
+}
+
+html[data-theme="dark"] .modal-box {
+  background: var(--bg-surface);
+  color: var(--text-main);
+  border-top-color: #5b9bd5;
+}
+
+html[data-theme="dark"] .fab-material {
+  background: #2f6da8;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .fab-material:hover {
+  background: #255a8d;
+}
+
+html[data-theme="dark"] code {
+  background: #263242;
+  color: #dce8f7;
+  padding: 1px 4px;
+  border-radius: 3px;
 }

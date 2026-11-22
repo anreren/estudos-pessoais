@@ -4,6 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Simulado CETAP — ALEPA 2026 | Nível Médio</title>
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem("simulado_cetap_theme") === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      } catch (e) {}
+    })();
+  </script>
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/material.css" />
 </head>
@@ -19,6 +28,10 @@
         </p>
       </div>
       <div class="header-actions">
+        <button id="btn-toggle-theme" class="btn btn-theme" type="button" aria-pressed="false" title="Alternar entre tema claro e escuro">
+          <span class="theme-icon" aria-hidden="true">🌙</span>
+          <span class="theme-label">Tema Escuro</span>
+        </button>
         <button id="btn-toggle-material" class="btn btn-material" type="button" aria-expanded="false" aria-controls="material-drawer">
           <span class="icon">📖</span>
           <span class="btn-label">Material de Consulta</span>

@@ -444,3 +444,190 @@ body.drawer-open.drawer-wide .material-drawer {
     display: none;
   }
 }
+
+/* ==========================================================================
+   TEMA ESCURO — Material de Consulta (Apostila Noturna Legível)
+   ========================================================================== */
+html[data-theme="dark"] .material-drawer {
+  background: #161d26;
+  border-left-color: #2e3b4e;
+  box-shadow: -8px 0 28px rgba(0, 0, 0, 0.5);
+}
+
+html[data-theme="dark"] .material-header,
+html[data-theme="dark"] .material-tabs {
+  background: #111720;
+  border-bottom-color: #2b384a;
+}
+
+html[data-theme="dark"] .material-badge {
+  color: #8fa6c2;
+}
+
+html[data-theme="dark"] .material-header h2 {
+  color: #e6edf5;
+}
+
+html[data-theme="dark"] .mat-tab {
+  color: #9cb0c7;
+}
+
+html[data-theme="dark"] .mat-tab:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+html[data-theme="dark"] .mat-tab.active {
+  background: #161d26;
+  color: #7eb8ee;
+  border-color: #2b384a;
+}
+
+html[data-theme="dark"] .material-toolbar {
+  background: #141b24;
+  border-bottom-color: #283445;
+}
+
+html[data-theme="dark"] .material-search-wrap input,
+html[data-theme="dark"] .material-toc-wrap select {
+  background: #1d2633;
+  border-color: #3a4b61;
+  color: #e6edf5;
+}
+
+html[data-theme="dark"] .material-search-wrap input:focus {
+  border-color: #5b9bd5;
+}
+
+html[data-theme="dark"] .material-toc-wrap {
+  color: #a6b4c6;
+}
+
+html[data-theme="dark"] .material-content {
+  color: #d7e1ec;
+}
+
+html[data-theme="dark"] .apostila-header {
+  border-bottom-color: #4f8bc4;
+}
+
+html[data-theme="dark"] .apostila-header h3 {
+  color: #edf4fc;
+}
+
+html[data-theme="dark"] .apostila-header p {
+  color: #9ab0c7;
+}
+
+html[data-theme="dark"] .apostila-toc {
+  background: #1c2430;
+  border-color: #2e3b4e;
+}
+
+html[data-theme="dark"] .apostila-toc-title {
+  color: #b7c6d8;
+}
+
+html[data-theme="dark"] .apostila-toc a {
+  color: #7eb8ee;
+}
+
+html[data-theme="dark"] .mat-section {
+  border-bottom-color: #2b384a;
+}
+
+html[data-theme="dark"] .mat-section.is-current-topic {
+  background: #201e17;
+  border-color: #5c4c24;
+  border-left-color: #d9a734;
+}
+
+html[data-theme="dark"] .current-topic-pill {
+  background: #463714;
+  color: #f7dc92;
+}
+
+html[data-theme="dark"] .mat-section h4 {
+  color: #8cc2f2;
+  border-bottom-color: #2b384a;
+}
+
+html[data-theme="dark"] .mat-section h5 {
+  color: #c2d9f0;
+}
+
+html[data-theme="dark"] .lei-seca {
+  background: #201e18;
+  border-color: #48402e;
+  border-left-color: #b8984c;
+  color: #e3decb;
+}
+
+html[data-theme="dark"] .lei-seca .lei-titulo {
+  color: #e5c97a;
+}
+
+html[data-theme="dark"] .quadro-resumo {
+  background: #1b2736;
+  border-color: #30455e;
+  border-left-color: #5b9bd5;
+  color: #d7e3f0;
+}
+
+html[data-theme="dark"] .quadro-resumo strong.quadro-titulo {
+  color: #8cc2f2;
+}
+
+html[data-theme="dark"] .quadro-atencao {
+  background: #2b2313;
+  border-color: #5d4920;
+  border-left-color: #d99326;
+  color: #f2dfb3;
+}
+
+html[data-theme="dark"] .quadro-atencao strong.quadro-titulo {
+  color: #f6c465;
+}
+
+html[data-theme="dark"] .formula-box {
+  background: #121820;
+  border-color: #314155;
+  color: #dbe7f5;
+}
+
+html[data-theme="dark"] .tabela-apoio {
+  background: #19212c;
+}
+
+html[data-theme="dark"] .tabela-apoio th,
+html[data-theme="dark"] .tabela-apoio td {
+  border-color: #324155;
+}
+
+html[data-theme="dark"] .tabela-apoio th {
+  background: #212e3f;
+  color: #e6edf5;
+}
+
+html[data-theme="dark"] .tabela-apoio tbody tr:nth-child(even) {
+  background: #1d2633;
+}
+
+html[data-theme="dark"] .search-hit {
+  background: #785b0a;
+  color: #fff6d6;
+}
+
+html[data-theme="dark"] .search-results-banner {
+  background: #1b2b3e;
+  border-color: #345274;
+  color: #cde0f5;
+}
+
+html[data-theme="dark"] .search-results-banner a {
+  color: #8cc2f2;
+}
+
+html[data-theme="dark"] .search-empty {
+  color: #9ab0c7;
+}

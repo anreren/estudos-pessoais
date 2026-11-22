@@ -241,6 +241,30 @@ body.drawer-open.drawer-wide .material-drawer {
   padding-bottom: 18px;
   border-bottom: 1px dashed #d5dbe3;
   scroll-margin-top: 12px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.mat-section.is-current-topic {
+  background: #fffef7;
+  border: 1px solid #e4d49c;
+  border-left: 4px solid #c59b27;
+  border-radius: 4px;
+  padding: 12px 14px 14px;
+  margin-left: -6px;
+  margin-right: -6px;
+}
+
+.current-topic-pill {
+  display: inline-block;
+  margin-bottom: 6px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #f5ebc6;
+  color: #6b4c05;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 
 .mat-section:last-child {

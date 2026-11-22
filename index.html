@@ -26,16 +26,34 @@
       </div>
     </div>
 
-    <!-- Seletor de Cargo (Bancos de Conhecimentos Específicos 100% Separados) -->
-    <div class="cargo-switcher-bar" role="region" aria-label="Selecionar Cargo do Concurso">
-      <span class="cargo-switcher-label">Cargo selecionado:</span>
-      <div class="cargo-buttons" role="tablist" aria-label="Cargos disponíveis">
-        <button type="button" class="cargo-btn active" data-cargo="adm" role="tab" aria-selected="true">
-          <strong>Cargo 04</strong> — Assistência Administrativa (PL.AL.060)
-        </button>
-        <button type="button" class="cargo-btn" data-cargo="manutencao" role="tab" aria-selected="false">
-          <strong>Cargo 03</strong> — Manutenção de Patrimônio (PL.AL.062)
-        </button>
+    <!-- Seletor de Cargo e Modo de Estudo -->
+    <div class="cargo-switcher-bar" role="region" aria-label="Selecionar Cargo e Modo de Estudo">
+      <div class="switcher-group">
+        <span class="cargo-switcher-label">Cargo:</span>
+        <div class="cargo-buttons" role="tablist" aria-label="Cargos disponíveis">
+          <button type="button" class="cargo-btn active" data-cargo="adm" role="tab" aria-selected="true">
+            <strong>Cargo 04</strong> — Assistência Administrativa (PL.AL.060)
+          </button>
+          <button type="button" class="cargo-btn" data-cargo="manutencao" role="tab" aria-selected="false">
+            <strong>Cargo 03</strong> — Manutenção de Patrimônio (PL.AL.062)
+          </button>
+        </div>
+      </div>
+
+      <div class="switcher-group">
+        <span class="cargo-switcher-label">Modo:</span>
+        <div class="mode-buttons" role="tablist" aria-label="Modo de Simulado">
+          <button type="button" class="mode-btn active" data-mode="completo" role="tab" aria-selected="true">
+            Simulado Completo (50)
+          </button>
+          <button type="button" class="mode-btn" data-mode="rapido" role="tab" aria-selected="false">
+            ⚡ Questões Rápidas
+          </button>
+        </div>
+        <div id="quick-qty-selector" class="quick-qty-selector hidden" aria-label="Quantidade por disciplina no Modo Rápido">
+          <button type="button" class="qty-btn" data-qty="1" title="1 questão por disciplina (5 no total)">1/disc (5)</button>
+          <button type="button" class="qty-btn active" data-qty="2" title="2 questões por disciplina (10 no total)">2/disc (10)</button>
+        </div>
       </div>
     </div>
   </header>
@@ -89,10 +107,12 @@
   <!-- Área Principal + Painel Lateral Colapsável à Direita -->
   <div id="workspace" class="workspace">
     <main class="exam-main" id="exam-main">
-      <!-- Aviso sobre a composição oficial do Edital -->
-      <div class="edital-notice" role="note">
-        <strong>Distribuição oficial da Prova Objetiva (Item 11.5 do Edital 001/2026):</strong>
-        10 de Língua Portuguesa • 10 de Legislação e Ética no Serviço Público • 05 de Noções de Informática • 05 de Raciocínio Lógico • 20 de Conhecimentos Específicos (Total: 50 questões, 0,2 pt cada).
+      <!-- Aviso sobre a composição do simulado ativo -->
+      <div class="edital-notice" id="edital-notice" role="note">
+        <span id="edital-notice-text">
+          <strong>Distribuição oficial da Prova Objetiva (Item 11.5 do Edital 001/2026):</strong>
+          10 de Língua Portuguesa • 10 de Legislação e Ética no Serviço Público • 05 de Noções de Informática • 05 de Raciocínio Lógico • 20 de Conhecimentos Específicos (Total: 50 questões, 0,2 pt cada).
+        </span>
         <span class="bank-info" id="bank-info"></span>
       </div>
 
@@ -119,8 +139,8 @@
       <!-- Painel de Resultado Final (visível após finalizar) -->
       <section id="result-panel" class="result-panel hidden" aria-live="polite"></section>
 
-      <!-- Filtro rápido de visualização de disciplina -->
-      <nav class="discipline-filter" aria-label="Navegação rápida por disciplina">
+      <!-- Filtro rápido de visualização de disciplina (Modo Completo) -->
+      <nav id="discipline-filter" class="discipline-filter" aria-label="Navegação rápida por disciplina">
         <button type="button" class="filter-pill active" data-filter="all">Todas (50)</button>
         <button type="button" class="filter-pill" data-filter="portugues">Português (01–10)</button>
         <button type="button" class="filter-pill" data-filter="legislacao">Legislação e Ética (11–20)</button>
@@ -128,6 +148,19 @@
         <button type="button" class="filter-pill" data-filter="raciocinio">Raciocínio Lógico (26–30)</button>
         <button type="button" class="filter-pill" data-filter="especificos">Conhecimentos Específicos (31–50)</button>
       </nav>
+
+      <!-- Barra de Navegação do Modo Questões Rápidas -->
+      <div id="quick-nav-bar" class="quick-nav-bar hidden" aria-label="Navegação do Modo Questões Rápidas">
+        <div class="quick-nav-info">
+          <span id="quick-step-badge" class="quick-step-badge">Questão 1 de 10</span>
+          <span id="quick-topic-sync" class="quick-topic-sync">📖 Material sincronizado no tópico</span>
+        </div>
+        <div class="quick-nav-controls">
+          <button id="btn-quick-prev" class="btn btn-sm btn-outline" type="button">← Anterior</button>
+          <button id="btn-quick-open-mat" class="btn btn-sm btn-secondary" type="button">📖 Ver Tópico no Material</button>
+          <button id="btn-quick-next" class="btn btn-sm btn-primary" type="button">Próxima →</button>
+        </div>
+      </div>
 
       <!-- Lista de Questões do Simulado -->
       <div id="questions-container" class="questions-container">

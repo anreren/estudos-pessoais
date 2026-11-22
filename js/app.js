@@ -34,7 +34,6 @@
   ];
 
   const LETRAS = ["A", "B", "C", "D", "E"];
-  const TOTAL_QUESTOES = 50;
   const NOTA_MINIMA = 6.0;
   const TIMER_INITIAL_SECONDS = 3 * 60 * 60; // 3 horas (item 11.2.4)
 
@@ -44,12 +43,17 @@
   const state = {
     activeCargo: "adm",        // "adm" | "manutencao"
     pendingCargo: null,        // Cargo aguardando confirmação no modal
-    examQuestions: [],         // 50 questões ativas do simulado atual
-    answers: {},               // { [index0a49]: optionIndex0a4 }
+    examMode: "completo",      // "completo" (50q) | "rapido" (1-2 por disciplina)
+    quickPerDisc: 2,           // 1 (5 questões) ou 2 (10 questões)
+    quickCurrentIndex: 0,      // Questão ativa no Modo Questões Rápidas
+    highlightedMatSec: null,   // Seção destacada na apostila (sincronizada no modo rápido)
+
+    examQuestions: [],         // Questões ativas do simulado/treino atual
+    answers: {},               // { [index]: optionIndex0a4 }
     immediateMode: false,      // Correção imediata ON/OFF
-    finished: false,           // Prova finalizada?
-    activeFilter: "all",       // Filtro visual de disciplina
-    onlyMissedFilter: false,   // Filtro de revisão apenas de erros/em branco após finalizar
+    finished: false,           // Prova/treino finalizado?
+    activeFilter: "all",       // Filtro visual de disciplina (modo completo)
+    onlyMissedFilter: false,   // Filtro de revisão apenas de erros/em branco
     seenIdsByBankKey: {        // Histórico isolado por banco de questões
       portugues: new Set(),
       legislacao: new Set(),
@@ -80,12 +84,24 @@
     examTitle: document.getElementById("exam-title"),
     examSubtitle: document.getElementById("exam-subtitle"),
     cargoBtns: document.querySelectorAll(".cargo-btn"),
+    modeBtns: document.querySelectorAll(".mode-btn"),
+    quickQtySelector: document.getElementById("quick-qty-selector"),
+    qtyBtns: document.querySelectorAll(".qty-btn"),
+
+    editalNoticeText: document.getElementById("edital-notice-text"),
+    bankInfo: document.getElementById("bank-info"),
+    disciplineFilter: document.getElementById("discipline-filter"),
+    quickNavBar: document.getElementById("quick-nav-bar"),
+    quickStepBadge: document.getElementById("quick-step-badge"),
+    quickTopicSync: document.getElementById("quick-topic-sync"),
+    btnQuickPrev: document.getElementById("btn-quick-prev"),
+    btnQuickNext: document.getElementById("btn-quick-next"),
+    btnQuickOpenMat: document.getElementById("btn-quick-open-mat"),
 
     toggleImmediate: document.getElementById("toggle-immediate"),
     immediateStatus: document.getElementById("immediate-status"),
     answeredCounter: document.getElementById("answered-counter"),
     progressFill: document.getElementById("progress-fill"),
-    bankInfo: document.getElementById("bank-info"),
 
     toggleTimerEnable: document.getElementById("toggle-timer-enable"),
     timerControls: document.getElementById("timer-controls"),
@@ -135,10 +151,22 @@
   };
 
   /* ========================================================================
-     UTILITÁRIOS E RESOLUÇÃO ISOLADA DE CARGO
+     UTILITÁRIOS E RESOLUÇÃO ISOLADA DE CARGO / MODO
      ======================================================================== */
   function getCurrentCargo() {
     return CARGOS[state.activeCargo];
+  }
+
+  function isQuickMode() {
+    return state.examMode === "rapido";
+  }
+
+  function getDisciplineQuestionCount(disc) {
+    return isQuickMode() ? state.quickPerDisc : disc.qtd;
+  }
+
+  function getTotalQuestions() {
+    return state.examQuestions.length || (isQuickMode() ? DISCIPLINAS.length * state.quickPerDisc : 50);
   }
 
   function resolveBankKey(discKey) {
@@ -203,11 +231,27 @@
     };
   }
 
-  function updateCargoHeaderUI() {
+  function getMaterialSectionTitle(discKey, sectionId) {
+    const matKey = resolveMaterialKey(discKey);
+    const mat = window.MATERIAL_APOIO && window.MATERIAL_APOIO[matKey];
+    if (mat && Array.isArray(mat.secoes)) {
+      const found = mat.secoes.find((s) => s.id === sectionId);
+      if (found) return found.titulo;
+    }
+    return sectionId || "Conteúdo Geral";
+  }
+
+  function updateCargoAndModeHeaderUI() {
     const cargo = getCurrentCargo();
-    el.examTitle.textContent = cargo.titulo;
+    const quick = isQuickMode();
+
+    el.examTitle.textContent = quick
+      ? `⚡ Questões Rápidas — ${cargo.nomeCurto}`
+      : cargo.titulo;
     el.examSubtitle.textContent = cargo.subtitulo;
-    document.title = `Simulado CETAP — ALEPA 2026 | ${cargo.nomeCurto}`;
+    document.title = quick
+      ? `Questões Rápidas — ALEPA 2026 | ${cargo.nomeCurto}`
+      : `Simulado CETAP — ALEPA 2026 | ${cargo.nomeCurto}`;
 
     el.cargoBtns.forEach((btn) => {
       const active = btn.dataset.cargo === cargo.key;
@@ -215,12 +259,36 @@
       btn.setAttribute("aria-selected", String(active));
     });
 
+    el.modeBtns.forEach((btn) => {
+      const active = btn.dataset.mode === state.examMode;
+      btn.classList.toggle("active", active);
+      btn.setAttribute("aria-selected", String(active));
+    });
+
+    el.quickQtySelector.classList.toggle("hidden", !quick);
+    el.qtyBtns.forEach((btn) => {
+      btn.classList.toggle("active", Number(btn.dataset.qty) === state.quickPerDisc);
+    });
+
+    el.disciplineFilter.classList.toggle("hidden", quick);
+    el.quickNavBar.classList.toggle("hidden", !quick);
+
+    el.btnFinish.textContent = quick ? "Finalizar Treino" : "Finalizar Prova";
+    el.btnFinishBottom.textContent = quick ? "Finalizar Treino Rápido e Ver Resumo" : "Finalizar Prova e Ver Nota";
+
+    if (quick) {
+      const totalQ = DISCIPLINAS.length * state.quickPerDisc;
+      el.editalNoticeText.innerHTML = `<strong>Modo Questões Rápidas (${totalQ} questões):</strong> ${state.quickPerDisc} questão(ões) de cada uma das 5 disciplinas do edital, com o <strong>Material de Apoio sincronizado automaticamente</strong> no tópico específico da questão atual.`;
+    } else {
+      el.editalNoticeText.innerHTML = `<strong>Distribuição oficial da Prova Objetiva (Item 11.5 do Edital 001/2026):</strong> 10 de Língua Portuguesa • 10 de Legislação e Ética no Serviço Público • 05 de Noções de Informática • 05 de Raciocínio Lógico • 20 de Conhecimentos Específicos (Total: 50 questões, 0,2 pt cada).`;
+    }
+
     const stats = getActiveCargoBankStats();
-    el.bankInfo.textContent = `Banco total: ${stats.allCargosTotal} questões | Disponíveis para ${cargo.nomeCurto}: ${stats.cargoTotal} questões (${stats.espCount} específicas exclusivas deste cargo).`;
+    el.bankInfo.textContent = `Banco total: ${stats.allCargosTotal} questões | Disponíveis para ${cargo.nomeCurto}: ${stats.cargoTotal} (${stats.espCount} específicas exclusivas).`;
   }
 
   /* ========================================================================
-     TROCA DE CARGO (ZERO MISTURA ENTRE BANCOS ESPECÍFICOS)
+     TROCA DE CARGO E TROCA DE MODO
      ======================================================================== */
   function requestSwitchCargo(newCargoKey) {
     if (!CARGOS[newCargoKey] || newCargoKey === state.activeCargo) return;
@@ -229,7 +297,7 @@
     if (answered > 0 && !state.finished) {
       state.pendingCargo = newCargoKey;
       const targetCargo = CARGOS[newCargoKey];
-      el.modalCargoText.innerHTML = `Você respondeu <strong>${answered} questão(ões)</strong> no simulado atual de <strong>${escapeHtml(getCurrentCargo().nomeCurto)}</strong>. Ao trocar para <strong>${escapeHtml(targetCargo.codigo)} — ${escapeHtml(targetCargo.nomeCurto)}</strong>, um novo simulado de 50 questões e a apostila específica desse cargo serão carregados. Deseja continuar?`;
+      el.modalCargoText.innerHTML = `Você respondeu <strong>${answered} questão(ões)</strong> no treino atual de <strong>${escapeHtml(getCurrentCargo().nomeCurto)}</strong>. Ao trocar para <strong>${escapeHtml(targetCargo.codigo)} — ${escapeHtml(targetCargo.nomeCurto)}</strong>, um novo conjunto de questões e a apostila específica desse cargo serão carregados. Deseja continuar?`;
       el.modalCargo.classList.remove("hidden");
     } else {
       applySwitchCargo(newCargoKey);
@@ -241,7 +309,27 @@
     state.pendingCargo = null;
     state.activeCargo = newCargoKey;
     state.simuladoNumero = 1;
+    rebuildExamForCurrentSettings(false);
+  }
 
+  function switchExamMode(newMode) {
+    if (newMode !== "completo" && newMode !== "rapido") return;
+    if (newMode === state.examMode) return;
+    state.examMode = newMode;
+    state.simuladoNumero = 1;
+    rebuildExamForCurrentSettings(newMode === "rapido");
+  }
+
+  function setQuickPerDisc(qty) {
+    if (qty !== 1 && qty !== 2) return;
+    if (qty === state.quickPerDisc && isQuickMode()) return;
+    state.quickPerDisc = qty;
+    if (isQuickMode()) {
+      rebuildExamForCurrentSettings(false);
+    }
+  }
+
+  function rebuildExamForCurrentSettings(autoOpenMaterialOnDesktop) {
     el.resultPanel.classList.add("hidden");
     el.resultPanel.innerHTML = "";
 
@@ -249,12 +337,22 @@
       resetTimer();
     }
 
-    updateCargoHeaderUI();
+    updateCargoAndModeHeaderUI();
     generateNewExam();
     setDisciplineFilter("all");
     renderAnswerCard();
     renderQuestions();
-    renderMaterialContent();
+
+    if (isQuickMode()) {
+      if (autoOpenMaterialOnDesktop && window.innerWidth > 1080) {
+        setDrawerOpen(true);
+      }
+      goToQuickQuestion(0, false);
+    } else {
+      state.highlightedMatSec = null;
+      renderMaterialContent();
+    }
+
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
@@ -290,7 +388,8 @@
     const cargo = getCurrentCargo();
 
     DISCIPLINAS.forEach((disc) => {
-      const picked = pickQuestionsForDiscipline(disc.key, disc.qtd, previousIds);
+      const count = getDisciplineQuestionCount(disc);
+      const picked = pickQuestionsForDiscipline(disc.key, count, previousIds);
       const nomeExibicao =
         disc.key === "especificos"
           ? `${disc.nome} (${cargo.nomeCurto})`
@@ -311,12 +410,70 @@
     state.answers = {};
     state.finished = false;
     state.onlyMissedFilter = false;
+    state.quickCurrentIndex = 0;
   }
 
   function resetSameExam() {
     state.answers = {};
     state.finished = false;
     state.onlyMissedFilter = false;
+    state.quickCurrentIndex = 0;
+  }
+
+  /* ========================================================================
+     MODO QUESTÕES RÁPIDAS — NAVEGAÇÃO E SINCRONIA AUTOMÁTICA DO MATERIAL
+     ======================================================================== */
+  function syncMaterialToQuestion(q, forceOpenDrawer) {
+    if (!q) return;
+    if (forceOpenDrawer) {
+      setDrawerOpen(true);
+    }
+
+    state.matSearchTerm = "";
+    el.materialSearch.value = "";
+    el.btnClearSearch.classList.add("hidden");
+    state.highlightedMatSec = q.materialSecao || null;
+
+    selectMaterialDiscipline(q.disciplinaKey);
+
+    if (q.materialSecao) {
+      setTimeout(() => {
+        const target = document.getElementById(`mat-sec-${q.materialSecao}`);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+          el.materialTocSelect.value = q.materialSecao;
+        }
+      }, 50);
+    }
+  }
+
+  function goToQuickQuestion(idx, scrollMain) {
+    const total = getTotalQuestions();
+    if (total === 0) return;
+    const safeIdx = Math.max(0, Math.min(total - 1, idx));
+    state.quickCurrentIndex = safeIdx;
+
+    const q = state.examQuestions[safeIdx];
+    const secTitle = getMaterialSectionTitle(q.disciplinaKey, q.materialSecao);
+
+    el.quickStepBadge.textContent = `Questão ${safeIdx + 1} de ${total} • ${q.disciplinaNome}`;
+    el.quickTopicSync.textContent = `📌 Material selecionado: ${secTitle}`;
+
+    el.btnQuickPrev.disabled = safeIdx === 0;
+    const isLast = safeIdx === total - 1;
+    el.btnQuickNext.textContent = isLast && !state.finished ? "Finalizar Treino ✔" : "Próxima →";
+    el.btnQuickNext.disabled = isLast && state.finished;
+
+    applyDisciplineFilter();
+    updateAnswerCardStates();
+    syncMaterialToQuestion(q, false);
+
+    if (scrollMain) {
+      const card = document.getElementById(`question-${safeIdx}`);
+      if (card) {
+        card.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
   }
 
   /* ========================================================================
@@ -371,7 +528,11 @@
       const hasAnswer = chosen !== undefined;
       const shouldReveal = state.finished || (state.immediateMode && hasAnswer);
 
-      cell.classList.remove("is-answered", "is-correct", "is-wrong");
+      cell.classList.remove("is-answered", "is-correct", "is-wrong", "is-current");
+      if (isQuickMode() && idx === state.quickCurrentIndex) {
+        cell.classList.add("is-current");
+      }
+
       const letterSpan = cell.querySelector(".cell-letter");
       letterSpan.textContent = hasAnswer ? LETRAS[chosen] : "";
 
@@ -390,6 +551,11 @@
   function jumpToQuestion(idx) {
     const q = state.examQuestions[idx];
     if (!q) return;
+
+    if (isQuickMode()) {
+      goToQuickQuestion(idx, true);
+      return;
+    }
 
     if (state.onlyMissedFilter) {
       const isMissed = state.answers[idx] !== q.correta;
@@ -427,6 +593,7 @@
       if (q.disciplinaKey !== currentDisc) {
         currentDisc = q.disciplinaKey;
         const discObj = DISCIPLINAS.find((d) => d.key === currentDisc);
+        const count = getDisciplineQuestionCount(discObj);
         const tituloDiv =
           currentDisc === "especificos"
             ? `${discObj.nome} — ${cargo.nomeCurto}`
@@ -435,10 +602,9 @@
         const divider = document.createElement("div");
         divider.className = "discipline-divider";
         divider.dataset.disc = currentDisc;
-        divider.innerHTML = `
-          <h3>${escapeHtml(tituloDiv)}</h3>
-          <span>${discObj.qtd} questões • ${(discObj.qtd * discObj.pontosPorQuestao).toFixed(1).replace(".", ",")} pontos</span>
-        `;
+        divider.innerHTML = isQuickMode()
+          ? `<h3>${escapeHtml(tituloDiv)}</h3><span>${count} questão(ões) rápida(s)</span>`
+          : `<h3>${escapeHtml(tituloDiv)}</h3><span>${count} questões • ${(count * discObj.pontosPorQuestao).toFixed(1).replace(".", ",")} pontos</span>`;
         fragment.appendChild(divider);
       }
 
@@ -581,12 +747,13 @@
 
   function updateProgressUI() {
     const count = Object.keys(state.answers).length;
-    el.answeredCounter.textContent = `${count}/${TOTAL_QUESTOES}`;
-    el.progressFill.style.width = `${(count / TOTAL_QUESTOES) * 100}%`;
+    const total = getTotalQuestions();
+    el.answeredCounter.textContent = `${count}/${total}`;
+    el.progressFill.style.width = `${total > 0 ? (count / total) * 100 : 0}%`;
   }
 
   /* ========================================================================
-     FILTRO DE DISCIPLINAS E REVISÃO DE ERROS
+     FILTRO DE DISCIPLINAS / VISIBILIDADE (COMPLETO vs RÁPIDO)
      ======================================================================== */
   function setDisciplineFilter(filterKey) {
     state.activeFilter = filterKey;
@@ -598,8 +765,22 @@
 
   function applyDisciplineFilter() {
     const cards = el.questionsContainer.querySelectorAll(".question-card");
-    const visibleDiscs = new Set();
+    const dividers = el.questionsContainer.querySelectorAll(".discipline-divider");
 
+    if (isQuickMode()) {
+      const currentQ = state.examQuestions[state.quickCurrentIndex];
+      const currentDisc = currentQ ? currentQ.disciplinaKey : null;
+      cards.forEach((card) => {
+        const idx = Number(card.dataset.qidx);
+        card.classList.toggle("hidden", idx !== state.quickCurrentIndex);
+      });
+      dividers.forEach((div) => {
+        div.classList.toggle("hidden", div.dataset.disc !== currentDisc);
+      });
+      return;
+    }
+
+    const visibleDiscs = new Set();
     cards.forEach((card) => {
       const idx = Number(card.dataset.qidx);
       const q = state.examQuestions[idx];
@@ -610,7 +791,6 @@
       if (show) visibleDiscs.add(card.dataset.disc);
     });
 
-    const dividers = el.questionsContainer.querySelectorAll(".discipline-divider");
     dividers.forEach((div) => {
       const show = state.onlyMissedFilter
         ? visibleDiscs.has(div.dataset.disc)
@@ -620,18 +800,8 @@
   }
 
   /* ========================================================================
-     RELATÓRIO DE CONTEÚDOS PARA REFORÇAR (DIAGNÓSTICO PÓS-PROVA)
+     RELATÓRIO DE CONTEÚDOS PARA REFORÇAR (MODO COMPLETO)
      ======================================================================== */
-  function getMaterialSectionTitle(discKey, sectionId) {
-    const matKey = resolveMaterialKey(discKey);
-    const mat = window.MATERIAL_APOIO && window.MATERIAL_APOIO[matKey];
-    if (mat && Array.isArray(mat.secoes)) {
-      const found = mat.secoes.find((s) => s.id === sectionId);
-      if (found) return found.titulo;
-    }
-    return sectionId || "Conteúdo Geral";
-  }
-
   function buildStudyReportHtml(stats) {
     const cargo = getCurrentCargo();
     const discPriorityOrder = {
@@ -642,7 +812,6 @@
       informatica: 5
     };
 
-    // Agrupa desempenho por seção da apostila (disciplina + materialSecao)
     const sectionMap = new Map();
     state.examQuestions.forEach((q, idx) => {
       const secId = q.materialSecao || "geral";
@@ -703,10 +872,9 @@
 
     const totalMissed = toReinforce.reduce((acc, s) => acc + s.missedCount, 0);
 
-    // Alerta estratégico focado nos pesos do Edital (Específicos = 40%, Legislação = 20%)
     const weakHighWeight = stats
-      .filter((s) => (s.disc.key === "especificos" || s.disc.key === "legislacao") && s.hits / s.disc.qtd < 0.6)
-      .map((s) => `${s.nomeExib} (${Math.round((s.hits / s.disc.qtd) * 100)}%)`);
+      .filter((s) => (s.disc.key === "especificos" || s.disc.key === "legislacao") && s.hits / s.qtd < 0.6)
+      .map((s) => `${s.nomeExib} (${Math.round((s.hits / s.qtd) * 100)}%)`);
 
     const strategicAlert = weakHighWeight.length
       ? `<div class="study-alert"><strong>Foco Estratégico (Edital 001/2026):</strong> Atenção especial a <strong>${escapeHtml(weakHighWeight.join(" e "))}</strong>. Conhecimentos Específicos (4,0 pts) e Legislação e Ética (2,0 pts) respondem por <strong>60% da nota total</strong> e são o 1º e o 2º critérios de desempate por disciplina (Item 12.8).</div>`
@@ -803,7 +971,119 @@
   }
 
   /* ========================================================================
-     FINALIZAR PROVA & RELATÓRIO DE DESEMPENHO (REGRAS DO EDITAL 001/2026)
+     RELATÓRIO SIMPLES DE ACERTOS E ONDE MELHORAR (MODO QUESTÕES RÁPIDAS)
+     ======================================================================== */
+  function buildQuickReportHtml(stats, totalHits, totalQ) {
+    const cargo = getCurrentCargo();
+    const pct = totalQ > 0 ? Math.round((totalHits / totalQ) * 100) : 0;
+    const badgeClass = pct >= 60 ? "approved" : "failed";
+    const badgeText =
+      pct >= 80
+        ? "✔ ÓTIMO DESEMPENHO!"
+        : pct >= 60
+        ? "✔ BOM PROGRESSO — REVISE OS PONTOS ABAIXO"
+        : "✘ REFORCE OS TÓPICOS ABAIXO";
+
+    const rowsHtml = stats
+      .map((s) => {
+        const dpct = s.qtd > 0 ? Math.round((s.hits / s.qtd) * 100) : 0;
+        const statusTxt = s.hits === s.qtd ? "✔ Tudo certo" : `${s.wrongs + s.blanks} para revisar`;
+        return `
+          <tr>
+            <td><strong>${escapeHtml(s.nomeExib)}</strong></td>
+            <td>${s.hits} / ${s.qtd} (${dpct}%)</td>
+            <td>${statusTxt}</td>
+          </tr>
+        `;
+      })
+      .join("");
+
+    const missed = [];
+    state.examQuestions.forEach((q, idx) => {
+      const chosen = state.answers[idx];
+      if (chosen !== q.correta) {
+        missed.push({
+          idx,
+          q,
+          secTitulo: getMaterialSectionTitle(q.disciplinaKey, q.materialSecao),
+          status: chosen === undefined ? "em branco" : `marcou ${LETRAS[chosen]}, gabarito ${LETRAS[q.correta]}`
+        });
+      }
+    });
+
+    const improveBlock =
+      missed.length === 0
+        ? `<div class="study-perfect" style="margin-top:14px;"><strong>Parabéns! Você gabaritou este treino rápido (${totalHits}/${totalQ})!</strong> Todos os tópicos sorteados foram dominados.</div>`
+        : `
+          <div class="study-report">
+            <div class="study-report-header">
+              <div>
+                <h3>Onde Melhorar (${missed.length} tópico${missed.length > 1 ? "s" : ""})</h3>
+                <p>Revise os pontos em que houve erro ou questão em branco:</p>
+              </div>
+            </div>
+            <ul class="quick-improve-list">
+              ${missed
+                .map(
+                  (m) => `
+                  <li class="quick-improve-item">
+                    <div class="quick-improve-meta">
+                      <span class="quick-improve-disc">${escapeHtml(m.q.disciplinaNome)} • Questão ${pad2(m.q.numero)} (${m.status})</span>
+                      <strong>${escapeHtml(m.q.topico)}</strong>
+                      <span style="font-size:12.5px; color:#526071;">Seção no material: ${escapeHtml(m.secTitulo)}</span>
+                    </div>
+                    <div class="quick-improve-btns">
+                      <button type="button" class="btn btn-sm btn-outline missed-chip" data-jump="${m.idx}">Ver Questão</button>
+                      <button type="button" class="btn btn-sm btn-secondary btn-study-section" data-disc="${m.q.disciplinaKey}" data-sec="${m.q.materialSecao}">📖 Revisar Tópico</button>
+                    </div>
+                  </li>
+                `
+                )
+                .join("")}
+            </ul>
+          </div>
+        `;
+
+    return `
+      <div class="result-top">
+        <div>
+          <div class="result-score-box">
+            <span class="result-score-num">${totalHits}/${totalQ}</span>
+            <span>acertos (${pct}%)</span>
+          </div>
+          <p style="margin:6px 0 0; font-size:13.5px; color:#526071;">
+            ⚡ Treino Rápido #${state.simuladoNumero} • ${escapeHtml(cargo.codigo)} — ${escapeHtml(cargo.nomeCurto)}
+          </p>
+        </div>
+        <div>
+          <span class="result-badge ${badgeClass}">${badgeText}</span>
+        </div>
+      </div>
+
+      <table class="result-table">
+        <thead>
+          <tr>
+            <th>Disciplina</th>
+            <th>Acertos</th>
+            <th>Resumo</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rowsHtml}
+        </tbody>
+      </table>
+
+      ${improveBlock}
+
+      <div class="quick-report-actions">
+        <button id="btn-quick-new-round" type="button" class="btn btn-primary">⚡ Novo Treino Rápido (Trocar Questões)</button>
+        <button id="btn-quick-go-full" type="button" class="btn btn-outline">Ir para Simulado Completo (50 questões)</button>
+      </div>
+    `;
+  }
+
+  /* ========================================================================
+     FINALIZAR PROVA / TREINO RÁPIDO
      ======================================================================== */
   function requestFinishExam() {
     if (state.finished) {
@@ -811,11 +1091,12 @@
       return;
     }
 
+    const totalQ = getTotalQuestions();
     const answered = Object.keys(state.answers).length;
-    const blank = TOTAL_QUESTOES - answered;
+    const blank = totalQ - answered;
 
     if (blank > 0) {
-      el.modalFinishText.innerHTML = `Você respondeu <strong>${answered} de ${TOTAL_QUESTOES}</strong> questões. Ainda restam <strong>${blank} questão(ões) em branco</strong> (que serão computadas como zero, conforme item 11.12 do Edital). Deseja finalizar e corrigir agora?`;
+      el.modalFinishText.innerHTML = `Você respondeu <strong>${answered} de ${totalQ}</strong> questões. Ainda restam <strong>${blank} questão(ões) em branco</strong>. Deseja finalizar e ver o relatório agora?`;
       el.modalFinish.classList.remove("hidden");
     } else {
       finalizeExam();
@@ -828,7 +1109,9 @@
     pauseTimer();
 
     const cargo = getCurrentCargo();
+    const totalQ = getTotalQuestions();
     let totalHits = 0;
+
     const stats = DISCIPLINAS.map((disc) => {
       const discQuestions = state.examQuestions
         .map((q, idx) => ({ q, idx }))
@@ -845,72 +1128,96 @@
       });
 
       totalHits += hits;
+      const qtd = discQuestions.length;
       const pontos = hits * disc.pontosPorQuestao;
-      const maxPontos = disc.qtd * disc.pontosPorQuestao;
+      const maxPontos = qtd * disc.pontosPorQuestao;
       const nomeExib = disc.key === "especificos" ? `${disc.nome} (${cargo.nomeCurto})` : disc.nome;
-      return { disc, nomeExib, hits, blanks, wrongs: disc.qtd - hits - blanks, pontos, maxPontos };
+      return { disc, qtd, nomeExib, hits, blanks, wrongs: qtd - hits - blanks, pontos, maxPontos };
     });
 
-    const notaFinal = totalHits * 0.2;
-    const aprovado = notaFinal >= NOTA_MINIMA;
+    if (isQuickMode()) {
+      el.resultPanel.innerHTML = buildQuickReportHtml(stats, totalHits, totalQ);
 
-    const rowsHtml = stats
-      .map(
-        (s) => `
-        <tr>
-          <td><strong>${escapeHtml(s.nomeExib)}</strong></td>
-          <td>${s.hits} / ${s.disc.qtd}</td>
-          <td>${s.wrongs}</td>
-          <td>${s.blanks}</td>
-          <td><strong>${s.pontos.toFixed(1).replace(".", ",")}</strong> / ${s.maxPontos.toFixed(1).replace(".", ",")}</td>
-          <td>${s.disc.desempate}</td>
-        </tr>
-      `
-      )
-      .join("");
+      const btnNewRound = document.getElementById("btn-quick-new-round");
+      if (btnNewRound) btnNewRound.addEventListener("click", () => handleRedo(true));
 
-    el.resultPanel.innerHTML = `
-      <div class="result-top">
-        <div>
-          <div class="result-score-box">
-            <span class="result-score-num">${notaFinal.toFixed(1).replace(".", ",")}</span>
-            <span>/ 10,0 pontos (${totalHits} de ${TOTAL_QUESTOES} acertos)</span>
-          </div>
-          <p style="margin:6px 0 0; font-size:13.5px; color:#526071;">
-            ${escapeHtml(cargo.codigo)} — ${escapeHtml(cargo.nomeCurto)} • Simulado #${state.simuladoNumero} • Mínimo do Edital (Item 11.42): 6,0 pontos (30 acertos).
-          </p>
-        </div>
-        <div>
-          <span class="result-badge ${aprovado ? "approved" : "failed"}">
-            ${aprovado ? "✔ NOTA MÍNIMA ATINGIDA (≥ 6,0)" : "✘ ABAIXO DA NOTA MÍNIMA (< 6,0)"}
-          </span>
-        </div>
-      </div>
+      const btnGoFull = document.getElementById("btn-quick-go-full");
+      if (btnGoFull) btnGoFull.addEventListener("click", () => switchExamMode("completo"));
+    } else {
+      const notaFinal = totalHits * 0.2;
+      const aprovado = notaFinal >= NOTA_MINIMA;
 
-      <table class="result-table">
-        <thead>
+      const rowsHtml = stats
+        .map(
+          (s) => `
           <tr>
-            <th>Disciplina</th>
-            <th>Acertos</th>
-            <th>Erros</th>
-            <th>Branco</th>
-            <th>Pontuação</th>
-            <th>Desempate (Item 12.8)</th>
+            <td><strong>${escapeHtml(s.nomeExib)}</strong></td>
+            <td>${s.hits} / ${s.qtd}</td>
+            <td>${s.wrongs}</td>
+            <td>${s.blanks}</td>
+            <td><strong>${s.pontos.toFixed(1).replace(".", ",")}</strong> / ${s.maxPontos.toFixed(1).replace(".", ",")}</td>
+            <td>${s.disc.desempate}</td>
           </tr>
-        </thead>
-        <tbody>
-          ${rowsHtml}
-        </tbody>
-      </table>
+        `
+        )
+        .join("");
 
-      <p class="result-footnote">
-        Todos os gabaritos comentados foram liberados abaixo. Em cada questão, você pode clicar em <strong>📖 Ver no Material</strong> para revisar o conteúdo correspondente na apostila lateral.
-      </p>
+      el.resultPanel.innerHTML = `
+        <div class="result-top">
+          <div>
+            <div class="result-score-box">
+              <span class="result-score-num">${notaFinal.toFixed(1).replace(".", ",")}</span>
+              <span>/ 10,0 pontos (${totalHits} de ${totalQ} acertos)</span>
+            </div>
+            <p style="margin:6px 0 0; font-size:13.5px; color:#526071;">
+              ${escapeHtml(cargo.codigo)} — ${escapeHtml(cargo.nomeCurto)} • Simulado #${state.simuladoNumero} • Mínimo do Edital (Item 11.42): 6,0 pontos (30 acertos).
+            </p>
+          </div>
+          <div>
+            <span class="result-badge ${aprovado ? "approved" : "failed"}">
+              ${aprovado ? "✔ NOTA MÍNIMA ATINGIDA (≥ 6,0)" : "✘ ABAIXO DA NOTA MÍNIMA (< 6,0)"}
+            </span>
+          </div>
+        </div>
 
-      ${buildStudyReportHtml(stats)}
-    `;
+        <table class="result-table">
+          <thead>
+            <tr>
+              <th>Disciplina</th>
+              <th>Acertos</th>
+              <th>Erros</th>
+              <th>Branco</th>
+              <th>Pontuação</th>
+              <th>Desempate (Item 12.8)</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${rowsHtml}
+          </tbody>
+        </table>
 
-    // Liga eventos interativos do Relatório de Conteúdos para Reforçar
+        <p class="result-footnote">
+          Todos os gabaritos comentados foram liberados abaixo. Em cada questão, você pode clicar em <strong>📖 Ver no Material</strong> para revisar o conteúdo correspondente na apostila lateral.
+        </p>
+
+        ${buildStudyReportHtml(stats)}
+      `;
+
+      const btnOnlyMissed = document.getElementById("btn-toggle-only-missed");
+      if (btnOnlyMissed) {
+        btnOnlyMissed.addEventListener("click", () => {
+          state.onlyMissedFilter = !state.onlyMissedFilter;
+          btnOnlyMissed.textContent = state.onlyMissedFilter
+            ? `Mostrar todas as ${totalQ} questões`
+            : `Filtrar apenas erros/em branco (${totalQ - totalHits})`;
+          btnOnlyMissed.classList.toggle("btn-primary", state.onlyMissedFilter);
+          btnOnlyMissed.classList.toggle("btn-outline", !state.onlyMissedFilter);
+          applyDisciplineFilter();
+        });
+      }
+    }
+
+    // Eventos comuns do relatório (tanto Completo quanto Rápido)
     el.resultPanel.querySelectorAll(".btn-study-section").forEach((btn) => {
       btn.addEventListener("click", () => {
         openMaterialAt(btn.dataset.disc, btn.dataset.sec);
@@ -923,32 +1230,27 @@
       });
     });
 
-    const btnOnlyMissed = document.getElementById("btn-toggle-only-missed");
-    if (btnOnlyMissed) {
-      btnOnlyMissed.addEventListener("click", () => {
-        state.onlyMissedFilter = !state.onlyMissedFilter;
-        btnOnlyMissed.textContent = state.onlyMissedFilter
-          ? "Mostrar todas as 50 questões"
-          : `Filtrar apenas erros/em branco (${TOTAL_QUESTOES - totalHits})`;
-        btnOnlyMissed.classList.toggle("btn-primary", state.onlyMissedFilter);
-        btnOnlyMissed.classList.toggle("btn-outline", !state.onlyMissedFilter);
-        applyDisciplineFilter();
-      });
-    }
-
     el.resultPanel.classList.remove("hidden");
     refreshAllQuestionVisuals();
     updateAnswerCardStates();
+    if (isQuickMode()) {
+      el.btnQuickNext.disabled = state.quickCurrentIndex === totalQ - 1;
+      el.btnQuickNext.textContent = "Próxima →";
+    }
     el.resultPanel.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   /* ========================================================================
-     REFAZER SIMULADO (MODAL: TROCAR QUESTÕES OU MANTER AS MESMAS)
+     REFAZER SIMULADO / TREINO RÁPIDO
      ======================================================================== */
   function openRedoModal() {
     const cargo = getCurrentCargo();
     const stats = getActiveCargoBankStats();
-    el.modalBankSummary.textContent = `Cargo ativo: ${cargo.codigo} — ${cargo.nomeCurto}. Banco disponível para este cargo: ${stats.cargoTotal} questões (${stats.espCount} específicas exclusivas, sem mistura entre cargos; ${stats.allCargosTotal} questões no banco total). Ao trocar, o sistema prioriza questões ainda não vistas.`;
+    const totalQ = getTotalQuestions();
+    const modoLabel = isQuickMode()
+      ? `Modo Questões Rápidas (${totalQ} questões)`
+      : "Simulado Completo (50 questões)";
+    el.modalBankSummary.textContent = `${modoLabel} • ${cargo.codigo} — ${cargo.nomeCurto}. Banco disponível: ${stats.cargoTotal} questões (${stats.espCount} específicas exclusivas; ${stats.allCargosTotal} no banco total). Ao trocar, priorizamos questões ainda não vistas.`;
     el.modalRedo.classList.remove("hidden");
   }
 
@@ -975,6 +1277,9 @@
     setDisciplineFilter("all");
     renderAnswerCard();
     renderQuestions();
+    if (isQuickMode()) {
+      goToQuickQuestion(0, false);
+    }
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
@@ -1045,6 +1350,7 @@
     state.matSearchTerm = "";
     el.materialSearch.value = "";
     el.btnClearSearch.classList.add("hidden");
+    state.highlightedMatSec = sectionId || null;
     selectMaterialDiscipline(discKey);
 
     if (sectionId) {
@@ -1162,14 +1468,19 @@
     const sectionsHtml =
       filteredSecoes.length > 0
         ? filteredSecoes
-            .map(
-              (sec) => `
-              <section class="mat-section" id="mat-sec-${sec.id}">
-                <h4>${query ? highlightMatchesInHtml(escapeHtml(sec.titulo), state.matSearchTerm.trim()) : escapeHtml(sec.titulo)}</h4>
-                ${query ? highlightMatchesInHtml(sec.html, state.matSearchTerm.trim()) : sec.html}
-              </section>
-            `
-            )
+            .map((sec) => {
+              const isHighlighted = !query && state.highlightedMatSec === sec.id;
+              const pill = isHighlighted
+                ? `<span class="current-topic-pill">📌 Tópico da questão selecionada</span>`
+                : "";
+              return `
+                <section class="mat-section${isHighlighted ? " is-current-topic" : ""}" id="mat-sec-${sec.id}">
+                  ${pill}
+                  <h4>${query ? highlightMatchesInHtml(escapeHtml(sec.titulo), state.matSearchTerm.trim()) : escapeHtml(sec.titulo)}</h4>
+                  ${query ? highlightMatchesInHtml(sec.html, state.matSearchTerm.trim()) : sec.html}
+                </section>
+              `;
+            })
             .join("")
         : `<div class="search-empty">Nenhum trecho encontrado para "<strong>${escapeHtml(state.matSearchTerm)}</strong>" nesta disciplina. Tente trocar de aba acima ou limpar a busca.</div>`;
 
@@ -1220,6 +1531,36 @@
     el.btnCargoCancel.addEventListener("click", () => {
       state.pendingCargo = null;
       el.modalCargo.classList.add("hidden");
+    });
+
+    // Seletor de Modo (Completo x Questões Rápidas) e Quantidade (1 ou 2 por disciplina)
+    el.modeBtns.forEach((btn) => {
+      btn.addEventListener("click", () => switchExamMode(btn.dataset.mode));
+    });
+
+    el.qtyBtns.forEach((btn) => {
+      btn.addEventListener("click", () => setQuickPerDisc(Number(btn.dataset.qty)));
+    });
+
+    // Controles do Modo Questões Rápidas
+    el.btnQuickPrev.addEventListener("click", () => {
+      if (state.quickCurrentIndex > 0) {
+        goToQuickQuestion(state.quickCurrentIndex - 1, false);
+      }
+    });
+
+    el.btnQuickNext.addEventListener("click", () => {
+      const total = getTotalQuestions();
+      if (state.quickCurrentIndex < total - 1) {
+        goToQuickQuestion(state.quickCurrentIndex + 1, false);
+      } else if (!state.finished) {
+        requestFinishExam();
+      }
+    });
+
+    el.btnQuickOpenMat.addEventListener("click", () => {
+      const q = state.examQuestions[state.quickCurrentIndex];
+      if (q) syncMaterialToQuestion(q, true);
     });
 
     // Correção imediata ON/OFF
@@ -1290,7 +1631,10 @@
     el.btnExpandMaterial.addEventListener("click", toggleDrawerWide);
 
     el.matTabs.forEach((tab) => {
-      tab.addEventListener("click", () => selectMaterialDiscipline(tab.dataset.mat));
+      tab.addEventListener("click", () => {
+        state.highlightedMatSec = null;
+        selectMaterialDiscipline(tab.dataset.mat);
+      });
     });
 
     el.materialTocSelect.addEventListener("change", () => {
@@ -1336,7 +1680,7 @@
   }
 
   function init() {
-    updateCargoHeaderUI();
+    updateCargoAndModeHeaderUI();
     bindEvents();
     generateNewExam();
     renderAnswerCard();

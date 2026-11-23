@@ -109,7 +109,7 @@
   <!-- Barra de Controles Obrigatórios do Simulado -->
   <section class="control-bar" aria-label="Controles do Simulado">
     <div class="control-bar-inner">
-      <!-- Correção Imediata ON/OFF -->
+      <!-- Correção Imediata ON/OFF e Manter Questões ON/OFF -->
       <div class="control-group">
         <label class="toggle-control" for="toggle-immediate">
           <input type="checkbox" id="toggle-immediate" />
@@ -118,6 +118,16 @@
           </span>
           <span class="toggle-text">
             Correção Imediata: <strong id="immediate-status">OFF</strong>
+          </span>
+        </label>
+
+        <label class="toggle-control" for="toggle-keep-questions" title="Mantém as mesmas questões e as respostas marcadas ao recarregar a página (F5) ou alternar de modo, sem sortear novas questões">
+          <input type="checkbox" id="toggle-keep-questions" />
+          <span class="toggle-track" aria-hidden="true">
+            <span class="toggle-thumb"></span>
+          </span>
+          <span class="toggle-text">
+            Manter questões: <strong id="keep-status">OFF</strong>
           </span>
         </label>
       </div>
@@ -388,6 +398,6 @@
   <script src="js/material/material_especificos_manutencao.js?v=20261123-banco"></script>
 
   <!-- Motor do Simulado -->
-  <script src="js/app.js?v=20261123-banco"></script>
+  <script src="js/app.js?v=20261123-keep"></script>
 </body>
 </html>

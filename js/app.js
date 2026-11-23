@@ -36,6 +36,16 @@
   const LETRAS = ["A", "B", "C", "D", "E"];
   const NOTA_MINIMA = 6.0;
   const TIMER_INITIAL_SECONDS = 3 * 60 * 60; // 3 horas (item 11.2.4)
+  const STORAGE_SEEN_KEY = "simulado_cetap_seen_v1";
+  const STORAGE_KEEP_KEY = "simulado_cetap_keep_v1";
+  const BANK_KEYS = [
+    "portugues",
+    "legislacao",
+    "informatica",
+    "raciocinio",
+    "especificos_adm",
+    "especificos_manutencao"
+  ];
 
   /* ========================================================================
      ESTADO DA APLICAÇÃO
@@ -51,10 +61,20 @@
     examQuestions: [],         // Questões ativas do simulado/treino atual
     answers: {},               // { [index]: optionIndex0a4 }
     immediateMode: false,      // Correção imediata ON/OFF
+    keepQuestions: false,      // Toggle Manter questões ON/OFF (mantém questões e marcações sem randomizar)
+    keepSnapshots: {},         // Snapshots por cargo::modo::qty quando keepQuestions está ON
     finished: false,           // Prova/treino finalizado?
     activeFilter: "all",       // Filtro visual de disciplina (modo completo)
     onlyMissedFilter: false,   // Filtro de revisão apenas de erros/em branco
-    seenIdsByBankKey: {        // Histórico isolado por banco de questões
+    seenIdsByBankKey: {        // Histórico persistido no localStorage (nunca repete até esgotar o banco)
+      portugues: new Set(),
+      legislacao: new Set(),
+      informatica: new Set(),
+      raciocinio: new Set(),
+      especificos_adm: new Set(),
+      especificos_manutencao: new Set()
+    },
+    lastIdsByBankKey: {        // Último lote sorteado por banco (evita repetir na virada de ciclo/F5)
       portugues: new Set(),
       legislacao: new Set(),
       informatica: new Set(),
@@ -110,6 +130,8 @@
 
     toggleImmediate: document.getElementById("toggle-immediate"),
     immediateStatus: document.getElementById("immediate-status"),
+    toggleKeepQuestions: document.getElementById("toggle-keep-questions"),
+    keepStatus: document.getElementById("keep-status"),
     answeredCounter: document.getElementById("answered-counter"),
     progressFill: document.getElementById("progress-fill"),
 
@@ -318,10 +340,170 @@
   }
 
   /* ========================================================================
+     PERSISTÊNCIA DE HISTÓRICO (SEMPRE DIFERENTES) E MANTER QUESTÕES
+     ======================================================================== */
+  function loadSeenHistory() {
+    try {
+      const raw = localStorage.getItem(STORAGE_SEEN_KEY);
+      if (!raw) return;
+      const parsed = JSON.parse(raw);
+      BANK_KEYS.forEach((k) => {
+        const poolIds = new Set(((window.BANCO_QUESTOES && window.BANCO_QUESTOES[k]) || []).map((q) => q.id));
+        if (parsed && parsed.seen && Array.isArray(parsed.seen[k])) {
+          state.seenIdsByBankKey[k] = new Set(parsed.seen[k].filter((id) => poolIds.has(id)));
+        }
+        if (parsed && parsed.last && Array.isArray(parsed.last[k])) {
+          state.lastIdsByBankKey[k] = new Set(parsed.last[k].filter((id) => poolIds.has(id)));
+        }
+      });
+    } catch (e) {}
+  }
+
+  function saveSeenHistory() {
+    try {
+      const payload = { seen: {}, last: {} };
+      BANK_KEYS.forEach((k) => {
+        payload.seen[k] = Array.from(state.seenIdsByBankKey[k]);
+        payload.last[k] = Array.from(state.lastIdsByBankKey[k]);
+      });
+      localStorage.setItem(STORAGE_SEEN_KEY, JSON.stringify(payload));
+    } catch (e) {}
+  }
+
+  function getRemainingUnseenForActiveCargo() {
+    const banco = window.BANCO_QUESTOES || {};
+    let unseenCount = 0;
+    DISCIPLINAS.forEach((d) => {
+      const bk = resolveBankKey(d.key);
+      const pool = banco[bk] || [];
+      const seen = state.seenIdsByBankKey[bk];
+      unseenCount += pool.filter((q) => !seen.has(q.id)).length;
+    });
+    return unseenCount;
+  }
+
+  function getSnapshotKey(cargoKey, modeKey, qty) {
+    const c = cargoKey || state.activeCargo;
+    const m = modeKey || state.examMode;
+    const q = qty !== undefined ? qty : state.quickPerDisc;
+    return `${c}::${m}::${m === "rapido" ? q : "full"}`;
+  }
+
+  function loadKeepStorage() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEEP_KEY);
+      if (!raw) return;
+      const parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== "object") return;
+
+      state.keepQuestions = Boolean(parsed.keepQuestions);
+      if (parsed.snapshots && typeof parsed.snapshots === "object") {
+        state.keepSnapshots = parsed.snapshots;
+      }
+
+      if (state.keepQuestions) {
+        if (CARGOS[parsed.activeCargo]) state.activeCargo = parsed.activeCargo;
+        if (parsed.examMode === "completo" || parsed.examMode === "rapido") state.examMode = parsed.examMode;
+        if (parsed.quickPerDisc === 1 || parsed.quickPerDisc === 2) state.quickPerDisc = parsed.quickPerDisc;
+        if (typeof parsed.immediateMode === "boolean") state.immediateMode = parsed.immediateMode;
+      }
+    } catch (e) {}
+  }
+
+  function saveKeepStorage() {
+    try {
+      if (state.keepQuestions && state.examQuestions.length > 0) {
+        const key = getSnapshotKey();
+        state.keepSnapshots[key] = {
+          questionIds: state.examQuestions.map((q) => q.id),
+          answers: { ...state.answers },
+          finished: state.finished,
+          quickCurrentIndex: state.quickCurrentIndex,
+          simuladoNumero: state.simuladoNumero
+        };
+      }
+
+      const payload = {
+        keepQuestions: state.keepQuestions,
+        activeCargo: state.activeCargo,
+        examMode: state.examMode,
+        quickPerDisc: state.quickPerDisc,
+        immediateMode: state.immediateMode,
+        snapshots: state.keepQuestions ? state.keepSnapshots : {}
+      };
+      localStorage.setItem(STORAGE_KEEP_KEY, JSON.stringify(payload));
+    } catch (e) {}
+  }
+
+  function restoreSnapshotForCurrentSettings() {
+    const snap = state.keepSnapshots[getSnapshotKey()];
+    if (!snap || !Array.isArray(snap.questionIds) || snap.questionIds.length === 0) {
+      return false;
+    }
+
+    const expectedTotal = DISCIPLINAS.reduce((acc, d) => acc + getDisciplineQuestionCount(d), 0);
+    if (snap.questionIds.length !== expectedTotal) {
+      return false;
+    }
+
+    const banco = window.BANCO_QUESTOES || {};
+    const cargo = getCurrentCargo();
+    const idLookup = new Map();
+
+    DISCIPLINAS.forEach((disc) => {
+      const bankKey = resolveBankKey(disc.key);
+      const nomeExibicao =
+        disc.key === "especificos" ? `${disc.nome} (${cargo.nomeCurto})` : disc.nome;
+      (banco[bankKey] || []).forEach((q) => {
+        idLookup.set(q.id, { q, disciplinaKey: disc.key, disciplinaNome: nomeExibicao });
+      });
+    });
+
+    const restored = [];
+    for (let i = 0; i < snap.questionIds.length; i++) {
+      const found = idLookup.get(snap.questionIds[i]);
+      if (!found) return false;
+      restored.push({
+        ...found.q,
+        numero: i + 1,
+        disciplinaKey: found.disciplinaKey,
+        disciplinaNome: found.disciplinaNome
+      });
+    }
+
+    state.examQuestions = restored;
+    state.answers = {};
+    if (snap.answers && typeof snap.answers === "object") {
+      Object.keys(snap.answers).forEach((k) => {
+        const idx = Number(k);
+        const val = Number(snap.answers[k]);
+        if (idx >= 0 && idx < restored.length && val >= 0 && val <= 4) {
+          state.answers[idx] = val;
+        }
+      });
+    }
+    state.finished = Boolean(snap.finished);
+    state.onlyMissedFilter = false;
+    state.quickCurrentIndex = Math.max(
+      0,
+      Math.min(restored.length - 1, Number(snap.quickCurrentIndex) || 0)
+    );
+    state.simuladoNumero = Number(snap.simuladoNumero) || 1;
+    return true;
+  }
+
+  /* ========================================================================
      TROCA DE CARGO E TROCA DE MODO
      ======================================================================== */
   function requestSwitchCargo(newCargoKey) {
     if (!CARGOS[newCargoKey] || newCargoKey === state.activeCargo) return;
+
+    // Se "Manter questões" estiver ON, o progresso do cargo atual fica salvo sem perda!
+    if (state.keepQuestions) {
+      saveKeepStorage();
+      applySwitchCargo(newCargoKey);
+      return;
+    }
 
     const answered = Object.keys(state.answers).length;
     if (answered > 0 && !state.finished) {
@@ -337,9 +519,10 @@
   function applySwitchCargo(newCargoKey) {
     el.modalCargo.classList.add("hidden");
     state.pendingCargo = null;
+    if (state.keepQuestions) saveKeepStorage();
     state.activeCargo = newCargoKey;
     state.simuladoNumero = 1;
-    rebuildExamForCurrentSettings(false);
+    rebuildExamForCurrentSettings(false, false);
   }
 
   function switchExamMode(newMode) {
@@ -360,21 +543,23 @@
       }
       return;
     }
+    if (state.keepQuestions) saveKeepStorage();
     state.examMode = newMode;
     state.simuladoNumero = 1;
-    rebuildExamForCurrentSettings(newMode === "rapido");
+    rebuildExamForCurrentSettings(newMode === "rapido", false);
   }
 
   function setQuickPerDisc(qty) {
     if (qty !== 1 && qty !== 2) return;
     if (qty === state.quickPerDisc && isQuickMode()) return;
+    if (state.keepQuestions) saveKeepStorage();
     state.quickPerDisc = qty;
     if (isQuickMode()) {
-      rebuildExamForCurrentSettings(false);
+      rebuildExamForCurrentSettings(false, false);
     }
   }
 
-  function rebuildExamForCurrentSettings(autoOpenMaterialOnDesktop) {
+  function rebuildExamForCurrentSettings(autoOpenMaterialOnDesktop, forceNewQuestions) {
     el.resultPanel.classList.add("hidden");
     el.resultPanel.innerHTML = "";
 
@@ -383,16 +568,25 @@
     }
 
     updateCargoAndModeHeaderUI();
-    generateNewExam();
+
+    const restored = !forceNewQuestions && state.keepQuestions && restoreSnapshotForCurrentSettings();
+    if (!restored) {
+      generateNewExam();
+    }
+
     setDisciplineFilter("all");
     renderAnswerCard();
     renderQuestions();
+
+    if (state.finished) {
+      finalizeExam(true);
+    }
 
     if (isQuickMode() && !state.bankExplorerOpen) {
       if (autoOpenMaterialOnDesktop && window.innerWidth > 1080) {
         setDrawerOpen(true);
       }
-      goToQuickQuestion(0, false);
+      goToQuickQuestion(state.quickCurrentIndex, false);
     } else {
       state.highlightedMatSec = null;
       renderMaterialContent();
@@ -405,31 +599,43 @@
       renderBankExplorer();
     }
 
+    if (state.keepQuestions) {
+      saveKeepStorage();
+    }
+
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   /* ========================================================================
-     SORTEIO DE QUESTÕES (PRIORIZANDO QUESTÕES NÃO VISTAS)
+     SORTEIO DE QUESTÕES (SEMPRE DIFERENTES ATÉ ESGOTAR O BANCO)
      ======================================================================== */
   function pickQuestionsForDiscipline(discKey, count, previousIds) {
     const bankKey = resolveBankKey(discKey);
     const pool = (window.BANCO_QUESTOES && window.BANCO_QUESTOES[bankKey]) || [];
     const seen = state.seenIdsByBankKey[bankKey];
+    const recent = new Set([
+      ...(previousIds || []),
+      ...Array.from(state.lastIdsByBankKey[bankKey] || [])
+    ]);
 
-    let unseen = shuffle(pool.filter((q) => !seen.has(q.id)));
+    const unseen = shuffle(pool.filter((q) => !seen.has(q.id)));
+    let chosen;
 
-    if (unseen.length < count) {
-      const notInPrev = shuffle(pool.filter((q) => seen.has(q.id) && !previousIds.has(q.id)));
-      const inPrev = shuffle(pool.filter((q) => previousIds.has(q.id)));
+    if (unseen.length >= count) {
+      chosen = unseen.slice(0, count);
+      chosen.forEach((q) => seen.add(q.id));
+    } else {
+      // Esgotou o ciclo de inéditas: aproveita todas as inéditas restantes primeiro e inicia novo ciclo evitando as imediatamente anteriores
+      const unseenIds = new Set(unseen.map((q) => q.id));
+      const notInRecent = shuffle(pool.filter((q) => !unseenIds.has(q.id) && !recent.has(q.id)));
+      const inRecent = shuffle(pool.filter((q) => !unseenIds.has(q.id) && recent.has(q.id)));
 
       seen.clear();
-      const chosen = [...unseen, ...notInPrev, ...inPrev].slice(0, count);
+      chosen = [...unseen, ...notInRecent, ...inRecent].slice(0, count);
       chosen.forEach((q) => seen.add(q.id));
-      return chosen;
     }
 
-    const chosen = unseen.slice(0, count);
-    chosen.forEach((q) => seen.add(q.id));
+    state.lastIdsByBankKey[bankKey] = new Set(chosen.map((q) => q.id));
     return chosen;
   }
 
@@ -457,6 +663,8 @@
         numero++;
       });
     });
+
+    saveSeenHistory();
 
     state.examQuestions = list;
     state.answers = {};
@@ -519,6 +727,10 @@
     applyDisciplineFilter();
     updateAnswerCardStates();
     syncMaterialToQuestion(q, false);
+
+    if (state.keepQuestions) {
+      saveKeepStorage();
+    }
 
     if (scrollMain) {
       const card = document.getElementById(`question-${safeIdx}`);
@@ -724,6 +936,9 @@
     refreshQuestionVisual(qIdx);
     updateAnswerCardStates();
     updateProgressUI();
+    if (state.keepQuestions) {
+      saveKeepStorage();
+    }
   }
 
   function refreshAllQuestionVisuals() {
@@ -1155,7 +1370,7 @@
     }
   }
 
-  function finalizeExam() {
+  function finalizeExam(skipScroll = false) {
     el.modalFinish.classList.add("hidden");
     state.finished = true;
     pauseTimer();
@@ -1289,7 +1504,12 @@
       el.btnQuickNext.disabled = state.quickCurrentIndex === totalQ - 1;
       el.btnQuickNext.textContent = "Próxima →";
     }
-    el.resultPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (state.keepQuestions) {
+      saveKeepStorage();
+    }
+    if (!skipScroll) {
+      el.resultPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }
 
   /* ========================================================================
@@ -1298,11 +1518,12 @@
   function openRedoModal() {
     const cargo = getCurrentCargo();
     const stats = getActiveCargoBankStats();
+    const unseenLeft = getRemainingUnseenForActiveCargo();
     const totalQ = getTotalQuestions();
     const modoLabel = isQuickMode()
       ? `Modo Questões Rápidas (${totalQ} questões)`
       : "Simulado Completo (50 questões)";
-    el.modalBankSummary.textContent = `${modoLabel} • ${cargo.codigo} — ${cargo.nomeCurto}. Banco disponível: ${stats.cargoTotal} questões (${stats.espCount} específicas exclusivas; ${stats.allCargosTotal} no banco total). Ao trocar, priorizamos questões ainda não vistas.`;
+    el.modalBankSummary.textContent = `${modoLabel} • ${cargo.codigo} — ${cargo.nomeCurto}. Banco disponível: ${stats.cargoTotal} questões (${unseenLeft} inéditas restantes neste ciclo; ${stats.allCargosTotal} no banco total). Ao trocar, o sistema só repete questões após esgotar todas as inéditas.`;
     el.modalRedo.classList.remove("hidden");
   }
 
@@ -1331,6 +1552,9 @@
     renderQuestions();
     if (isQuickMode()) {
       goToQuickQuestion(0, false);
+    }
+    if (state.keepQuestions) {
+      saveKeepStorage();
     }
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
@@ -1886,7 +2110,22 @@
       el.immediateStatus.textContent = state.immediateMode ? "ON" : "OFF";
       refreshAllQuestionVisuals();
       updateAnswerCardStates();
+      if (state.keepQuestions) {
+        saveKeepStorage();
+      }
     });
+
+    // Manter questões ON/OFF (mantém as mesmas questões e marcações sem randomizar)
+    if (el.toggleKeepQuestions) {
+      el.toggleKeepQuestions.addEventListener("change", () => {
+        state.keepQuestions = el.toggleKeepQuestions.checked;
+        if (el.keepStatus) el.keepStatus.textContent = state.keepQuestions ? "ON" : "OFF";
+        if (!state.keepQuestions) {
+          state.keepSnapshots = {};
+        }
+        saveKeepStorage();
+      });
+    }
 
     // Timer opcional
     el.toggleTimerEnable.addEventListener("change", () => {
@@ -1907,7 +2146,7 @@
     // Finalizar e Refazer
     el.btnFinish.addEventListener("click", requestFinishExam);
     el.btnFinishBottom.addEventListener("click", requestFinishExam);
-    el.btnFinishConfirm.addEventListener("click", finalizeExam);
+    el.btnFinishConfirm.addEventListener("click", () => finalizeExam(false));
     el.btnFinishCancel.addEventListener("click", () => el.modalFinish.classList.add("hidden"));
 
     el.btnRedo.addEventListener("click", openRedoModal);
@@ -2047,12 +2286,44 @@
 
   function init() {
     initTheme();
+    loadSeenHistory();
+    loadKeepStorage();
+
+    // Sincroniza estado visual dos toggles restaurados
+    if (el.toggleKeepQuestions) {
+      el.toggleKeepQuestions.checked = state.keepQuestions;
+    }
+    if (el.keepStatus) {
+      el.keepStatus.textContent = state.keepQuestions ? "ON" : "OFF";
+    }
+    el.toggleImmediate.checked = state.immediateMode;
+    el.immediateStatus.textContent = state.immediateMode ? "ON" : "OFF";
+
     updateCargoAndModeHeaderUI();
     bindEvents();
-    generateNewExam();
+
+    const restored = state.keepQuestions && restoreSnapshotForCurrentSettings();
+    if (!restored) {
+      generateNewExam();
+    }
+
     renderAnswerCard();
     renderQuestions();
-    renderMaterialContent();
+
+    if (state.finished) {
+      finalizeExam(true);
+    }
+
+    if (isQuickMode()) {
+      goToQuickQuestion(state.quickCurrentIndex, false);
+    } else {
+      renderMaterialContent();
+    }
+
+    if (state.keepQuestions) {
+      saveKeepStorage();
+    }
+
     updateTimerUI();
   }
 

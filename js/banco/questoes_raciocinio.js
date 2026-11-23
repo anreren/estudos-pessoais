@@ -450,5 +450,155 @@ window.BANCO_QUESTOES.raciocinio = [
     ],
     correta: 4,
     explicacao: "Lei Complementar, Lei Ordinária, Decreto Legislativo e Resolução são espécies normativas do art. 59 da CF/88. 'Parecer Técnico' é um documento opinativo/não normativo, destoando do grupo."
+  },
+  {
+    id: "rlm-31",
+    topico: "Diagramas de Venn — Três Conjuntos (Estilo CETAP)",
+    materialSecao: "rlm-associacao",
+    enunciado: "Em um programa de capacitação da Escola do Legislativo (ELEPA) voltado a 100 servidores, foram ofertados três cursos: Arquivologia (A), Redação Oficial (R) e Licitações (L). O levantamento de matrículas registrou:\n• 48 servidores em A, 42 em R e 30 em L;\n• 18 em A e R; 12 em A e L; 10 em R e L;\n• 6 servidores matriculados nos três cursos simultaneamente.\nCom base nesses dados, quantos servidores se matricularam em **PELO MENOS UM** dos três cursos?",
+    alternativas: [
+      "74",
+      "80",
+      "86",
+      "92",
+      "94"
+    ],
+    correta: 2,
+    explicacao: "Modelo idêntico à questão Q22 da prova Prefeitura de Viseu/PA (CETAP)! Aplicando o Princípio da Inclusão-Exclusão para 3 conjuntos: |A ∪ R ∪ L| = |A| + |R| + |L| − |A∩R| − |A∩L| − |R∩L| + |A∩R∩L| = 48 + 42 + 30 − 18 − 12 − 10 + 6 = 120 − 40 + 6 = 86 servidores!"
+  },
+  {
+    id: "rlm-32",
+    topico: "Diagramas de Venn — 'Apenas Um' Conjunto (Estilo CETAP)",
+    materialSecao: "rlm-associacao",
+    enunciado: "Em uma pesquisa realizada com 45 servidores de uma diretoria sobre a preferência entre dois sucos regionais servidos em eventos institucionais (açaí e cupuaçu), verificou-se que:\n• 32 servidores gostam de açaí;\n• 20 servidores gostam de cupuaçu;\n• 12 servidores gostam de ambos os sabores.\nQuantos servidores entrevistados gostam de **APENAS UM** desses dois sabores?",
+    alternativas: [
+      "12",
+      "20",
+      "28",
+      "32",
+      "40"
+    ],
+    correta: 2,
+    explicacao: "Padrão direto da questão Q29 da prova Viseu/PA (CETAP)! Atenção ao comando 'APENAS UM': Somente açaí = 32 − 12 = 20; Somente cupuaçu = 20 − 12 = 8. Total que gosta de apenas um sabor = 20 + 8 = 28 servidores!"
+  },
+  {
+    id: "rlm-33",
+    topico: "Raciocínio Sequencial — Progressão Aritmética Aplicada (Estilo CETAP)",
+    materialSecao: "rlm-sequencias-orientacao",
+    enunciado: "Um Assistente Administrativo planejou digitalizar um arquivo histórico durante 20 dias úteis seguindo uma Progressão Aritmética (PA): no 1º dia digitalizou 15 páginas e, a cada dia seguinte, aumentou sua produção em exatamente 3 páginas em relação ao dia anterior. Quantas páginas ele digitalizou no **20º dia** e qual foi o **total acumulado** ao final dos 20 dias, respectivamente?",
+    alternativas: [
+      "72 páginas e 870 páginas.",
+      "75 páginas e 900 páginas.",
+      "69 páginas e 840 páginas.",
+      "72 páginas e 720 páginas.",
+      "60 páginas e 750 páginas."
+    ],
+    correta: 0,
+    explicacao: "Inspirada na questão Q21 da prova Viseu/PA (CETAP)! Termo geral da PA: a₂₀ = a₁ + (n − 1)·r = 15 + 19 × 3 = 15 + 57 = 72 páginas. Soma dos 20 termos: S₂₀ = (a₁ + a₂₀) × n / 2 = (15 + 72) × 20 / 2 = 87 × 10 = 870 páginas!"
+  },
+  {
+    id: "rlm-34",
+    topico: "Princípio Fundamental da Contagem (Estilo CETAP)",
+    materialSecao: "rlm-sequencias-orientacao",
+    enunciado: "Para codificar caixas de arquivo intermediário, o setor de protocolo definiu etiquetas com **5 posições sequenciais**, podendo cada posição ser preenchida livremente por qualquer uma das 4 letras `{A, B, C, D}`, permitida a repetição de letras. Quantos códigos distintos podem ser gerados por esse padrão?",
+    alternativas: [
+      "20",
+      "64",
+      "256",
+      "625",
+      "1.024"
+    ],
+    correta: 4,
+    explicacao: "Baseada diretamente na questão Q26 da prova Viseu/PA (CETAP)! Pelo Princípio Fundamental da Contagem, cada uma das 5 posições admite 4 escolhas independentes: 4 × 4 × 4 × 4 × 4 = 4⁵ = 1.024 códigos distintos!"
+  },
+  {
+    id: "rlm-35",
+    topico: "Probabilidade Básica e Números Primos (Estilo CETAP)",
+    materialSecao: "rlm-conjuntos-numericos",
+    enunciado: "Em uma auditoria por amostragem, foram colocadas em uma urna 50 fichas idênticas numeradas de 1 a 50. Retirando-se aleatoriamente uma única ficha, qual é a probabilidade de que o número sorteado seja um **número primo menor que 20**?",
+    alternativas: [
+      "12%",
+      "14%",
+      "16%",
+      "18%",
+      "20%"
+    ],
+    correta: 2,
+    explicacao: "Modelo fiel à questão Q28 da prova Viseu/PA (CETAP)! Os números primos menores que 20 são: {2, 3, 5, 7, 11, 13, 17, 19} — total de 8 números (lembre-se: 1 NÃO é primo e 2 é o único primo par!). Probabilidade = 8 / 50 = 16 / 100 = 16%!"
+  },
+  {
+    id: "rlm-36",
+    topico: "Porcentagem — Aumento e Desconto Sucessivos de 25% (Estilo CETAP)",
+    materialSecao: "rlm-proporcao-porcentagem",
+    enunciado: "Um material de expediente sofreu um reajuste de **+25%** em seu preço unitário no primeiro trimestre e, no trimestre seguinte, recebeu um desconto de **25%** sobre o novo valor já reajustado. Comparando-se o preço final com o preço original, constata-se que houve:",
+    alternativas: [
+      "Manutenção exata do preço original (variação nula).",
+      "Redução líquida de 5,00%.",
+      "Redução líquida de 6,25%.",
+      "Aumento líquido de 6,25%.",
+      "Redução líquida de 12,50%."
+    ],
+    correta: 2,
+    explicacao: "Clássico da CETAP (Viseu/PA Q25)! Usando fatores multiplicativos: 1,00 × 1,25 × 0,75 = 0,9375 → 93,75% do valor inicial, o que equivale a uma redução líquida de 100% − 93,75% = 6,25%!"
+  },
+  {
+    id: "rlm-37",
+    topico: "Análise Quantitativa — Média, Mediana e Valores Extremos (Estilo CETAP)",
+    materialSecao: "rlm-conjuntos-numericos",
+    enunciado: "Cinco servidores de uma seção despacharam, em determinada semana, as seguintes quantidades de processos: `{10, 12, 12, 16, 50}`. Analise as afirmativas sobre esse conjunto de dados:\nI. A média aritmética semanal do setor é igual a 20 processos.\nII. A mediana do conjunto é igual a 12 processos.\nIII. A moda (valor mais frequente) também é igual a 12 processos.\nIV. A presença do valor extremo `50` puxou a média aritmética para cima, tornando a mediana uma medida mais representativa do desempenho típico da maioria dos servidores.\nEstão CORRETAS as afirmativas:",
+    alternativas: [
+      "Apenas I e II.",
+      "Apenas II e III.",
+      "Apenas I, II e III.",
+      "Apenas I, III e IV.",
+      "I, II, III e IV."
+    ],
+    correta: 4,
+    explicacao: "Inspirada na questão Q24 da prova Viseu/PA (CETAP)! Média = (10+12+12+16+50)/5 = 100/5 = 20 (I: V); Mediana (termo central ordenado) = 12 (II: V); Moda = 12 (III: V); e valores discrepantes (outliers) distorcem a média, mas não a mediana (IV: V)!"
+  },
+  {
+    id: "rlm-38",
+    topico: "Divisão Diretamente Proporcional — Rateio (Estilo CETAP)",
+    materialSecao: "rlm-proporcao-porcentagem",
+    enunciado: "Três técnicos — Carlos, Diana e Eduardo — participaram de uma força-tarefa especial que concedeu um rateio total de R$ 24.000,00 em bolsas de produtividade, dividido de forma **diretamente proporcional** às horas dedicadas por cada um: Carlos dedicou 20 horas, Diana dedicou 30 horas e Eduardo dedicou 50 horas. Qual valor coube exatamente a **Diana**?",
+    alternativas: [
+      "R$ 4.800,00.",
+      "R$ 6.000,00.",
+      "R$ 7.200,00.",
+      "R$ 8.000,00.",
+      "R$ 12.000,00."
+    ],
+    correta: 2,
+    explicacao: "Padrão da questão Q30 da prova Viseu/PA (CETAP)! Soma das partes: 20 + 30 + 50 = 100 horas. Constante de proporcionalidade: k = 24.000 / 100 = R$ 240,00 por hora. Logo, Diana recebeu 30 × 240 = R$ 7.200,00 (Carlos = R$ 4.800 e Eduardo = R$ 12.000)."
+  },
+  {
+    id: "rlm-39",
+    topico: "Asserção-Razão — Equivalência e Negação Condicional (Estilo CETAP)",
+    materialSecao: "rlm-proposicoes",
+    enunciado: "Analise as duas asserções a seguir e a relação proposta entre elas:\n\nI. A proposição \"Se o processo está completo, então o parecer é emitido\" é logicamente equivalente a \"Se o parecer não é emitido, então o processo não está completo\", e sua negação lógica é \"O processo está completo e o parecer não é emitido\".\n\n**PORQUE**\n\nII. Na lógica proposicional, uma condicional `(p → q)` possui a mesma tabela-verdade que sua contrapositiva `(~q → ~p)` e assume valor lógico FALSO exclusivamente quando o antecedente `p` é verdadeiro e o consequente `q` é falso.\n\nA respeito dessas asserções, assinale a alternativa CORRETA:",
+    alternativas: [
+      "As asserções I e II são proposições verdadeiras, e a II é uma justificativa correta da I.",
+      "As asserções I e II são proposições verdadeiras, mas a II não é uma justificativa da I.",
+      "A asserção I é uma proposição verdadeira, e a II é uma proposição falsa.",
+      "A asserção I é uma proposição falsa, e a II é uma proposição verdadeira.",
+      "As asserções I e II são proposições falsas."
+    ],
+    correta: 0,
+    explicacao: "Formato Asserção-Razão (PORQUE) da Fundação CETAP aplicado à Lógica Proposicional! Ambas são verdadeiras e a propriedade estrutural da tabela-verdade em II justifica tanto a contrapositiva quanto a negação `p ∧ ~q` apresentadas em I."
+  },
+  {
+    id: "rlm-40",
+    topico: "Lógica Proposicional — Negações de Quantificadores e De Morgan (Estilo CETAP)",
+    materialSecao: "rlm-proposicoes",
+    enunciado: "Analise as quatro negações lógicas propostas abaixo:\nI. A negação de \"Todos os relatórios foram revisados\" é \"Pelo menos um relatório não foi revisado\".\nII. A negação de \"Nenhum servidor faltou à audiência\" é \"Algum servidor faltou à audiência\".\nIII. A negação de \"Ana protocolou o ofício ou Bruno arquivou a ata\" é \"Ana não protocolou o ofício e Bruno não arquivou a ata\".\nIV. A negação de \"Se chove em Belém, então o trânsito atrasa\" é \"Se não chove em Belém, então o trânsito não atrasa\".\nEstão CORRETAS apenas as proposições:",
+    alternativas: [
+      "I e II.",
+      "I, II e III.",
+      "II e IV.",
+      "I, III e IV.",
+      "I, II, III e IV."
+    ],
+    correta: 1,
+    explicacao: "Apenas I, II e III estão corretas! IV apresenta o erro mais cobrado em concursos: a negação de uma condicional `p → q` NÃO é `~p → ~q`, mas sim `p ∧ ~q` ('Chove em Belém E o trânsito NÃO atrasa')."
   }
 ];

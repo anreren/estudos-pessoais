@@ -3,18 +3,18 @@ window.BANCO_QUESTOES = window.BANCO_QUESTOES || {};
 window.BANCO_QUESTOES.legislacao = [
   {
     id: "leg-01",
-    topico: "Assédio Moral e Sexual",
+    topico: "Assédio Moral e Sexual no Serviço Público",
     materialSecao: "leg-etica-assedio",
-    enunciado: "No que se refere aos conceitos e às medidas de enfrentamento ao assédio moral e ao assédio sexual no serviço público, assinale a alternativa correta:",
+    enunciado: "No que se refere aos conceitos e às medidas de enfrentamento ao assédio moral e ao assédio sexual no serviço público, analise as afirmativas abaixo:\nI. O assédio moral exige exposição do servidor a situações humilhantes, constrangedoras ou vexatórias de forma repetitiva e prolongada, podendo manifestar-se de modo vertical, horizontal ou organizacional.\nII. O assédio sexual, diferentemente do assédio moral, somente se configura quando há repetição reiterada das investidas por mais de seis meses.\nIII. Os canais institucionais de denúncia devem assegurar acolhimento humanizado, sigilo dos dados da vítima e proteção contra revitimização e retaliações.\nIV. Um episódio isolado de divergência técnica respeitosa entre chefia e subordinado configura automaticamente assédio moral vertical.\nEstão CORRETAS apenas as afirmativas:",
     alternativas: [
-      "O assédio moral caracteriza-se por um episódio isolado e pontual de divergência técnica entre chefe e subordinado.",
-      "O assédio sexual somente se configura quando há repetição reiterada das investidas por mais de seis meses.",
-      "O assédio moral exige exposição do servidor a situações humilhantes ou constrangedoras de forma repetitiva e prolongada, podendo ser vertical ou horizontal.",
-      "O assédio moral ocorre exclusivamente de superior hierárquico para subordinado, não existindo entre colegas de mesmo nível funcional.",
-      "A apuração administrativa de denúncia de assédio sexual deve ser pública e sem sigilo para intimidar eventuais infratores."
+      "I e II.",
+      "I e III.",
+      "II e IV.",
+      "I, III e IV.",
+      "I, II, III e IV."
     ],
-    correta: 2,
-    explicacao: "O assédio moral exige conduta repetitiva/prolongada que fira a dignidade ou integridade psíquica do trabalhador e pode ser vertical (descendente ou ascendente), horizontal (entre colegas) ou organizacional. Já o assédio sexual NÃO exige reiteração (um único ato grave basta!), e os canais de denúncia devem assegurar sigilo e acolhimento sem revitimização."
+    correta: 1,
+    explicacao: "Apenas I e III estão corretas! II está errada porque o assédio sexual NÃO exige reiteração (um único ato grave basta para configurá-lo). IV está errada porque cobranças ou divergências técnicas pontuais e respeitosas não configuram assédio moral."
   },
   {
     id: "leg-02",
@@ -48,18 +48,18 @@ window.BANCO_QUESTOES.legislacao = [
   },
   {
     id: "leg-04",
-    topico: "LGPD — Agentes e Poder Público",
+    topico: "LGPD — Agentes de Tratamento e Poder Público",
     materialSecao: "leg-lgpd",
-    enunciado: "Sobre o tratamento de dados pessoais pelo Poder Público e os agentes de tratamento na Lei nº 13.709/2018 (LGPD), assinale a alternativa correta:",
+    enunciado: "Sobre o tratamento de dados pessoais pelo Poder Público e os agentes de tratamento na Lei nº 13.709/2018 (LGPD), analise os itens abaixo:\nI. O operador é a pessoa natural ou jurídica, de direito público ou privado, que realiza o tratamento de dados pessoais em nome do controlador.\nII. O Encarregado (DPO) é a pessoa indicada pelo controlador e operador para atuar como canal de comunicação entre o controlador, os titulares dos dados e a Autoridade Nacional de Proteção de Dados (ANPD).\nIII. A ANPD pode aplicar multa simples de até 2% do orçamento anual aos órgãos da Administração Pública direta em caso de vazamento.\nIV. Os órgãos públicos são dispensados de obter consentimento do cidadão quando o tratamento for necessário para cumprir obrigação legal ou executar políticas públicas previstas em leis e regulamentos.\nEstão CORRETOS apenas os itens:",
     alternativas: [
-      "O operador é a pessoa natural ou jurídica a quem competem as decisões referentes ao tratamento de dados pessoais.",
-      "A Autoridade Nacional de Proteção de Dados (ANPD) pode aplicar multa simples de até 2% do orçamento anual aos órgãos da Administração Pública direta.",
-      "O Encarregado (DPO) atua como canal de comunicação entre o controlador, os titulares dos dados e a ANPD.",
-      "A LGPD exige consentimento prévio e escrito do cidadão mesmo quando o órgão público trata dados para cumprir obrigação legal ou executar políticas públicas.",
-      "A LGPD aplica-se integralmente ao tratamento de dados realizado para fins exclusivamente de segurança pública e investigação criminal."
+      "I e II.",
+      "I, II e IV.",
+      "II e III.",
+      "I, III e IV.",
+      "I, II, III e IV."
     ],
-    correta: 2,
-    explicacao: "Art. 5º, VIII, da LGPD: o Encarregado é o canal de comunicação entre controlador, titulares e ANPD. Erros: A (quem decide é o Controlador; o Operador age em nome dele); B (art. 52, § 3º proíbe aplicação de multas pecuniárias ao Poder Público); D (art. 7º/23 dispensa consentimento para políticas públicas/obrigação legal); E (art. 4º exclui segurança pública e investigação penal)."
+    correta: 1,
+    explicacao: "Apenas I, II e IV estão corretos! III está errada porque o art. 52, § 3º, da LGPD veda expressamente a aplicação de multas pecuniárias (simples ou diárias) ao Poder Público (cabendo advertência, publicização, bloqueio, eliminação etc.)."
   },
   {
     id: "leg-05",
@@ -80,16 +80,16 @@ window.BANCO_QUESTOES.legislacao = [
     id: "leg-06",
     topico: "Lei Anticorrupção — Lei nº 12.846/2013",
     materialSecao: "leg-anticorrupcao",
-    enunciado: "De acordo com a Lei nº 12.846/2013 (Lei Anticorrupção), a responsabilização administrativa e civil das pessoas jurídicas pela prática de atos lesivos contra a Administração Pública, nacional ou estrangeira, é:",
+    enunciado: "Acerca da responsabilização das pessoas jurídicas na Lei nº 12.846/2013 (Lei Anticorrupção), assinale a única alternativa INCORRETA:",
     alternativas: [
-      "Subjetiva, dependendo da comprovação de dolo específico dos sócios majoritários.",
-      "Objetiva, independendo da comprovação de dolo ou culpa da pessoa jurídica, sem excluir a responsabilidade individual de seus dirigentes ou administradores.",
-      "Exclusivamente penal, sendo processada apenas perante o Poder Judiciário.",
-      "Aplicável exclusivamente a empresas estrangeiras contratadas pela Administração Pública.",
-      "Afastada automaticamente caso a empresa altere seu contrato social ou seja incorporada por outra sociedade."
+      "As pessoas jurídicas serão responsabilizadas objetivamente, nos âmbitos administrativo e civil, pelos atos lesivos previstos na Lei praticados em seu interesse ou benefício, exclusivo ou não.",
+      "A responsabilização da pessoa jurídica não exclui a responsabilidade individual de seus dirigentes ou administradores, que respondem na medida de sua culpabilidade.",
+      "Subsiste a responsabilidade da pessoa jurídica na hipótese de alteração contratual, transformação, incorporação, fusão ou cisão societária.",
+      "As sociedades controladoras, controladas, coligadas ou, no âmbito do respectivo contrato, as consorciadas serão solidariamente responsáveis pela prática dos atos previstos na Lei, restringindo-se tal responsabilidade à obrigação de pagamento de multa e reparação integral do dano causado.",
+      "Para aplicação das sanções administrativas previstas na Lei nº 12.846/2013, exige-se sempre a prévia comprovação de dolo específico dos sócios majoritários da empresa."
     ],
-    correta: 1,
-    explicacao: "Arts. 2º e 3º da Lei nº 12.846/2013: as pessoas jurídicas serão responsabilizadas OBJETIVAMENTE nos âmbitos administrativo e civil, o que não exclui a responsabilidade individual de dirigentes/administradores (que respondem na medida de sua culpabilidade). A responsabilidade subsiste mesmo em caso de alteração contratual, fusão ou incorporação (art. 4º)."
+    correta: 4,
+    explicacao: "A letra E está INCORRETA! Nos termos do art. 2º da Lei nº 12.846/2013, a responsabilidade da pessoa jurídica é OBJETIVA, independendo de comprovação de dolo ou culpa (apenas os dirigentes/administradores pessoas físicas respondem na medida da culpabilidade — art. 3º, § 2º)."
   },
   {
     id: "leg-07",
@@ -795,5 +795,185 @@ window.BANCO_QUESTOES.legislacao = [
     ],
     correta: 1,
     explicacao: "Baseada na questão real de Ética da CETAP (IGEPPS Q20)! I e III estão corretas (a famosa tríade ética 'quero? devo? posso?' e a abrangência da ética em toda prática profissional). II está errada porque a reflexão ética deve ser iniciada ANTES (preventivamente) da prática profissional, e não apenas após um desvio."
+  },
+  {
+    id: "leg-54",
+    topico: "Improbidade Administrativa — Art. 21 (Independência das Instâncias — Estilo CETAP)",
+    materialSecao: "leg-improbidade",
+    enunciado: "Nos termos do art. 21 da Lei nº 8.429/1992 (Lei de Improbidade Administrativa, com redação atualizada pela Lei nº 14.230/2021), analise as proposições abaixo:\nI. A aplicação das sanções previstas na Lei de Improbidade independe da efetiva ocorrência de dano ao patrimônio público, salvo quanto à pena de ressarcimento e às condutas previstas no art. 10 (que exigem perda patrimonial efetiva).\nII. A aplicação das sanções independe da aprovação ou rejeição das contas pelo órgão de controle interno ou pelo Tribunal ou Conselho de Contas.\nIII. Os atos do órgão de controle interno ou externo serão considerados pelo juiz quando tiverem servido de fundamento para a conduta do agente público.\nIV. A rejeição de contas pelo Tribunal de Contas vincula automaticamente o Poder Judiciário à condenação por improbidade dolosa.\nEstão CORRETAS apenas as proposições:",
+    alternativas: [
+      "I e II.",
+      "I, II e III.",
+      "II e IV.",
+      "I, III e IV.",
+      "I, II, III e IV."
+    ],
+    correta: 1,
+    explicacao: "Cobrança literal da prova AGE/PA (CETAP)! I (art. 21, I), II (art. 21, II) e III (art. 21, § 1º) reproduzem exatamente a lei. IV é falsa porque há independência das instâncias e a condenação judicial exige comprovação do dolo."
+  },
+  {
+    id: "leg-55",
+    topico: "Improbidade Administrativa — Declaração de Bens / IR (Art. 13 — Estilo CETAP)",
+    materialSecao: "leg-improbidade",
+    enunciado: "De acordo com o art. 13 da Lei nº 8.429/1992 (com a redação dada pela Lei nº 14.230/2021), a posse e o exercício de agente público ficam condicionados à apresentação de declaração de imposto de renda e proventos de qualquer natureza, que tenha sido apresentada à Secretaria Especial da Receita Federal do Brasil. Será apenado com a pena de _______, sem prejuízo de outras sanções cabíveis, o agente público que se recusar a prestar a declaração dos bens a que se refere esse artigo dentro do prazo determinado ou que prestar declaração falsa.\nAssinale a alternativa que preenche CORRETAMENTE a lacuna:",
+    alternativas: [
+      "advertência escrita.",
+      "suspensão de até 30 dias.",
+      "suspensão de até 90 dias.",
+      "demissão.",
+      "censura ética reservada."
+    ],
+    correta: 3,
+    explicacao: "Questão literal da prova SEMAS/PA (CETAP — Q13)! Conforme o art. 13, § 3º, da Lei nº 8.429/1992, será apenado com a pena de DEMISSÃO (sem prejuízo de outras sanções cabíveis) o agente público que se recusar a prestar a declaração ou prestar declaração falsa."
+  },
+  {
+    id: "leg-56",
+    topico: "Improbidade Administrativa — Art. 11 §§ (Lesividade e Nomeação — Estilo CETAP)",
+    materialSecao: "leg-improbidade",
+    enunciado: "Considerando as regras do art. 11 da Lei nº 8.429/1992 (atos que atentam contra os princípios da Administração Pública, após a Lei nº 14.230/2021), analise as afirmativas:\nI. Os atos de improbidade de que trata o art. 11 exigem lesividade relevante ao bem jurídico tutelado para serem passíveis de sancionamento e independem do reconhecimento da produção de danos ao erário e de enriquecimento ilícito dos agentes públicos.\nII. A mera nomeação ou indicação política por parte dos detentores de mandatos eletivos, em regra, não configura improbidade administrativa, sendo necessária a aferição de dolo com finalidade ilícita por parte do agente.\nIII. Para a configuração do art. 11, exige-se demonstração objetiva da prática de ilegalidade no exercício da função pública, com indicação das normas constitucionais, legais ou infralegais violadas.\nIV. O rol de condutas do art. 11 é meramente exemplificativo, admitindo a punição de qualquer conduta imoral mesmo que não descrita nos seus incisos.\nEstão CORRETAS apenas as afirmativas:",
+    alternativas: [
+      "I e II.",
+      "I, II e III.",
+      "II e IV.",
+      "I, III e IV.",
+      "I, II, III e IV."
+    ],
+    correta: 1,
+    explicacao: "Baseada diretamente na prova FSCMP/PA (CETAP — Q12)! I (art. 11, § 4º), II (art. 11, § 5º) e III (art. 11, § 3º) são texto expresso da Lei 8.429/92 atualizada. IV é falsa porque a Lei 14.230/21 tornou o rol do art. 11 TAXATIVO ('caracterizada por uma das seguintes condutas')."
+  },
+  {
+    id: "leg-57",
+    topico: "Lei Anticorrupção — Competência e Delegação do PAR (Art. 8º — Estilo CETAP)",
+    materialSecao: "leg-anticorrupcao",
+    enunciado: "Nos termos do art. 8º da Lei Federal nº 12.846/2013 (Lei Anticorrupção), acerca da instauração e do julgamento do Processo Administrativo de Responsabilização (PAR), analise os itens abaixo:\nI. A instauração e o julgamento de processo administrativo para apuração da responsabilidade de pessoa jurídica cabem à autoridade máxima de cada órgão ou entidade dos Poderes Executivo, Legislativo e Judiciário.\nII. A competência para instauração e julgamento do PAR poderá ser delegada, sendo vedada a subdelegação.\nIII. No âmbito do Poder Executivo federal, a Controladoria-Geral da União (CGU) terá competência concorrente para instaurar processos administrativos de responsabilização de pessoas jurídicas ou para avocar os processos instaurados, para exame de sua regularidade ou correção de seu andamento.\nEstá(ão) CORRETO(S):",
+    alternativas: [
+      "Apenas o item I.",
+      "Apenas os itens I e II.",
+      "Apenas os itens II e III.",
+      "Apenas os itens I e III.",
+      "Todos os itens (I, II e III)."
+    ],
+    correta: 4,
+    explicacao: "Cobrança literal da prova SEMAS/PA (CETAP — Q12)! Todos os três itens correspondem fielmente ao art. 8º, caput, § 1º e § 2º, da Lei nº 12.846/2013. Guarde a pegadinha clássica: admite-se DELEGAÇÃO, mas é VEDADA a subdelegação!"
+  },
+  {
+    id: "leg-58",
+    topico: "Lei Anticorrupção — Administração Estrangeira e Órgãos Concorrentes (Estilo CETAP)",
+    materialSecao: "leg-anticorrupcao",
+    enunciado: "Sobre as competências previstas na Lei nº 12.846/2013 (Lei Anticorrupção), assinale a única alternativa INCORRETA:",
+    alternativas: [
+      "Compete à Controladoria-Geral da União (CGU) apurar, processar e julgar os atos ilícitos previstos nessa Lei praticados contra a administração pública estrangeira.",
+      "O disposto na Lei nº 12.846/2013 não exclui as competências do Conselho Administrativo de Defesa Econômica (CADE), do Ministério da Justiça e do Ministério da Fazenda para processar e julgar fato que constitua infração à ordem econômica.",
+      "O processo administrativo de responsabilização será conduzido por comissão designada pela autoridade instauradora e composta por 2 (dois) ou mais servidores estáveis.",
+      "A comissão do PAR deverá concluir o processo no prazo de 180 (cento e oitenta) dias contados da data da publicação do ato que a instituir, admitida prorrogação mediante ato fundamentado da autoridade instauradora.",
+      "Somente o Poder Executivo tem competência para instaurar o PAR, ficando o Poder Legislativo impedido de responsabilizar empresas que fraudem suas licitações."
+    ],
+    correta: 4,
+    explicacao: "Inspirada diretamente nas questões Q12–Q14 da prova AGE/PA (CETAP)! A alternativa E está INCORRETA: pelo art. 8º da Lei nº 12.846/2013, a competência alcança a autoridade máxima de cada órgão dos Poderes EXECUTIVO, LEGISLATIVO e JUDICIÁRIO! Todas as demais (arts. 9º, 29 e 10) são literais da lei."
+  },
+  {
+    id: "leg-59",
+    topico: "LGPD — Revisão de Decisões Automatizadas (Art. 20 — Estilo CETAP)",
+    materialSecao: "leg-lgpd",
+    enunciado: "Segundo o art. 20 da Lei nº 13.709/2018 (LGPD), o titular dos dados tem direito a solicitar a revisão de decisões tomadas unicamente com base em tratamento automatizado de dados pessoais que afetem seus interesses, incluídas as decisões destinadas a definir todos os perfis abaixo, EXCETO:",
+    alternativas: [
+      "Perfil pessoal.",
+      "Perfil profissional.",
+      "Perfil de consumo.",
+      "Perfil de crédito.",
+      "Perfil de segurança nacional e defesa externa do Estado."
+    ],
+    correta: 4,
+    explicacao: "Baseada na questão Q14 da prova SEMAS/PA (CETAP)! O art. 20 da LGPD lista expressamente: perfil PESSOAL, PROFISSIONAL, DE CONSUMO e DE CRÉDITO (ou aspectos de sua personalidade). Segurança nacional e defesa nacional sequer se submetem à LGPD (art. 4º, III)."
+  },
+  {
+    id: "leg-60",
+    topico: "LGPD — Interoperabilidade, Tratamento Irregular e ANPD (Estilo CETAP)",
+    materialSecao: "leg-lgpd",
+    enunciado: "À luz da Lei nº 13.709/2018 (LGPD), analise as proposições a seguir:\nI. Os dados deverão ser mantidos em formato interoperável e estruturado para o uso compartilhado, com vistas à execução de políticas públicas, à prestação de serviços públicos, à descentralização da atividade pública e à disseminação e ao acesso das informações pelo público em geral.\nII. O tratamento de dados pessoais será irregular quando deixar de observar a legislação ou quando não fornecer a segurança que o titular dele pode esperar.\nIII. As sanções administrativas aplicadas pela ANPD serão efetivadas mediante procedimento JUDICIAL prévio, sendo vedada a aplicação em processo administrativo.\nIV. Na hipótese de imposição de multa diária pela ANPD, o ato de imposição deverá conter a descrição da obrigação imposta, o prazo razoável e estipulado pelo órgão para o seu cumprimento e o valor da multa diária a ser aplicada pelo seu descumprimento.\nEstão CORRETAS apenas as proposições:",
+    alternativas: [
+      "I e II.",
+      "I, II e IV.",
+      "II e III.",
+      "I, III e IV.",
+      "I, II, III e IV."
+    ],
+    correta: 1,
+    explicacao: "Síntese exata das cobranças de LGPD da AGE/PA (Q15, Q21, Q22) e FSCMP/PA (Q15)! I (art. 25), II (art. 44) e IV (art. 52, § 5º) são literais da LGPD. III traz a pegadinha real da FSCMP/PA: a ANPD aplica sanções após procedimento ADMINISTRATIVO (art. 52, § 1º), e não judicial!"
+  },
+  {
+    id: "leg-61",
+    topico: "Asserção-Razão — LGPD no Poder Público (Estilo CETAP)",
+    materialSecao: "leg-lgpd",
+    enunciado: "Analise as duas asserções a seguir e a relação proposta entre elas, com base na Lei nº 13.709/2018 (LGPD):\n\nI. Os órgãos e entidades da Administração Pública direta, como a ALEPA, podem tratar dados pessoais independentemente de consentimento do titular quando necessário para o cumprimento de obrigação legal ou execução de políticas públicas, estando sujeitos a sanções administrativas da ANPD como advertência e publicização da infração, mas NÃO a multas pecuniárias.\n\n**PORQUE**\n\nII. O tratamento de dados pessoais pelas pessoas jurídicas de direito público deve ser realizado para o atendimento de sua finalidade pública, na persecução do interesse público, com o objetivo de executar as competências legais ou cumprir as atribuições legais do serviço público, ressalvando-se no art. 52, § 3º, a inaplicabilidade de multas simples e diárias ao Poder Público.\n\nA respeito dessas asserções, assinale a alternativa CORRETA:",
+    alternativas: [
+      "As asserções I e II são proposições verdadeiras, e a II é uma justificativa correta da I.",
+      "As asserções I e II são proposições verdadeiras, mas a II não é uma justificativa da I.",
+      "A asserção I é uma proposição verdadeira, e a II é uma proposição falsa.",
+      "A asserção I é uma proposição falsa, e a II é uma proposição verdadeira.",
+      "As asserções I e II são proposições falsas."
+    ],
+    correta: 0,
+    explicacao: "Formato Asserção-Razão (PORQUE) característico da Fundação CETAP! Ambas as asserções são verdadeiras (arts. 7º, II/III, 23 e 52, § 3º da LGPD) e a II apresenta o fundamento legal exato da I."
+  },
+  {
+    id: "leg-62",
+    topico: "Asserção-Razão — Improbidade Administrativa e Dolo (Estilo CETAP)",
+    materialSecao: "leg-improbidade",
+    enunciado: "Analise as duas asserções a seguir e a relação proposta entre elas, à luz da Lei nº 8.429/1992 (atualizada pela Lei nº 14.230/2021):\n\nI. A Lei nº 14.230/2021 suprimiu a modalidade culposa de improbidade administrativa, exigindo a comprovação de dolo específico (vontade livre e consciente de alcançar o resultado ilícito tipificado nos arts. 9º, 10 e 11).\n\n**PORTANTO**\n\nII. A divergência interpretativa da lei, baseada em jurisprudência ainda que não pacificada, e o mero exercício regular da função sem comprovação de ato doloso com fim ilícito NÃO configuram ato de improbidade administrativa.\n\nA respeito dessas asserções, assinale a alternativa CORRETA:",
+    alternativas: [
+      "As asserções I e II são proposições verdadeiras, e a II é uma consequência lógica correta da I.",
+      "As asserções I e II são proposições verdadeiras, mas a II não decorre logicamente da I.",
+      "A asserção I é uma proposição verdadeira, e a II é uma proposição falsa.",
+      "A asserção I é uma proposição falsa, e a II é uma proposição verdadeira.",
+      "As asserções I e II são proposições falsas."
+    ],
+    correta: 0,
+    explicacao: "Formato Asserção-Razão (PORTANTO) típico da CETAP! Ambas as proposições são verdadeiras (art. 1º, §§ 1º, 2º, 3º e 8º da Lei 8.429/92) e a II decorre diretamente do novo regime exclusivamente doloso descrito em I."
+  },
+  {
+    id: "leg-63",
+    topico: "Asserção-Razão — Emenda à Constituição do Estado do Pará (Art. 103)",
+    materialSecao: "leg-cepa",
+    enunciado: "Analise as duas asserções a seguir e a relação proposta entre elas, com base na Constituição do Estado do Pará:\n\nI. A proposta de Emenda à Constituição do Estado do Pará (art. 103) deve ser discutida e votada em dois turnos, considerando-se aprovada se obtiver, em ambos, três quintos dos votos dos membros da Assembleia Legislativa.\n\n**PORQUE**\n\nII. Após a aprovação em dois turnos pela Assembleia Legislativa, a Emenda Constitucional estadual precisa ser obrigatoriamente enviada ao Governador do Estado para sanção ou veto no prazo de quinze dias úteis.\n\nA respeito dessas asserções, assinale a alternativa CORRETA:",
+    alternativas: [
+      "As asserções I e II são proposições verdadeiras, e a II é uma justificativa correta da I.",
+      "As asserções I e II são proposições verdadeiras, mas a II não é uma justificativa da I.",
+      "A asserção I é uma proposição verdadeira, e a II é uma proposição falsa.",
+      "A asserção I é uma proposição falsa, e a II é uma proposição verdadeira.",
+      "As asserções I e II são proposições falsas."
+    ],
+    correta: 2,
+    explicacao: "Pegadinha clássica em formato Asserção-Razão da CETAP! A asserção I é VERDADEIRA (art. 103, § 2º, CE/PA: 2 turnos, 3/5 dos votos). Já a asserção II é FALSA: Emenda Constitucional NÃO vai a sanção ou veto do Governador; ela é promulgada diretamente pela Mesa da Assembleia Legislativa!"
+  },
+  {
+    id: "leg-64",
+    topico: "Regimento Interno ALEPA (Res. nº 02/2022) — Organização e Quóruns",
+    materialSecao: "leg-regimento",
+    enunciado: "Considerando a Resolução nº 02/2022 (Regimento Interno da ALEPA) e a Constituição do Estado do Pará, analise as afirmativas:\nI. A Assembleia Legislativa do Estado do Pará é composta por 41 Deputados Estaduais, sendo a maioria absoluta equivalente a 21 votos e três quintos equivalentes a 25 votos.\nII. A Mesa Diretora da ALEPA possui mandato de dois anos, vedada a recondução para o mesmo cargo na eleição imediatamente subsequente dentro da mesma legislatura (conforme parâmetro constitucional aplicável).\nIII. A Comissão de Constituição, Justiça e Redação Final (CCJ) analisa a constitucionalidade, juridicidade e técnica legislativa das proposições, enquanto a Comissão de Fiscalização Financeira e Orçamentária (CCFO) analisa matérias financeiras e orçamentárias (PPA, LDO e LOA).\nIV. O interstício regimental é o prazo máximo que o Governador dispõe para sancionar ou vetar projetos de lei aprovados pela Casa.\nEstão CORRETAS apenas as afirmativas:",
+    alternativas: [
+      "I e II.",
+      "I, II e III.",
+      "II e IV.",
+      "I, III e IV.",
+      "I, II, III e IV."
+    ],
+    correta: 1,
+    explicacao: "Apenas I, II e III estão corretas! Em IV há troca de conceitos típica da CETAP: interstício é o intervalo de tempo entre dois atos/fases do processo legislativo (ex.: entre turnos de votação), e não o prazo de sanção ou veto do Governador."
+  },
+  {
+    id: "leg-65",
+    topico: "Normas Internas ALEPA (Retif. 002/2026) e LC nº 95/1998",
+    materialSecao: "leg-normas-alepa",
+    enunciado: "Acerca da Lei Complementar Federal nº 95/1998 e das normas internas da ALEPA constantes do Anexo II (com a Retificação nº 002/2026), assinale a única alternativa INCORRETA:",
+    alternativas: [
+      "O Edital de Retificação nº 002/2026 corrigiu referência do conteúdo programático para indicar a Resolução nº 18/1989 (em substituição à grafia equivocada '18/2026').",
+      "Segundo a LC nº 95/1998, a lei é estruturada em três partes básicas: parte preliminar, parte normativa e parte final.",
+      "Nos termos do art. 9º da LC nº 95/1998, a cláusula de revogação deverá enumerar, expressamente, as leis ou disposições legais revogadas, evitando-se a cláusula genérica 'revogam-se as disposições em contrário'.",
+      "Na técnica legislativa da LC nº 95/1998, o primeiro artigo do texto legal indicará o objeto da lei e o respectivo âmbito de aplicação.",
+      "Segundo a LC nº 95/1998, é vedada a utilização de parágrafos, incisos e alíneas nos decretos legislativos e resoluções das Assembleias Legislativas."
+    ],
+    correta: 4,
+    explicacao: "A letra E está INCORRETA! A articulação em artigos, parágrafos (§), incisos (algarismos romanos) e alíneas (letras minúsculas) é a estrutura padrão dos atos normativos prevista no art. 10 da LC nº 95/1998, plenamente aplicável a leis, decretos legislativos e resoluções."
   }
 ];

@@ -97,6 +97,12 @@ window.MATERIAL_APOIO.legislacao = {
           <li><strong>Programa de Integridade (Compliance):</strong> conjunto de mecanismos internos de integridade, auditoria, canal de denúncias e código de ética; sua existência efetiva serve como <strong>fator de redução (atenuante) da multa</strong> (até 5% no cálculo do Decreto 11.129/2022).</li>
           <li><strong>Prescrição (Art. 25):</strong> <strong>5 anos</strong> contados da data da ciência da infração (ou do dia em que cessou, se permanente/continuada).</li>
         </ul>
+        <div class="quadro-atencao">
+          <strong class="quadro-titulo">Pontos Cirúrgicos Cobrados pela CETAP (IGEPPS e SEOP/PA)</strong>
+          • <strong>Abrangência (Art. 1º, par. único):</strong> sociedades empresárias e simples, fundações, associações e sociedades estrangeiras com sede, filial ou representação no Brasil (ainda que temporariamente).<br>
+          • <strong>CNEP (Art. 22):</strong> Cadastro Nacional de Empresas Punidas, criado no Executivo federal, reúne sanções dos 3 Poderes de todas as esferas e <strong>CONTA COM razão social e CNPJ</strong> da PJ punida + datas de início/fim do impedimento.<br>
+          • <strong>Decreto nº 11.129/2022 — Art. 32:</strong> Acordo de Leniência visa à responsabilização de <strong>pessoas jurídicas</strong> (NÃO "pessoas físicas e jurídicas"!). <strong>Art. 56 (Programa de Integridade):</strong> objetivos = prevenir/detectar/sanar desvios contra a Adm. Pública e fomentar cultura de integridade.
+        </div>
       `
     },
     {
@@ -124,6 +130,7 @@ window.MATERIAL_APOIO.legislacao = {
           <li><strong>Legitimidade Ativa:</strong> Ministério Público (e também a Pessoa Jurídica interessada, conforme decisão do STF nas ADIs 7042 e 7043).</li>
           <li><strong>ANPC (Acordo de Não Persecução Civil):</strong> expressamente permitido (art. 17-B), exigindo ressarcimento integral do dano e reversão da vantagem indevida.</li>
           <li><strong>Nepotismo (Art. 11, XI):</strong> nomear cônjuge, companheiro ou parente até o <strong>3º grau</strong> em cargo em comissão/função de confiança configura improbidade contra os princípios (salvo cargos políticos, nos termos da jurisprudência/lei).</li>
+          <li><strong>Art. 1º, § 3º e Art. 19 (Clássicos CETAP):</strong> o mero exercício da função sem comprovação de ato doloso com fim ilícito afasta a improbidade. Constitui <strong>crime</strong> (detenção de 6 a 10 meses + multa) a representação por improbidade sabendo inocente o denunciado, sujeitando o denunciante a indenizar por danos <strong>materiais, morais e à imagem</strong>!</li>
         </ul>
       `
     },

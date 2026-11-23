@@ -45,8 +45,8 @@
       });
     })();
   </script>
-  <link rel="stylesheet" href="css/styles.css?v=20261122-dark" />
-  <link rel="stylesheet" href="css/material.css?v=20261122-dark" />
+  <link rel="stylesheet" href="css/styles.css?v=20261123-banco" />
+  <link rel="stylesheet" href="css/material.css?v=20261123-banco" />
 </head>
 <body>
   <!-- Cabeçalho Institucional (Estilo Caderno de Prova / Plataforma Acadêmica) -->
@@ -93,6 +93,9 @@
           </button>
           <button type="button" class="mode-btn" data-mode="rapido" role="tab" aria-selected="false">
             ⚡ Questões Rápidas
+          </button>
+          <button type="button" class="mode-btn" data-mode="banco" role="tab" aria-selected="false">
+            📚 Consultar Banco
           </button>
         </div>
         <div id="quick-qty-selector" class="quick-qty-selector hidden" aria-label="Quantidade por disciplina no Modo Rápido">
@@ -152,6 +155,8 @@
   <!-- Área Principal + Painel Lateral Colapsável à Direita -->
   <div id="workspace" class="workspace">
     <main class="exam-main" id="exam-main">
+      <!-- Vista 1: Simulado / Modo Questões Rápidas -->
+      <div id="exam-view">
       <!-- Aviso sobre a composição do simulado ativo -->
       <div class="edital-notice" id="edital-notice" role="note">
         <span id="edital-notice-text">
@@ -217,6 +222,69 @@
         <button id="btn-finish-bottom" class="btn btn-primary" type="button">Finalizar Prova e Ver Nota</button>
         <button id="btn-top" class="btn btn-outline" type="button">↑ Voltar ao Cartão-Resposta</button>
       </footer>
+      </div><!-- /#exam-view -->
+
+      <!-- Vista 2: Consultar Banco de Questões -->
+      <section id="bank-explorer" class="bank-explorer hidden" aria-label="Consultar Banco de Questões">
+        <div class="bank-explorer-header">
+          <div>
+            <span class="bank-kicker">CONSULTA INTEGRAL AO BANCO DE QUESTÕES</span>
+            <h2 id="bank-explorer-title">Banco de Questões — Assistência Administrativa</h2>
+            <p id="bank-explorer-subtitle" class="text-muted-inline">
+              Pesquise por palavra-chave, filtre por disciplina ou seção da apostila e pratique ou revise os gabaritos comentados.
+            </p>
+          </div>
+          <button id="btn-bank-back" class="btn btn-secondary" type="button">← Voltar ao Simulado</button>
+        </div>
+
+        <div class="bank-filters-panel">
+          <div class="bank-filter-row">
+            <div class="bank-field">
+              <label for="bank-filter-disc">Disciplina</label>
+              <select id="bank-filter-disc">
+                <option value="all">Todas as disciplinas</option>
+                <option value="portugues">Língua Portuguesa</option>
+                <option value="legislacao">Legislação e Ética no Serviço Público</option>
+                <option value="informatica">Noções de Informática</option>
+                <option value="raciocinio">Raciocínio Lógico</option>
+                <option value="especificos">Conhecimentos Específicos</option>
+              </select>
+            </div>
+            <div class="bank-field">
+              <label for="bank-filter-sec">Seção da Apostila / Assunto</label>
+              <select id="bank-filter-sec">
+                <option value="all">Todas as seções</option>
+              </select>
+            </div>
+            <div class="bank-field bank-field-search">
+              <label for="bank-search-input">Buscar palavra-chave ou código</label>
+              <input type="search" id="bank-search-input" placeholder="Ex.: crase, CNEP, 14.133, MRPR, LEC, Ishikawa, 5.810..." />
+            </div>
+          </div>
+
+          <div class="bank-filter-footer">
+            <label class="toggle-control" for="bank-show-answers">
+              <input type="checkbox" id="bank-show-answers" />
+              <span class="toggle-track" aria-hidden="true">
+                <span class="toggle-thumb"></span>
+              </span>
+              <span class="toggle-text">Exibir todos os gabaritos e comentários</span>
+            </label>
+
+            <div class="bank-filter-meta">
+              <span id="bank-results-count" class="bank-results-count">0 questões encontradas</span>
+              <button id="btn-bank-clear-filters" class="btn btn-sm btn-ghost" type="button">Limpar filtros</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="bank-questions-list" class="questions-container"></div>
+
+        <div id="bank-pagination" class="bank-pagination hidden">
+          <button id="btn-bank-load-more" class="btn btn-secondary" type="button">Carregar mais questões</button>
+          <button id="btn-bank-load-all" class="btn btn-outline" type="button">Mostrar todas</button>
+        </div>
+      </section>
     </main>
 
     <!-- Painel Lateral Direito Colapsável — Material de Consulta -->
@@ -304,22 +372,22 @@
   </div>
 
   <!-- Bancos de Questões (separados por disciplina e por cargo, compatível com file:// e GitHub Pages) -->
-  <script src="js/banco/questoes_portugues.js"></script>
-  <script src="js/banco/questoes_legislacao.js"></script>
-  <script src="js/banco/questoes_informatica.js"></script>
-  <script src="js/banco/questoes_raciocinio.js"></script>
-  <script src="js/banco/questoes_especificos.js"></script>
-  <script src="js/banco/questoes_especificos_manutencao.js"></script>
+  <script src="js/banco/questoes_portugues.js?v=20261123-banco"></script>
+  <script src="js/banco/questoes_legislacao.js?v=20261123-banco"></script>
+  <script src="js/banco/questoes_informatica.js?v=20261123-banco"></script>
+  <script src="js/banco/questoes_raciocinio.js?v=20261123-banco"></script>
+  <script src="js/banco/questoes_especificos.js?v=20261123-banco"></script>
+  <script src="js/banco/questoes_especificos_manutencao.js?v=20261123-banco"></script>
 
   <!-- Material de Consulta (separado por disciplina e por cargo) -->
-  <script src="js/material/material_portugues.js"></script>
-  <script src="js/material/material_legislacao.js"></script>
-  <script src="js/material/material_informatica.js"></script>
-  <script src="js/material/material_raciocinio.js"></script>
-  <script src="js/material/material_especificos.js"></script>
-  <script src="js/material/material_especificos_manutencao.js"></script>
+  <script src="js/material/material_portugues.js?v=20261123-banco"></script>
+  <script src="js/material/material_legislacao.js?v=20261123-banco"></script>
+  <script src="js/material/material_informatica.js?v=20261123-banco"></script>
+  <script src="js/material/material_raciocinio.js?v=20261123-banco"></script>
+  <script src="js/material/material_especificos.js?v=20261123-banco"></script>
+  <script src="js/material/material_especificos_manutencao.js?v=20261123-banco"></script>
 
   <!-- Motor do Simulado -->
-  <script src="js/app.js?v=20261122-dark"></script>
+  <script src="js/app.js?v=20261123-banco"></script>
 </body>
 </html>

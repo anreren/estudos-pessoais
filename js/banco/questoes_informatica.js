@@ -453,5 +453,128 @@ window.BANCO_QUESTOES.informatica = [
     ],
     correta: 1,
     explicacao: "Phishing utiliza engenharia social (senso de urgência, remetente falso e domínio fraudulento) para induzir a vítima a revelar senhas ou dados sensíveis. Nunca se deve clicar no link nem fornecer senhas por e-mail!"
+  },
+  {
+    id: "info-31",
+    topico: "Microsoft Word 365 — Proteção com Senha e Referência Cruzada",
+    materialSecao: "info-office",
+    enunciado: "No Microsoft Word (Microsoft 365), um Assistente Administrativo precisa proteger um relatório sigiloso com senha de abertura para impedir acesso não autorizado. Qual é o caminho CORRETO nas guias do Word para criptografar o documento com senha?",
+    alternativas: [
+      "Guia 'Exibir' → 'Esquema de Impressão' → 'Proteger Documento' → 'Com senha'.",
+      "Guia 'Arquivo' → 'Informações' → 'Proteger Documento' → 'Criptografar com senha', inserir a senha e salvar o documento.",
+      "Guia 'Revisão' → 'Controlar Alterações' → 'Bloquear Impressão'.",
+      "Guia 'Inserir' → 'Referência Cruzada' → 'Criptografar Texto'.",
+      "Guia 'Layout' → 'Margens' → 'Restringir Abertura'."
+    ],
+    correta: 1,
+    explicacao: "Questão prática clássica da CETAP (IGEPPS/PA)! No Microsoft Word (2013 a O365), a criptografia com senha de abertura fica em: Arquivo → Informações → Proteger Documento → Criptografar com senha. (Já a Referência Cruzada fica na guia Inserir → Referência Cruzada)."
+  },
+  {
+    id: "info-32",
+    topico: "Microsoft Word 365 — Mala Direta (Campo de Mesclagem)",
+    materialSecao: "info-office",
+    enunciado: "Na guia 'Correspondências' do Microsoft Word (Microsoft 365), qual é a finalidade exata da funcionalidade **\"Inserir Campo de Mesclagem\"** durante a preparação de ofícios padronizados?",
+    alternativas: [
+      "Criar automaticamente uma tabela vazia para digitação manual dos destinatários.",
+      "Inserir um novo registro diretamente dentro da planilha-fonte do Excel.",
+      "Inserir, no corpo do documento principal, marcadores dinâmicos que serão preenchidos com informações personalizadas provenientes da fonte de dados (como nome, cargo e endereço).",
+      "Criptografar o cabeçalho do documento oficial com certificado digital.",
+      "Converter o documento do formato `.docx` para `.odt`."
+    ],
+    correta: 2,
+    explicacao: "Padrão IGEPPS/PA (CETAP)! Na Mala Direta (guia Correspondências), 'Inserir Campo de Mesclagem' coloca os campos dinâmicos (ex.: `«Nome»`, `«Cargo»`) que puxam automaticamente os dados de cada linha da fonte de dados."
+  },
+  {
+    id: "info-33",
+    topico: "Excel e Calc — Funções ÍNDICE e MODA",
+    materialSecao: "info-office",
+    enunciado: "No Microsoft Excel (2013 a O365), quais funções permitem, respectivamente, (1) retornar o valor mais frequente (mais comum) em um conjunto de dados numéricos e (2) retornar o valor de um elemento em uma tabela ou matriz a partir dos índices de número de linha e coluna?",
+    alternativas: [
+      "`=MEDIANA()` e `=CONT.NÚM()`.",
+      "`=MODA()` (ou `=MODO.ÚNICO()`) e `=ÍNDICE()`.",
+      "`=MÉDIA()` e `=CORRESP()`.",
+      "`=DESVPAD()` e `=SOMASE()`.",
+      "`=MAIOR()` e `=PROCX()`."
+    ],
+    correta: 1,
+    explicacao: "Cobrado em sequência na prova real da CETAP (IGEPPS Q35 e Q36)! `MODA` (ou `MODO.ÚNICO`) retorna o valor mais frequente de uma amostra; `ÍNDICE` retorna o conteúdo de uma célula em uma matriz dados os números de linha e coluna (enquanto `CORRESP` retorna a posição relativa de um item)."
+  },
+  {
+    id: "info-34",
+    topico: "LibreOffice Calc / Excel — Funções de Texto (ESQUERDA e PROCURAR)",
+    materialSecao: "info-office",
+    contexto: "Em uma planilha do LibreOffice Calc (ou Microsoft Excel), a célula `A4` contém o texto exato:\n`Joaquim Martins de Oliveira`",
+    enunciado: "Se na célula `B4` for digitada a fórmula `=ESQUERDA(A4; PROCURAR(\" \"; A4; 1)-1)`, qual será o resultado exibido em `B4`?",
+    alternativas: [
+      "`Joaquim`",
+      "`Joaqui`",
+      "`7`",
+      "`8`",
+      "`Oliveira`"
+    ],
+    correta: 0,
+    explicacao: "Questão autêntica da CETAP (SEOP/PA Q26)! Passo a passo: `PROCURAR(\" \"; A4; 1)` encontra a posição do primeiro espaço em `'Joaquim Martins de Oliveira'`, que é a posição 8 (J=1, o=2, a=3, q=4, u=5, i=6, m=7, espaço=8). Subtraindo 1 → `8 - 1 = 7`. Logo `=ESQUERDA(A4; 7)` extrai exatamente os 7 primeiros caracteres: `'Joaquim'`!"
+  },
+  {
+    id: "info-35",
+    topico: "LibreOffice Calc / Excel — Precedência de Operadores",
+    materialSecao: "info-office",
+    contexto: "Em uma planilha do LibreOffice Calc (ou Excel), a célula `C2` armazena a altura de um servidor em metros (`1,74`) e a célula `D2` armazena o peso em quilogramas (`80,00`). O IMC (Índice de Massa Corporal) é calculado dividindo o peso pelo quadrado da altura: `IMC = Peso / Altura²`.",
+    enunciado: "Assinale a ÚNICA fórmula abaixo cuja sintaxe NÃO produzirá o valor correto do IMC devido à ordem de precedência dos operadores:",
+    alternativas: [
+      "`=D2/POTÊNCIA(C2;2)`",
+      "`=(D2/C2)/C2`",
+      "`=D2/C2*C2`",
+      "`=D2/(C2*C2)`",
+      "`=D2/(C2^2)`"
+    ],
+    correta: 2,
+    explicacao: "Clássico da CETAP (SEOP/PA Q30)! Divisão (`/`) e multiplicação (`*`) têm a MESMA precedência e são avaliadas da esquerda para a direita. Assim, `=D2/C2*C2` calcula `(D2 / C2) * C2`, resultando no próprio `D2` (`80,00`), e NÃO em `D2 / C2²`! Todas as demais calculam corretamente `80 / 1,74²`."
+  },
+  {
+    id: "info-36",
+    topico: "LibreOffice Writer — Fórmulas em Tabelas Nativas",
+    materialSecao: "info-office",
+    contexto: "No LibreOffice Writer 7+, foi criada uma tabela nativa com a coluna A ('Nome') e a coluna B ('Idade'), da linha 1 (cabeçalho) até a linha 5, contendo em `B2:B5` os valores: `14`, `16`, `15` e `17`.",
+    enunciado: "Sabendo que tabelas nativas do LibreOffice Writer suportam funções básicas de estatística, qual resultado numérico será exibido na célula `B6` ao inserir a fórmula `=sum <B2:B5> / count <B2:B5>`?",
+    alternativas: [
+      "4",
+      "62",
+      "15",
+      "15,5",
+      "16"
+    ],
+    correta: 3,
+    explicacao: "Questão real da CETAP (SEOP/PA Q24 e Q28)! No LibreOffice Writer, `sum <B2:B5>` soma `14 + 16 + 15 + 17 = 62`, e `count <B2:B5>` conta os 4 valores numéricos (`4`). Dividindo: `62 / 4 = 15,5` (média aritmética)."
+  },
+  {
+    id: "info-37",
+    topico: "Windows 10/11 e Navegador Microsoft Edge",
+    materialSecao: "info-so-hardware",
+    enunciado: "Acerca de recursos do Windows 10/11 e do navegador Microsoft Edge, analise as afirmativas abaixo:\nI. O recurso 'Acesso Rápido' no Explorador de Arquivos permite acessar de forma prática pastas frequentes e arquivos utilizados recentemente.\nII. A Microsoft substituiu o antigo Internet Explorer pelo Microsoft Edge como navegador padrão nas versões atuais do Windows.\nIII. O Microsoft Edge conta com o recurso 'Coleções', que permite organizar, salvar e agrupar abas e links de pesquisa de diferentes sites para consulta posterior.\nIV. Foi apenas com o Microsoft Edge que a Microsoft introduziu pela primeira vez a navegação por abas (o Internet Explorer nunca teve abas).\nEstão CORRETAS apenas:",
+    alternativas: [
+      "I e II.",
+      "I, II e III.",
+      "II e IV.",
+      "I e III.",
+      "I, II, III e IV."
+    ],
+    correta: 1,
+    explicacao: "Inspirada diretamente em SEOP/PA (Q22 e Q25)! I, II e III são verdadeiras. IV é falsa porque o Internet Explorer já possuía navegação por abas desde a versão IE 7 (lançada em 2006)!"
+  },
+  {
+    id: "info-38",
+    topico: "Computação em Nuvem — IaaS, PaaS e SaaS",
+    materialSecao: "info-colaboracao-nuvem",
+    enunciado: "No contexto de serviços de computação em nuvem utilizados em órgãos públicos, qual alternativa descreve CORRETAMENTE o modelo **Infraestrutura como Serviço (IaaS)**?",
+    alternativas: [
+      "Modelo que disponibiliza aplicativos prontos para uso final diretamente pelo navegador web (como e-mail web ou Google Docs), sem controle sobre servidores.",
+      "Modelo que fornece apenas plataforma gerenciada para desenvolvedores compilarem e testarem código-fonte sem gerenciar servidores.",
+      "Modelo que permite a criação, o provisionamento e a gestão de recursos computacionais virtuais sob demanda — como servidores virtuais, armazenamento e redes — com escalabilidade e controle sobre a infraestrutura.",
+      "Ferramenta exclusiva de antivírus instalada localmente no disco rígido do computador.",
+      "Protocolo de transferência de correio eletrônico entre servidores corporativos."
+    ],
+    correta: 2,
+    explicacao: "Padrão SEOP/PA (Q27)! IaaS (Infrastructure as a Service) fornece infraestrutura virtualizada (VMs, redes, storage) com alto controle e escalabilidade. (PaaS = plataforma para desenvolvedores — letra B; SaaS = software pronto para o usuário final — letra A)."
   }
 ];

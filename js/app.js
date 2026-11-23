@@ -74,7 +74,17 @@
     drawerOpen: false,
     drawerWide: false,
     activeMatDisc: "portugues",
-    matSearchTerm: ""
+    matSearchTerm: "",
+
+    // Consultar Banco de Questões
+    bankExplorerOpen: false,
+    bankFilterDisc: "all",
+    bankFilterSec: "all",
+    bankSearch: "",
+    bankShowAllAnswers: false,
+    bankLimit: 20,
+    bankPracticeAnswers: {},
+    bankRevealedIds: new Set()
   };
 
   /* ========================================================================
@@ -119,6 +129,23 @@
     resultPanel: document.getElementById("result-panel"),
     questionsContainer: document.getElementById("questions-container"),
     filterPills: document.querySelectorAll(".filter-pill"),
+
+    // Vista do Simulado x Consultar Banco de Questões
+    examView: document.getElementById("exam-view"),
+    bankExplorer: document.getElementById("bank-explorer"),
+    bankExplorerTitle: document.getElementById("bank-explorer-title"),
+    bankExplorerSubtitle: document.getElementById("bank-explorer-subtitle"),
+    btnBankBack: document.getElementById("btn-bank-back"),
+    bankFilterDisc: document.getElementById("bank-filter-disc"),
+    bankFilterSec: document.getElementById("bank-filter-sec"),
+    bankSearchInput: document.getElementById("bank-search-input"),
+    bankShowAnswers: document.getElementById("bank-show-answers"),
+    bankResultsCount: document.getElementById("bank-results-count"),
+    btnBankClearFilters: document.getElementById("btn-bank-clear-filters"),
+    bankQuestionsList: document.getElementById("bank-questions-list"),
+    bankPagination: document.getElementById("bank-pagination"),
+    btnBankLoadMore: document.getElementById("btn-bank-load-more"),
+    btnBankLoadAll: document.getElementById("btn-bank-load-all"),
 
     // Drawer Material e Tema
     btnToggleTheme: document.getElementById("btn-toggle-theme"),
@@ -261,12 +288,14 @@
     });
 
     el.modeBtns.forEach((btn) => {
-      const active = btn.dataset.mode === state.examMode;
+      const active = state.bankExplorerOpen
+        ? btn.dataset.mode === "banco"
+        : btn.dataset.mode === state.examMode;
       btn.classList.toggle("active", active);
       btn.setAttribute("aria-selected", String(active));
     });
 
-    el.quickQtySelector.classList.toggle("hidden", !quick);
+    el.quickQtySelector.classList.toggle("hidden", !quick || state.bankExplorerOpen);
     el.qtyBtns.forEach((btn) => {
       btn.classList.toggle("active", Number(btn.dataset.qty) === state.quickPerDisc);
     });
@@ -314,8 +343,23 @@
   }
 
   function switchExamMode(newMode) {
+    if (newMode === "banco") {
+      openBankExplorer();
+      return;
+    }
     if (newMode !== "completo" && newMode !== "rapido") return;
-    if (newMode === state.examMode) return;
+
+    const wasBankOpen = state.bankExplorerOpen;
+    if (wasBankOpen) {
+      closeBankExplorer(false);
+    }
+
+    if (newMode === state.examMode) {
+      if (wasBankOpen) {
+        updateCargoAndModeHeaderUI();
+      }
+      return;
+    }
     state.examMode = newMode;
     state.simuladoNumero = 1;
     rebuildExamForCurrentSettings(newMode === "rapido");
@@ -344,7 +388,7 @@
     renderAnswerCard();
     renderQuestions();
 
-    if (isQuickMode()) {
+    if (isQuickMode() && !state.bankExplorerOpen) {
       if (autoOpenMaterialOnDesktop && window.innerWidth > 1080) {
         setDrawerOpen(true);
       }
@@ -352,6 +396,13 @@
     } else {
       state.highlightedMatSec = null;
       renderMaterialContent();
+    }
+
+    if (state.bankExplorerOpen) {
+      state.bankFilterSec = "all";
+      state.bankLimit = 20;
+      populateBankSectionFilter();
+      renderBankExplorer();
     }
 
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -1518,6 +1569,252 @@
   }
 
   /* ========================================================================
+     CONSULTAR BANCO DE QUESTÕES (EXPLORADOR FILTRÁVEL POR CARGO)
+     ======================================================================== */
+  function getCargoBankQuestions() {
+    const banco = window.BANCO_QUESTOES || {};
+    const cargo = getCurrentCargo();
+    const list = [];
+
+    DISCIPLINAS.forEach((disc) => {
+      const bankKey = resolveBankKey(disc.key);
+      const pool = banco[bankKey] || [];
+      const discLabel =
+        disc.key === "especificos"
+          ? `${disc.nome} (${cargo.nomeCurto})`
+          : disc.nome;
+
+      pool.forEach((q) => {
+        list.push({
+          ...q,
+          disciplinaKey: disc.key,
+          disciplinaNome: discLabel,
+          secaoTitulo: getMaterialSectionTitle(disc.key, q.materialSecao)
+        });
+      });
+    });
+
+    return list;
+  }
+
+  function populateBankSectionFilter() {
+    const discKey = state.bankFilterDisc;
+    const options = ['<option value="all">Todas as seções</option>'];
+
+    const discsToList =
+      discKey === "all" ? DISCIPLINAS : DISCIPLINAS.filter((d) => d.key === discKey);
+
+    discsToList.forEach((d) => {
+      const mat = window.MATERIAL_APOIO && window.MATERIAL_APOIO[resolveMaterialKey(d.key)];
+      if (!mat || !Array.isArray(mat.secoes)) return;
+      mat.secoes.forEach((sec) => {
+        const prefix = discKey === "all" ? `[${d.nome.split(" ")[0]}] ` : "";
+        options.push(`<option value="${sec.id}">${escapeHtml(prefix + sec.titulo)}</option>`);
+      });
+    });
+
+    el.bankFilterSec.innerHTML = options.join("");
+    // Restaura seleção se ainda existir
+    const exists = Array.from(el.bankFilterSec.options).some((o) => o.value === state.bankFilterSec);
+    if (!exists) state.bankFilterSec = "all";
+    el.bankFilterSec.value = state.bankFilterSec;
+  }
+
+  function openBankExplorer() {
+    state.bankExplorerOpen = true;
+    el.examView.classList.add("hidden");
+    el.bankExplorer.classList.remove("hidden");
+    updateCargoAndModeHeaderUI();
+    populateBankSectionFilter();
+    renderBankExplorer();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function closeBankExplorer(scrollTop = true) {
+    state.bankExplorerOpen = false;
+    el.bankExplorer.classList.add("hidden");
+    el.examView.classList.remove("hidden");
+    updateCargoAndModeHeaderUI();
+    if (scrollTop) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }
+
+  function renderBankExplorer() {
+    const cargo = getCurrentCargo();
+    const allItems = getCargoBankQuestions();
+
+    el.bankExplorerTitle.textContent = `Banco de Questões — ${cargo.codigo}: ${cargo.nomeCurto}`;
+    el.bankExplorerSubtitle.textContent = `Consulte todas as ${allItems.length} questões disponíveis para ${cargo.nomeCurto} (sem mistura com outros cargos). Clique nas alternativas para praticar ou ative os gabaritos comentados.`;
+
+    const query = state.bankSearch.trim().toLowerCase();
+    const filtered = allItems.filter((q) => {
+      if (state.bankFilterDisc !== "all" && q.disciplinaKey !== state.bankFilterDisc) return false;
+      if (state.bankFilterSec !== "all" && q.materialSecao !== state.bankFilterSec) return false;
+      if (query) {
+        const haystack = [
+          q.id,
+          q.disciplinaNome,
+          q.topico,
+          q.secaoTitulo,
+          q.contexto || "",
+          q.enunciado,
+          q.alternativas.join(" "),
+          q.explicacao
+        ]
+          .join(" ")
+          .toLowerCase();
+        if (!haystack.includes(query)) return false;
+      }
+      return true;
+    });
+
+    const visibleItems = filtered.slice(0, state.bankLimit);
+    el.bankResultsCount.textContent =
+      filtered.length === allItems.length
+        ? `Exibindo ${visibleItems.length} de ${filtered.length} questões`
+        : `${filtered.length} questão(ões) encontrada(s) (exibindo ${visibleItems.length})`;
+
+    if (filtered.length === 0) {
+      el.bankQuestionsList.innerHTML = `<div class="bank-empty">Nenhuma questão encontrada para os filtros informados. Tente limpar os filtros ou pesquisar por outro termo.</div>`;
+      el.bankPagination.classList.add("hidden");
+      return;
+    }
+
+    const fragment = document.createDocumentFragment();
+    visibleItems.forEach((q) => {
+      const chosen = state.bankPracticeAnswers[q.id];
+      const hasPractice = chosen !== undefined;
+      const revealed = state.bankShowAllAnswers || hasPractice || state.bankRevealedIds.has(q.id);
+
+      const card = document.createElement("article");
+      card.className = "question-card";
+
+      const contextHtml = q.contexto
+        ? `<div class="question-context">${formatInlineCode(q.contexto)}</div>`
+        : "";
+
+      const optionsHtml = q.alternativas
+        .map((alt, optIdx) => {
+          const inputId = `bank-${q.id}-opt-${optIdx}`;
+          let cls = "option-label";
+          if (revealed) {
+            if (optIdx === q.correta) cls += " is-correct";
+            else if (hasPractice && chosen === optIdx && optIdx !== q.correta) cls += " is-wrong";
+          } else if (hasPractice && chosen === optIdx) {
+            cls += " is-selected";
+          }
+          return `
+            <li>
+              <label class="${cls}" for="${inputId}" data-opt="${optIdx}">
+                <input type="radio" name="bank-${q.id}" id="${inputId}" value="${optIdx}" ${chosen === optIdx ? "checked" : ""} />
+                <span class="option-letter">${LETRAS[optIdx]})</span>
+                <span class="option-text">${formatInlineCode(alt)}</span>
+              </label>
+            </li>
+          `;
+        })
+        .join("");
+
+      let feedbackHtml = "";
+      if (revealed) {
+        let fbCls = "question-feedback";
+        let fbTitle = `Gabarito Oficial: Letra ${LETRAS[q.correta]}`;
+        if (hasPractice) {
+          if (chosen === q.correta) {
+            fbCls += " fb-correct";
+            fbTitle = `✔ Você acertou! (Gabarito: Letra ${LETRAS[q.correta]})`;
+          } else {
+            fbCls += " fb-wrong";
+            fbTitle = `✘ Você marcou ${LETRAS[chosen]} — Gabarito: Letra ${LETRAS[q.correta]}`;
+          }
+        }
+        feedbackHtml = `
+          <div class="${fbCls}">
+            <div class="feedback-head">
+              <strong>${fbTitle}</strong>
+              <button type="button" class="btn-link-material btn-bank-mat" data-disc="${q.disciplinaKey}" data-sec="${q.materialSecao || ""}">
+                📖 Ver no Material
+              </button>
+            </div>
+            <div>${formatInlineCode(q.explicacao)}</div>
+          </div>
+        `;
+      }
+
+      const toggleBtnLabel = revealed && !state.bankShowAllAnswers ? "Ocultar gabarito" : "Ver gabarito";
+
+      card.innerHTML = `
+        <div class="question-meta">
+          <div class="bank-q-badges">
+            <span class="bank-id-badge">${escapeHtml(q.id.toUpperCase())}</span>
+            <span class="bank-disc-badge">${escapeHtml(q.disciplinaNome)}</span>
+          </div>
+          <span class="question-topic-tag">${escapeHtml(q.topico)}</span>
+        </div>
+        ${contextHtml}
+        <p class="question-stem">${formatInlineCode(q.enunciado)}</p>
+        <ul class="options-list">${optionsHtml}</ul>
+        ${feedbackHtml}
+        <div class="bank-q-actions">
+          <span class="text-muted-inline" style="font-size:12px;">Seção na apostila: ${escapeHtml(q.secaoTitulo)}</span>
+          <div style="display:flex; gap:6px; flex-wrap:wrap;">
+            ${
+              !state.bankShowAllAnswers
+                ? `<button type="button" class="btn btn-sm btn-outline btn-bank-reveal">${toggleBtnLabel}</button>`
+                : ""
+            }
+            <button type="button" class="btn btn-sm btn-secondary btn-bank-mat" data-disc="${q.disciplinaKey}" data-sec="${q.materialSecao || ""}">
+              📖 Ver no Material
+            </button>
+          </div>
+        </div>
+      `;
+
+      // Marcar alternativa para praticar no banco
+      card.querySelectorAll(`input[name="bank-${q.id}"]`).forEach((radio) => {
+        radio.addEventListener("change", (ev) => {
+          state.bankPracticeAnswers[q.id] = Number(ev.target.value);
+          state.bankRevealedIds.add(q.id);
+          renderBankExplorer();
+        });
+      });
+
+      const revealBtn = card.querySelector(".btn-bank-reveal");
+      if (revealBtn) {
+        revealBtn.addEventListener("click", () => {
+          if (state.bankRevealedIds.has(q.id) || state.bankPracticeAnswers[q.id] !== undefined) {
+            state.bankRevealedIds.delete(q.id);
+            delete state.bankPracticeAnswers[q.id];
+          } else {
+            state.bankRevealedIds.add(q.id);
+          }
+          renderBankExplorer();
+        });
+      }
+
+      card.querySelectorAll(".btn-bank-mat").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          openMaterialAt(btn.dataset.disc, btn.dataset.sec);
+        });
+      });
+
+      fragment.appendChild(card);
+    });
+
+    el.bankQuestionsList.innerHTML = "";
+    el.bankQuestionsList.appendChild(fragment);
+
+    const hasMore = filtered.length > visibleItems.length;
+    el.bankPagination.classList.toggle("hidden", !hasMore);
+    if (hasMore) {
+      const remaining = filtered.length - visibleItems.length;
+      el.btnBankLoadMore.textContent = `Carregar mais ${Math.min(20, remaining)} questões`;
+      el.btnBankLoadAll.textContent = `Mostrar todas (${filtered.length})`;
+    }
+  }
+
+  /* ========================================================================
      TEMA CLARO / ESCURO (DELEGA PARA window.applySiteTheme EM index.html)
      ======================================================================== */
   function initTheme() {
@@ -1680,6 +1977,55 @@
       el.materialSearch.value = "";
       el.btnClearSearch.classList.add("hidden");
       renderMaterialContent();
+    });
+
+    // Consultar Banco de Questões
+    el.btnBankBack.addEventListener("click", () => closeBankExplorer(true));
+
+    el.bankFilterDisc.addEventListener("change", () => {
+      state.bankFilterDisc = el.bankFilterDisc.value;
+      state.bankFilterSec = "all";
+      state.bankLimit = 20;
+      populateBankSectionFilter();
+      renderBankExplorer();
+    });
+
+    el.bankFilterSec.addEventListener("change", () => {
+      state.bankFilterSec = el.bankFilterSec.value;
+      state.bankLimit = 20;
+      renderBankExplorer();
+    });
+
+    el.bankSearchInput.addEventListener("input", () => {
+      state.bankSearch = el.bankSearchInput.value;
+      state.bankLimit = 20;
+      renderBankExplorer();
+    });
+
+    el.bankShowAnswers.addEventListener("change", () => {
+      state.bankShowAllAnswers = el.bankShowAnswers.checked;
+      renderBankExplorer();
+    });
+
+    el.btnBankClearFilters.addEventListener("click", () => {
+      state.bankFilterDisc = "all";
+      state.bankFilterSec = "all";
+      state.bankSearch = "";
+      state.bankLimit = 20;
+      el.bankFilterDisc.value = "all";
+      el.bankSearchInput.value = "";
+      populateBankSectionFilter();
+      renderBankExplorer();
+    });
+
+    el.btnBankLoadMore.addEventListener("click", () => {
+      state.bankLimit += 20;
+      renderBankExplorer();
+    });
+
+    el.btnBankLoadAll.addEventListener("click", () => {
+      state.bankLimit = 9999;
+      renderBankExplorer();
     });
 
     // Tecla ESC fecha modais ou drawer

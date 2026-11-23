@@ -675,5 +675,125 @@ window.BANCO_QUESTOES.legislacao = [
     ],
     correta: 1,
     explicacao: "O vazamento de informação privilegiada para beneficiar terceiros viola frontalmente a ética pública, a impessoalidade, a moralidade, o sigilo funcional e configura ato de improbidade administrativa (art. 11, III, da Lei 8.429/92)."
+  },
+  {
+    id: "leg-46",
+    topico: "Improbidade Administrativa — Crime de Representação (Art. 19)",
+    materialSecao: "leg-improbidade",
+    enunciado: "Nos termos do art. 19 da Lei nº 8.429/1992 (Lei de Improbidade Administrativa), constitui crime a representação por ato de improbidade contra agente público ou terceiro beneficiário quando o autor da denúncia o sabe inocente (pena de detenção de 6 a 10 meses e multa). Além da sanção penal, o denunciante fica sujeito a:\nI. Indenizar o denunciado pelos danos materiais.\nII. Indenizar o denunciado pelos danos morais.\nIII. Indenizar o denunciado pelos danos à imagem que houver provocado.\nAssinale a alternativa CORRETA:",
+    alternativas: [
+      "Apenas o item I está correto.",
+      "Apenas o item II está correto.",
+      "Apenas os itens I e II estão corretos.",
+      "Apenas os itens II e III estão corretos.",
+      "Todos os itens (I, II e III) estão corretos."
+    ],
+    correta: 4,
+    explicacao: "Padrão literal da CETAP (IGEPPS/PA)! Conforme o art. 19, parágrafo único, da Lei nº 8.429/1992, além da sanção penal (detenção de 6 a 10 meses e multa), o denunciante está sujeito a indenizar o denunciado pelos danos MATERIAIS, MORAIS e À IMAGEM que houver provocado."
+  },
+  {
+    id: "leg-47",
+    topico: "Improbidade Administrativa — Mero Exercício da Função (Art. 1º)",
+    materialSecao: "leg-improbidade",
+    enunciado: "Sobre o sistema de responsabilização por atos de improbidade administrativa previsto na Lei nº 8.429/1992 (atualizada pela Lei nº 14.230/2021), analise as assertivas abaixo:\nI. O mero exercício da função ou desempenho de competências públicas, sem comprovação de ato doloso com fim ilícito, afasta a responsabilidade por ato de improbidade administrativa.\nII. O sistema de responsabilização por atos de improbidade tutelará a probidade na organização do Estado e no exercício de suas funções, como forma de assegurar a integridade do patrimônio público e social, nos termos da lei.\nAssinale a alternativa CORRETA:",
+    alternativas: [
+      "A assertiva I está errada e a II está correta.",
+      "A assertiva I está correta e a II está errada.",
+      "Ambas as assertivas (I e II) estão corretas.",
+      "Ambas as assertivas (I e II) estão erradas.",
+      "A assertiva I contraria o disposto no art. 1º da Lei nº 8.429/1992."
+    ],
+    correta: 2,
+    explicacao: "Baseada na questão real da CETAP (SEOP/PA)! Ambas reproduzem literalmente o art. 1º, caput e § 3º, da Lei nº 8.429/1992 (com a redação dada pela Lei nº 14.230/2021): sem comprovação de ato doloso com fim ilícito, o mero exercício da função afasta a improbidade."
+  },
+  {
+    id: "leg-48",
+    topico: "Lei Anticorrupção — Abrangência (Lei nº 12.846/2013)",
+    materialSecao: "leg-anticorrupcao",
+    enunciado: "Nos termos do art. 1º, parágrafo único, da Lei Federal nº 12.846/2013 (Lei Anticorrupção), que dispõe sobre a responsabilização objetiva administrativa e civil de pessoas jurídicas, aplica-se o disposto nessa Lei às:\nI. Sociedades empresárias.\nII. Sociedades simples.\nIII. Fundações.\nIV. Associações de entidades ou pessoas.\nV. Sociedades estrangeiras que tenham sede, filial ou representação no território brasileiro, constituídas de fato ou de direito, ainda que temporariamente.\nCompletam CORRETAMENTE o comando da questão:",
+    alternativas: [
+      "Apenas os itens I, II e IV.",
+      "Todos os itens (I, II, III, IV e V).",
+      "Apenas os itens I, II e III.",
+      "Apenas os itens II, III e IV.",
+      "Apenas os itens I, III e V."
+    ],
+    correta: 1,
+    explicacao: "Letra pura da lei cobrada pela CETAP (SEOP/PA)! O art. 1º, parágrafo único, da Lei nº 12.846/2013 abrange TODAS essas entidades — sociedades empresárias e simples (personificadas ou não), fundações, associações de entidades ou pessoas e sociedades estrangeiras com sede, filial ou representação no Brasil, mesmo temporariamente."
+  },
+  {
+    id: "leg-49",
+    topico: "Lei Anticorrupção — CNEP (Art. 22)",
+    materialSecao: "leg-anticorrupcao",
+    enunciado: "Sobre o Cadastro Nacional de Empresas Punidas (CNEP), instituído pelo art. 22 da Lei nº 12.846/2013, assinale a alternativa INCORRETA:",
+    alternativas: [
+      "Foi criado no âmbito do Poder Executivo federal.",
+      "Reunirá e dará publicidade às sanções aplicadas pelos órgãos ou entidades dos Poderes Executivo, Legislativo e Judiciário de todas as esferas de governo com base nessa Lei.",
+      "Os órgãos e entidades dos Poderes Executivo, Legislativo e Judiciário de todas as esferas de governo deverão informar e manter atualizados, no CNEP, os dados relativos às sanções aplicadas.",
+      "O CNEP conterá informações sobre as sanções aplicadas, porém SEM a razão social e SEM o número de inscrição no CNPJ da pessoa jurídica punida, por sigilo comercial.",
+      "A data de aplicação e a data final da vigência do efeito limitador ou impeditivo da sanção, quando for o caso, constarão no CNEP."
+    ],
+    correta: 3,
+    explicacao: "Pegadinha cirúrgica da CETAP (IGEPPS/PA)! Pelo art. 22, § 2º, I, da Lei nº 12.846/2013, o CNEP conterá obrigatoriamente a RAZÃO SOCIAL e o número de inscrição no CNPJ da pessoa jurídica punida (além do tipo de sanção e das datas de início e fim do efeito limitador)."
+  },
+  {
+    id: "leg-50",
+    topico: "Decreto nº 11.129/2022 — Programa de Integridade",
+    materialSecao: "leg-anticorrupcao",
+    enunciado: "De acordo com o art. 56 do Decreto Federal nº 11.129/2022, o Programa de Integridade consiste, no âmbito de uma pessoa jurídica, no conjunto de mecanismos e procedimentos internos de integridade, auditoria e incentivo à denúncia de irregularidades e na aplicação efetiva de códigos de ética e de conduta, políticas e diretrizes, com o objetivo de:\nI. Prevenir, detectar e sanar desvios, fraudes, irregularidades e atos ilícitos praticados contra a administração pública, nacional ou estrangeira.\nII. Fomentar e manter uma cultura de integridade no ambiente organizacional.\nIII. Substituir o Estado na punição de todos os tipos de irregularidades fiscais e administrativas no âmbito da Administração Pública estadual.\nEstá(ão) CORRETO(S):",
+    alternativas: [
+      "Apenas o item I.",
+      "Apenas os itens I e II.",
+      "Apenas os itens II e III.",
+      "Todos os itens (I, II e III).",
+      "Apenas os itens I e III."
+    ],
+    correta: 1,
+    explicacao: "Cobrança literal do art. 56 do Decreto nº 11.129/2022 (IGEPPS/PA)! Os dois objetivos oficiais do Programa de Integridade são exatamente os itens I e II (prevenir/detectar/sanar desvios contra a Adm. Pública + fomentar e manter cultura de integridade). O item III é falso."
+  },
+  {
+    id: "leg-51",
+    topico: "Decreto nº 11.129/2022 — Acordo de Leniência (Art. 32)",
+    materialSecao: "leg-anticorrupcao",
+    enunciado: "Com base no art. 32 do Decreto Federal nº 11.129/2022, que disciplina o Acordo de Leniência, assinale a única alternativa INCORRETA:",
+    alternativas: [
+      "O acordo de leniência buscará o incremento da capacidade investigativa da Administração Pública.",
+      "O fomento da cultura de integridade no setor privado é uma das finalidades do acordo de leniência.",
+      "Será celebrado com vistas à isenção ou atenuação das respectivas sanções, desde que haja colaboração efetiva com as investigações e com o PAR.",
+      "A potencialização da capacidade estatal de recuperação de ativos é uma das finalidades buscadas pelo acordo de leniência.",
+      "O acordo de leniência é ato administrativo negocial decorrente do exercício do poder sancionador do Estado, que visa à responsabilização de pessoas físicas e jurídicas pela prática de atos lesivos contra a administração pública."
+    ],
+    correta: 4,
+    explicacao: "Atenção máxima à pegadinha real da CETAP (SEOP/PA)! No art. 32 do Decreto nº 11.129/2022, o acordo de leniência visa à responsabilização de PESSOAS JURÍDICAS (NÃO de 'pessoas físicas e jurídicas'!). A letra E inseriu 'físicas' para tornar a alternativa incorreta."
+  },
+  {
+    id: "leg-52",
+    topico: "LGPD — Exceções e Compartilhamento (Arts. 4º e 18)",
+    materialSecao: "leg-lgpd",
+    enunciado: "Com base na Lei Geral de Proteção de Dados (Lei nº 13.709/2018 e alterações pela Lei nº 13.853/2019), analise as proposições abaixo:\nI. A LGPD NÃO se aplica ao tratamento realizado por pessoa natural para fins exclusivamente particulares e ECONÔMICOS.\nII. O controlador deverá informar, de maneira imediata, aos agentes de tratamento com os quais tenha realizado uso compartilhado de dados a correção, a eliminação, a anonimização ou o bloqueio dos dados, para que repitam idêntico procedimento, exceto nos casos em que essa comunicação seja comprovadamente impossível ou implique esforço desproporcional.\nIII. A LGPD não se aplica ao tratamento realizado para fins exclusivos de segurança pública, defesa nacional, segurança do Estado ou atividades de investigação e repressão de infrações penais.\nEstão CORRETAS apenas:",
+    alternativas: [
+      "I e II.",
+      "II e III.",
+      "I e III.",
+      "Apenas II.",
+      "I, II e III."
+    ],
+    correta: 1,
+    explicacao: "Combinação cirúrgica das duas questões reais da CETAP (IGEPPS Q19 e SEOP Q18)! I está ERRADA porque o art. 4º, I, exclui fins exclusivamente particulares e NÃO econômicos (se for econômico, aplica-se a LGPD!). II (art. 18, § 6º, redação da Lei 13.853/2019) e III (art. 4º, III) estão 100% corretas!"
+  },
+  {
+    id: "leg-53",
+    topico: "Ética Profissional e Dilemas Éticos",
+    materialSecao: "leg-etica-assedio",
+    enunciado: "Sobre a ética profissional e a conduta ética no serviço público, analise as afirmações a seguir:\nI. Nenhuma prática profissional está isenta da reflexão ética; mesmo profissões que não possuam um código de ética formal escrito possuem princípios éticos aplicáveis ao exercício da atividade.\nII. A ética profissional implica assumir responsabilidades sociais perante a coletividade e começa somente após a ocorrência de um desvio funcional.\nIII. Diante de dilemas cotidianos, a reflexão ética orienta-se pelas indagações 'quero? devo? posso?', sendo os dilemas melhor superados quanto mais sólidos forem os princípios e a integridade do agente.\nEstão CORRETAS apenas as afirmações:",
+    alternativas: [
+      "Apenas I.",
+      "I e III.",
+      "II e III.",
+      "I e II.",
+      "I, II e III."
+    ],
+    correta: 1,
+    explicacao: "Baseada na questão real de Ética da CETAP (IGEPPS Q20)! I e III estão corretas (a famosa tríade ética 'quero? devo? posso?' e a abrangência da ética em toda prática profissional). II está errada porque a reflexão ética deve ser iniciada ANTES (preventivamente) da prática profissional, e não apenas após um desvio."
   }
 ];

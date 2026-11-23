@@ -678,5 +678,127 @@ window.BANCO_QUESTOES.portugues = [
     ],
     correta: 3,
     explicacao: "Na 3ª edição do MRPR, o vocativo 'Excelentíssimo Senhor' é reservado EXCLUSIVAMENTE aos Chefes de Poder (Presidente da República, Presidente do Congresso Nacional e Presidente do STF). Para as demais autoridades tratadas por Vossa Excelência (como Deputados, Senadores, Ministros, Governadores e Secretários), o vocativo oficial é 'Senhor [Cargo],' (ex.: 'Senhor Deputado,')."
+  },
+  {
+    id: "port-46",
+    topico: "Sintaxe — Classificação do Predicado (Estilo CETAP)",
+    materialSecao: "port-sintaxe-pontuacao",
+    contexto: "Considere os cinco enunciados abaixo, inspirados em situações do cotidiano funcional:\nI. \"A técnica entregou o ofício ao protocolo.\"\nII. \"A servidora parecia confiante durante a audiência.\"\nIII. \"Os assistentes concluíram o relatório satisfeitos.\"\nIV. \"O setor arquivou os processos antigos.\"\nV. \"A relatora anda atenta aos prazos regimentais.\"",
+    enunciado: "Assinale a alternativa em que a classificação do PREDICADO está INCORRETA:",
+    alternativas: [
+      "I — \"A técnica entregou o ofício ao protocolo.\" | Predicado verbal.",
+      "II — \"A servidora parecia confiante durante a audiência.\" | Predicado nominal.",
+      "III — \"Os assistentes concluíram o relatório satisfeitos.\" | Predicado verbo-nominal.",
+      "IV — \"O setor arquivou os processos antigos.\" | Predicado verbo-nominal.",
+      "V — \"A relatora anda atenta aos prazos regimentais.\" | Predicado nominal."
+    ],
+    correta: 3,
+    explicacao: "Padrão clássico da CETAP (como na prova IGEPPS/PA)! Em IV, 'arquivou' é verbo significativo (ação) e 'antigos' é mero adjunto adnominal de 'processos' (não há predicativo), logo o predicado é puramente VERBAL, e não verbo-nominal. Em III há verbo de ação ('concluíram') + predicativo do sujeito ('satisfeitos') = verbo-nominal; em V, 'anda' atua como verbo de ligação (= está atenta) = nominal."
+  },
+  {
+    id: "port-47",
+    topico: "Reescritura, Regência e Pronomes (Estilo CETAP)",
+    materialSecao: "port-concordancia-regencia",
+    enunciado: "Assinale a alternativa cuja reescritura da frase NÃO contempla a norma culta da Língua Portuguesa:",
+    alternativas: [
+      "\"Não domina o regimento interno.\"  |  Não lhe domina.",
+      "\"Se puder revisar o parecer, avise.\"  |  Caso possa revisar o parecer, avise.",
+      "\"Me envia a cópia hoje.\"  |  Envia-me a cópia hoje.",
+      "\"A servidora revisou o texto e arquivou o texto.\"  |  A servidora revisou o texto e arquivou-o.",
+      "\"Entregou a certidão ao cidadão.\"  |  Entregou-lhe a certidão."
+    ],
+    correta: 0,
+    explicacao: "Clássico da Fundação CETAP (IGEPPS/PA)! O verbo 'dominar' é transitivo direto (quem domina, domina ALGO). O pronome 'lhe' só substitui objeto INDIRETO; para objeto direto deve-se usar 'o/a/os/as' → o correto seria 'Não o domina'."
+  },
+  {
+    id: "port-48",
+    topico: "Regência Verbal — Substituição de Verbos (Estilo CETAP)",
+    materialSecao: "port-concordancia-regencia",
+    enunciado: "No trecho \"O cidadão **vê** a sessão plenária pela transmissão oficial\", o verbo destacado só NÃO poderia ser substituído, sem causar erro de regência verbal (mantendo-se o restante da frase inalterado), por:",
+    alternativas: [
+      "observa",
+      "acompanha",
+      "assiste",
+      "visualiza",
+      "presencia"
+    ],
+    correta: 2,
+    explicacao: "Pegadinha recorrente da CETAP (IGEPPS/PA)! Os verbos 'ver, observar, acompanhar, visualizar e presenciar' são transitivos diretos (sem preposição obrigatória). Já 'assistir' no sentido de ver/presenciar é transitivo INDIRETO e exige a preposição 'a' ('assiste À sessão plenária')."
+  },
+  {
+    id: "port-49",
+    topico: "Análise Morfossintática Completa (Estilo CETAP)",
+    materialSecao: "port-concordancia-regencia",
+    contexto: "Excerto: \"(...) a equipe técnica que **lá se dedicava** ao levantamento dos arquivos históricos resistiu a todas as adversidades.\"",
+    enunciado: "NÃO contempla uma análise gramatical correta do excerto em destaque:",
+    alternativas: [
+      "O advérbio 'lá' atua como palavra atrativa à ênclise, exigindo o pronome após o verbo.",
+      "A oração introduzida por 'que' classifica-se como subordinada adjetiva restritiva.",
+      "O verbo 'dedicava' concorda em número e pessoa com o sujeito retomado 'a equipe técnica'.",
+      "O termo 'lá' exerce função morfológica de advérbio de lugar com valor coesivo referencial.",
+      "O pronome oblíquo átono 'se' está empregado em posição proclítica."
+    ],
+    correta: 0,
+    explicacao: "Baseada no padrão exato da prova SEOP/PA (CETAP)! Advérbios sem pausa (como 'lá') são palavras atrativas de PRÓCLISE (pronome ANTES do verbo: 'lá se dedicava'), e jamais de ênclise!"
+  },
+  {
+    id: "port-50",
+    topico: "Acentuação Gráfica — Hiatos (Estilo CETAP)",
+    materialSecao: "port-ortografia",
+    enunciado: "Assinale a alternativa em que a palavra é acentuada exatamente pela MESMA regra de acentuação gráfica do vocábulo **\"destruído\"**:",
+    alternativas: [
+      "público",
+      "história",
+      "Luís",
+      "indígena",
+      "título"
+    ],
+    correta: 2,
+    explicacao: "Estilo direto da CETAP (SEOP/PA)! 'des-tru-í-do' e 'Lu-ís' são acentuadas pela regra do HIATO (vogal 'i' tônica, segunda vogal do hiato, sozinha na sílaba ou seguida de 's'). Já 'público', 'indígena' e 'título' são proparoxítonas, e 'história' é paroxítona terminada em ditongo crescente."
+  },
+  {
+    id: "port-51",
+    topico: "Pronome Relativo 'Cujo' (Estilo CETAP)",
+    materialSecao: "port-classes",
+    enunciado: "No trecho \"A instituição aprovou a Resolução nº 02/2022, **cujo** objetivo principal é modernizar o processo legislativo digital\", sobre o termo destacado é CORRETO afirmar que:",
+    alternativas: [
+      "É um pronome relativo que expressa ideia de posse e concorda em gênero e número com o termo consequente ('objetivo').",
+      "Concorda nominalmente com o termo antecedente ('Resolução'), razão pela qual deveria estar grafado 'cuja'.",
+      "Deveria ser obrigatoriamente seguido do artigo definido masculino ('cujo o objetivo').",
+      "É uma palavra invariável que nunca sofre flexão de gênero nem de número.",
+      "Exerce função sintática de sujeito da oração principal."
+    ],
+    correta: 0,
+    explicacao: "Padrão SEOP/PA (CETAP)! O pronome relativo 'cujo(a)(s)' indica posse (= o objetivo DA Resolução), concorda com o termo POSPOSTO ('objetivo'), flexiona em gênero/número e NUNCA admite artigo depois de si ('cujo o' é sempre errado!)."
+  },
+  {
+    id: "port-52",
+    topico: "Crase — Justificativa Gramatical (Estilo CETAP)",
+    materialSecao: "port-crase",
+    enunciado: "No trecho \"A modernização administrativa avançou **devido à pesquisa** documental e ao resgate de registros antigos\", o emprego do acento grave indicativo de crase justifica-se pela:",
+    alternativas: [
+      "Infração à norma-padrão, pois não se usa crase antes de substantivo abstrato.",
+      "Opção meramente estilística do redator para destacar o vocábulo 'pesquisa'.",
+      "Sinalização obrigatória de objeto direto preposicionado.",
+      "Fusão da preposição 'a', exigida pela locução/termo regente 'devido a', com o artigo definido feminino 'a' que antecede o substantivo 'pesquisa'.",
+      "Regência exclusiva do verbo 'avançar', que exige sempre objeto indireto."
+    ],
+    correta: 3,
+    explicacao: "Modelo idêntico ao da CETAP (SEOP/PA)! A crase ocorre pela contração da preposição 'a' (exigida por 'devido a') + artigo definido feminino 'a' (que determina 'pesquisa') — comprovado pelo paralelismo logo ao lado: 'ao resgate' (a + o)."
+  },
+  {
+    id: "port-53",
+    topico: "Coesão, Concisão e Clareza Textual (Estilo CETAP)",
+    materialSecao: "port-interpretacao",
+    enunciado: "Na redação de textos administrativos formais e assertivos, a técnica de concisão busca maximizar a informação com economia verbal sem empobrecer a mensagem. Analise as orientações abaixo:\nI. Maximizar a informação relevante utilizando o mínimo necessário de palavras.\nII. Empregar amplamente clichês e jargões burocráticos para facilitar o entendimento.\nIII. Substituir, sempre que possível, uma oração adjetiva extensa por um adjetivo equivalente.\nIV. Evitar frases excessivamente invertidas, ambiguidades e termos imprecisos.\nEstão CORRETAS apenas as orientações:",
+    alternativas: [
+      "I e II.",
+      "I, III e IV.",
+      "II e III.",
+      "I e IV.",
+      "I, II, III e IV."
+    ],
+    correta: 1,
+    explicacao: "Baseada diretamente nas questões de redação/concisão da CETAP (SEOP/PA)! A concisão e clareza exigem economia verbal (I), troca de orações adjetivas prolixas por adjetivos precisos (III — ex.: 'documento que não tem validade' → 'documento inválido') e ordem direta sem ambiguidades (IV). Clichês e jargões (II) prejudicam a clareza e devem ser EVITADOS!"
   }
 ];

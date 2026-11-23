@@ -988,5 +988,320 @@ window.BANCO_QUESTOES.especificos_adm = [
     ],
     correta: 1,
     explicacao: "No recebimento de materiais: Conferência Quantitativa verifica se a quantidade entregue bate com a Nota Fiscal/Empenho; Conferência Qualitativa verifica se o produto atende às especificações técnicas e de qualidade exigidas na licitação (só após ambas ocorre o recebimento definitivo!)."
+  },
+  {
+    id: "esp-66",
+    topico: "Direito Constitucional — Liberdade Associativa (Art. 5º)",
+    materialSecao: "esp-constitucional",
+    enunciado: "Considere que determinada associação civil sem fins lucrativos foi criada em Belém/PA para fins lícitos e acabou dissolvida compulsoriamente por decreto do Poder Executivo estadual sob a justificativa de que não havia obtido autorização prévia do Estado para funcionar. À luz do art. 5º da Constituição Federal de 1988, assinale a alternativa CORRETA:",
+    alternativas: [
+      "O ato do Poder Executivo é válido, pois a criação de associações exige autorização administrativa prévia.",
+      "Embora a criação de associações independa de autorização, sua dissolução compulsória pode ser decretada administrativamente pelo Governador.",
+      "A dissolução compulsória só poderia ocorrer por ato administrativo caso assegurado contraditório em processo disciplinar.",
+      "Além de a criação de associações independer de autorização estatal (vedada a interferência em seu funcionamento), a dissolução compulsória somente pode ocorrer por decisão judicial transitada em julgado.",
+      "Em razão da liberdade associativa absoluta, é vedada em qualquer hipótese a dissolução compulsória de associação, mesmo pelo Poder Judiciário."
+    ],
+    correta: 3,
+    explicacao: "Baseada na questão real da CETAP (IGEPPS/PA Q24)! Art. 5º, XVIII e XIX, CF/88: a criação de associações independe de autorização; a suspensão de atividades exige decisão judicial (não precisa trânsito em julgado), mas a DISSOLUÇÃO COMPULSÓRIA exige obrigatoriamente DECISÃO JUDICIAL TRANSITADA EM JULGADO!"
+  },
+  {
+    id: "esp-67",
+    topico: "Direito Constitucional — Organização dos Estados (Arts. 25 e 26)",
+    materialSecao: "esp-constitucional",
+    enunciado: "Analise as afirmativas abaixo acerca da organização dos Estados-membros na Constituição Federal de 1988:\nI. Os Estados federados organizam-se e regem-se por meio de Lei Orgânica.\nII. Aos Estados federados são reservadas apenas as competências expressamente previstas em rol taxativo da Constituição Federal.\nIII. Incluem-se entre os bens dos Estados as águas superficiais ou subterrâneas, fluentes, emergentes e em depósito, ressalvadas, neste caso, na forma da lei, as decorrentes de obras da União.\nIV. Os Estados poderão, mediante lei complementar, instituir regiões metropolitanas, aglomerações urbanas e microrregiões, constituídas por agrupamentos de municípios limítrofes, para integrar a organização, o planejamento e a execução de funções públicas de interesse comum.\nEstão CORRETOS apenas os itens:",
+    alternativas: [
+      "I e II.",
+      "I, II e III.",
+      "III e IV.",
+      "I e IV.",
+      "II, III e IV."
+    ],
+    correta: 2,
+    explicacao: "Questão clássica da CETAP (IGEPPS/PA Q25)! I é falsa (Estados regem-se por CONSTITUIÇÃO ESTADUAL — Lei Orgânica é para Municípios e DF!). II é falsa (Estados têm competência REMANESCENTE/reservada: tudo que não lhes for vedado — art. 25, § 1º). III (art. 26, I) e IV (art. 25, § 3º) são literalmente verdadeiras!"
+  },
+  {
+    id: "esp-68",
+    topico: "Direito Administrativo — Disposições Constitucionais (Art. 37 CF)",
+    materialSecao: "esp-administrativo",
+    enunciado: "Analise os itens seguintes à luz do art. 37 da Constituição Federal de 1988:\nI. Ao servidor público civil é vedado o direito à livre associação sindical.\nII. Os vencimentos dos cargos do Poder Legislativo e do Poder Judiciário não poderão ser superiores aos pagos pelo Poder Executivo.\nIII. A administração fazendária e seus servidores fiscais terão, dentro de suas áreas de competência e jurisdição, precedência sobre os demais setores administrativos, na forma da lei.\nIV. Os atos de improbidade administrativa importarão perda da função pública, mas nunca podem acarretar suspensão dos direitos políticos.\nEstão CORRETOS apenas os itens:",
+    alternativas: [
+      "I e III.",
+      "II e III.",
+      "I, II e IV.",
+      "II, III e IV.",
+      "I e IV."
+    ],
+    correta: 1,
+    explicacao: "Padrão literal da CETAP (IGEPPS/PA Q27)! I está errada (art. 37, VI garante ao servidor civil a livre associação sindical — quem não pode sindicalizar-se é o militar). II (art. 37, XII) e III (art. 37, XVIII) reproduzem o texto constitucional. IV está errada (art. 37, § 4º prevê expressamente suspensão dos direitos políticos)."
+  },
+  {
+    id: "esp-69",
+    topico: "Direito Administrativo — Validade do Concurso Público (Art. 37, III)",
+    materialSecao: "esp-administrativo",
+    enunciado: "Considere que o edital de determinado concurso público estadual estabeleceu prazo de validade de **1 (um) ano**, prorrogável por **até 3 (três) vezes consecutivas** por igual período. Segundo a Constituição Federal de 1988, é CORRETO afirmar que:",
+    alternativas: [
+      "Não há vício no edital, pois a soma total de 4 anos respeita o limite máximo constitucional.",
+      "A disposição é constitucional, pois a Constituição não limita o número de prorrogações, apenas o prazo inicial.",
+      "A disposição é inconstitucional, pois o prazo inicial do concurso deve ser obrigatoriamente de 2 anos, vedado prazo menor.",
+      "A disposição é inconstitucional, pois o prazo de validade deve ser sempre de 2 anos, improrrogável.",
+      "A disposição é inconstitucional, pois embora seja plenamente válido fixar prazo inicial de 1 ano (já que a CF diz 'até dois anos'), a prorrogação somente pode ser feita uma ÚNICA vez, por igual período."
+    ],
+    correta: 4,
+    explicacao: "Excelente questão da CETAP (IGEPPS/PA Q26)! Art. 37, III, CF/88: 'o prazo de validade do concurso público será de ATÉ dois anos, prorrogável UMA VEZ, por igual período'. Logo, fixar 1 ano inicial é válido, mas prever 3 prorrogações viola a regra da prorrogação única!"
+  },
+  {
+    id: "esp-70",
+    topico: "RJU-PA (Lei nº 5.810/1994) — Mandato Eletivo",
+    materialSecao: "esp-administrativo",
+    enunciado: "Conforme estabelece a Lei Estadual nº 5.810/1994 (RJU-PA) e a Constituição Federal, ao servidor público estadual investido em mandato eletivo aplicam-se as seguintes disposições:\nI. Tratando-se de mandato eletivo federal ou estadual, ficará afastado do cargo ou função.\nII. Investido no mandato de Prefeito, será afastado do cargo ou função, sendo-lhe facultado optar pela sua remuneração.\nIII. Investido no mandato de Vereador, havendo compatibilidade de horário, perceberá as vantagens de seu cargo, sem prejuízo da remuneração do cargo eletivo.\nIV. Investido no mandato de Vereador, não havendo compatibilidade de horário, será afastado do cargo, sendo-lhe facultado optar pela sua remuneração.\nEstão CORRETAS:",
+    alternativas: [
+      "Apenas as afirmações I e II.",
+      "Apenas as afirmações I, II e III.",
+      "Apenas as afirmações II, III e IV.",
+      "Apenas as afirmações I, III e IV.",
+      "Todas as afirmações (I, II, III e IV)."
+    ],
+    correta: 4,
+    explicacao: "Questão literal da CETAP (IGEPPS/PA Q15 — art. 94 da Lei 5.810/1994 c/c art. 38 da CF/88)! Todas as quatro regras estão 100% corretas: federal/estadual = afasta; Prefeito = afasta e pode optar; Vereador com compatibilidade = acumula cargos e remunerações; Vereador sem compatibilidade = afasta e pode optar pela remuneração."
+  },
+  {
+    id: "esp-71",
+    topico: "RJU-PA (Lei nº 5.810/1994 — Art. 29) — Afastamento do Exercício",
+    materialSecao: "esp-administrativo",
+    enunciado: "Nos termos do art. 29 da Lei Estadual nº 5.810/1994 (Regime Jurídico Único dos Servidores Públicos Civis do Estado do Pará), será afastado do exercício do cargo, até sentença final transitada em julgado, o servidor:\nI. Preso em flagrante.\nII. Pronunciado por crime comum.\nIII. Denunciado por crime administrativo.\nIV. Condenado por crime inafiançável.\nEstão CORRETOS:",
+    alternativas: [
+      "Apenas os itens I e II.",
+      "Apenas os itens I, II e III.",
+      "Apenas os itens II, III e IV.",
+      "Todos os itens (I, II, III e IV).",
+      "Apenas os itens I, II e IV."
+    ],
+    correta: 3,
+    explicacao: "Cobrança literal do art. 29 da Lei Estadual nº 5.810/1994 pela CETAP (SEOP/PA Q20)! O servidor preso em flagrante, pronunciado por crime comum, denunciado por crime administrativo ou condenado por crime inafiançável fica afastado do exercício até sentença final transitada em julgado."
+  },
+  {
+    id: "esp-72",
+    topico: "Licitações — Lei nº 14.133/2021 (Ordem das Fases — Art. 17)",
+    materialSecao: "esp-administrativo",
+    enunciado: "Em conformidade com o art. 17 da Lei nº 14.133/2021, o processo de licitação observa as seguintes fases:\n1. Habilitação\n2. Divulgação do edital de licitação\n3. Homologação\n4. Recursal\n5. Preparatória\n6. Apresentação de propostas e lances, quando for o caso\n7. Julgamento\nAssinale a alternativa que apresenta a sequência CORRETA estabelecida como regra geral na lei:",
+    alternativas: [
+      "1, 2, 3, 4, 5, 6 e 7.",
+      "5, 2, 6, 7, 1, 4 e 3.",
+      "5, 1, 2, 6, 3, 4 e 7.",
+      "2, 5, 1, 6, 3, 4 e 7.",
+      "5, 2, 1, 6, 7, 4 e 3."
+    ],
+    correta: 1,
+    explicacao: "Clássico da CETAP (IGEPPS/PA Q30)! Ordem exata do art. 17 da Lei nº 14.133/2021: (5) Preparatória → (2) Divulgação do edital → (6) Apresentação de propostas e lances → (7) Julgamento → (1) Habilitação → (4) Recursal → (3) Homologação. Lembre-se: na Lei 14.133, o Julgamento vem ANTES da Habilitação como regra!"
+  },
+  {
+    id: "esp-73",
+    topico: "Licitações — Lei nº 14.133/2021 (Atos Digitais e Formalidades — Art. 12)",
+    materialSecao: "esp-administrativo",
+    enunciado: "De acordo com o art. 12 da Lei nº 14.133/2021 (Nova Lei de Licitações e Contratos Administrativos), no processo licitatório observar-se-á o seguinte:\nI. Os documentos serão produzidos por escrito, com data e local de sua realização e assinatura dos responsáveis.\nII. A prova de autenticidade de cópia de documento público ou particular poderá ser feita perante agente da Administração, mediante apresentação de original ou de declaração de autenticidade por advogado, sob sua responsabilidade pessoal.\nIII. O reconhecimento de firma somente será exigido quando houver dúvida de autenticidade, salvo imposição legal.\nIV. Os atos serão preferencialmente digitais, de forma a permitir que sejam produzidos, comunicados, armazenados e validados por meio eletrônico.\nEstão CORRETOS:",
+    alternativas: [
+      "Apenas os itens I e IV.",
+      "Apenas os itens I e III.",
+      "Apenas os itens II e III.",
+      "Apenas os itens III e IV.",
+      "Todos os itens (I, II, III e IV)."
+    ],
+    correta: 4,
+    explicacao: "Questão literal da CETAP (SEOP/PA Q38)! Os quatro incisos correspondem fielmente ao art. 12 (incisos I, IV, V e VI) da Lei nº 14.133/2021 — desburocratização, preferência digital e dispensa de reconhecimento de firma como regra geral!"
+  },
+  {
+    id: "esp-74",
+    topico: "Licitações — Lei nº 14.133/2021 (Edital — Art. 25)",
+    materialSecao: "esp-administrativo",
+    enunciado: "Um Assistente Administrativo auxilia na minuta de um edital de licitação regido pelo art. 25 da Lei nº 14.133/2021. Segundo esse dispositivo legal, o edital deverá conter o objeto da licitação e as regras relativas:\nI. À convocação, ao julgamento, à habilitação, aos recursos e às sazonalidades da licitação.\nII. À fiscalização e à gestão do contrato.\nIII. À entrega do objeto e às condições de pagamento.\nEstá(ão) CORRETO(S):",
+    alternativas: [
+      "Apenas I e III.",
+      "Apenas II.",
+      "Apenas I.",
+      "Apenas III.",
+      "Apenas II e III."
+    ],
+    correta: 4,
+    explicacao: "Pegadinha típica de troca de palavra da CETAP (SEOP/PA Q41)! O art. 25, caput, da Lei nº 14.133/2021 diz 'regras relativas à convocação, ao julgamento, à habilitação, aos recursos e às PENALIDADES da licitação' — e NÃO 'sazonalidades'! Já II e III estão literalmente corretos."
+  },
+  {
+    id: "esp-75",
+    topico: "Arquivologia — Item Documental e Plano de Classificação",
+    materialSecao: "esp-arquivologia",
+    enunciado: "No estudo dos conceitos fundamentais da Arquivologia e da gestão de documentos (Lei nº 8.159/1991 e normas do CONARQ), assinale a alternativa que associa CORRETAMENTE (1) a menor unidade arquivística indivisível e (2) a fase do ciclo vital em que o Plano de Classificação de documentos é desenvolvido para ser aplicado:",
+    alternativas: [
+      "(1) Fundo  |  (2) Fase permanente.",
+      "(1) Série  |  (2) Fase intermediária.",
+      "(1) Item documental  |  (2) Fase corrente.",
+      "(1) Subsérie  |  (2) Fase final de eliminação.",
+      "(1) Dado bruto  |  (2) Fase histórica."
+    ],
+    correta: 2,
+    explicacao: "Combinação direta de duas questões reais da CETAP (IGEPPS/PA Q38 e Q41)! A menor unidade arquivística indivisível é o ITEM DOCUMENTAL (ex.: uma carta, um ofício, uma fotografia), e o Plano de Classificação é aplicado já na FASE CORRENTE (desde a produção/protocolo do documento!)."
+  },
+  {
+    id: "esp-76",
+    topico: "Arquivologia — Conservação Reparadora, Preventiva e Higienização",
+    materialSecao: "esp-arquivologia",
+    enunciado: "No âmbito da preservação e conservação de acervos arquivísticos em suportes físicos, qual alternativa apresenta a definição CORRETA de **conservação reparadora**?",
+    alternativas: [
+      "Eliminação mecânica superficial de poeira, grampos metálicos oxidados e demais sujidades dos documentos.",
+      "Ações voltadas exclusivamente a adequar temperatura, umidade e luminosidade do ambiente para prevenir a degradação.",
+      "Conjunto de medidas que objetivam a estabilização ou a reversão de danos físicos ou químicos já adquiridos pelos arquivos ao longo do tempo e do uso, intervindo de modo a não comprometer sua integridade e seu caráter histórico.",
+      "Destruição controlada de documentos cujo prazo de guarda na Tabela de Temporalidade já expirou.",
+      "Transferência de documentos do arquivo corrente para o arquivo intermediário."
+    ],
+    correta: 2,
+    explicacao: "Questão literal da CETAP (IGEPPS/PA Q42)! Conservação reparadora (ou corretiva) = estabilização ou reversão de danos físicos/químicos já adquiridos, preservando integridade e caráter histórico. (A = higienização; B = conservação preventiva; D = eliminação; E = transferência)."
+  },
+  {
+    id: "esp-77",
+    topico: "Arquivologia — Tabela de Temporalidade e Rotinas de Arquivo",
+    materialSecao: "esp-arquivologia",
+    enunciado: "Sobre a Tabela de Temporalidade de Documentos (TTD) e o controle físico de arquivos de pastas em uma repartição pública, analise os itens abaixo:\nI. A Tabela de Temporalidade contempla elementos relacionados ao ciclo de vida documental, frequência de uso, prazos de guarda e destinação final.\nII. No arquivamento físico, deve-se etiquetar as pastas com informações claras e organizá-las segundo critérios lógicos definidos (ex.: alfabético, assunto ou cronológico).\nIII. É fundamental manter sistema de controle para registrar a movimentação e os empréstimos temporários de pastas/processos.\nIV. O arquivo deve permanecer em local totalmente aberto, permitindo acesso irrestrito a qualquer funcionário ou visitante sem controle de retirada.\nEstão CORRETOS apenas os itens:",
+    alternativas: [
+      "I e II.",
+      "I, II e III.",
+      "II, III e IV.",
+      "I, III e IV.",
+      "Todos os itens (I, II, III e IV)."
+    ],
+    correta: 1,
+    explicacao: "Baseada em SEOP/PA (Q34 e Q46 — CETAP)! Os itens I, II e III são princípios essenciais da gestão arquivística. O item IV é falso porque o acesso a arquivos públicos exige controle de segurança e restrição de acesso (especialmente diante de documentos sigilosos e da LGPD)!"
+  },
+  {
+    id: "esp-78",
+    topico: "Recursos Materiais — Seleção de Fornecedores (Critérios Qualificadores x Classificadores)",
+    materialSecao: "esp-materiais",
+    enunciado: "Na gestão de compras e seleção de fornecedores potenciais, a avaliação não deve basear-se apenas no menor preço, combinando **critérios qualificadores** e **critérios classificadores** (ganhadores de pedido). Sobre esses critérios, assinale a alternativa INCORRETA:",
+    alternativas: [
+      "Critérios qualificadores são requisitos mínimos exigidos pela organização compradora para que uma empresa se habilite como fornecedora potencial.",
+      "Os critérios qualificadores são estabelecidos livremente pela própria empresa fornecedora, de acordo com sua conveniência comercial.",
+      "Os critérios classificadores também são denominados critérios ganhadores de pedido.",
+      "Uma melhoria de desempenho em um critério classificador agrega valor competitivo ao fornecedor, ampliando suas chances de vencer a contratação.",
+      "A função compras também deve manter um cadastro permanente e atualizado de fontes de suprimentos (fornecedores)."
+    ],
+    correta: 1,
+    explicacao: "Questão clássica da CETAP (IGEPPS/PA Q43 e Q44)! Quem define os critérios qualificadores (requisitos mínimos de habilitação) é a organização COMPRADORA (órgão público no edital/TR), e NUNCA a empresa fornecedora!"
+  },
+  {
+    id: "esp-79",
+    topico: "Recursos Materiais — Tipos de Estoque e Custo de Oportunidade",
+    materialSecao: "esp-materiais",
+    enunciado: "Na Administração de Recursos Materiais, analise as afirmativas sobre tipos e custos de estoques:\nI. Estoque de segurança (ou mínimo) busca garantir o nível de serviço, reduzindo o risco de falta diante de flutuações imprevistas de demanda ou atrasos na entrega.\nII. Estoque de antecipação é utilizado quando há flutuações significativas, porém relativamente previsíveis, de demanda ou oferta.\nIII. Os custos relacionados à ausência de remuneração financeira do capital empatado em estoques (ou aos juros pagos para financiá-lo) são denominados **custos de oportunidade**.\nIV. A manutenção de estoques excessivos em corredores facilita o arranjo físico e elimina custos de deterioração e armazenagem.\nEstão CORRETOS apenas os itens:",
+    alternativas: [
+      "I e II.",
+      "I, II e III.",
+      "II, III e IV.",
+      "I e IV.",
+      "Todos os itens (I, II, III e IV)."
+    ],
+    correta: 1,
+    explicacao: "Inspirada diretamente em SEOP/PA (Q32 e Q40) e IGEPPS/PA (Q45)! I (estoque de segurança), II (estoque de antecipação) e III (custo de oportunidade = custo do capital imobilizado que poderia render em outra aplicação) são verdadeiras. IV é falsa: estoques excessivos obstruem corredores, prejudicam o layout e aumentam custos de aluguel, pessoal e deterioração!"
+  },
+  {
+    id: "esp-80",
+    topico: "Recursos Materiais — Layout e Armazenagem",
+    materialSecao: "esp-materiais",
+    enunciado: "Para o adequado equacionamento da armazenagem e o projeto de arranjo físico (layout) de um almoxarifado público que reduza o custo de movimentação e maximize a acessibilidade, devem ser considerados os seguintes fatores:\nI. Volume do armazenamento.\nII. Peso e características físicas do material.\nIII. Acondicionamento e embalagem.\nIV. Incompatibilidades culturais entre setores.\nV. Frequência de movimentação (giro dos itens).\nCompletam CORRETAMENTE o comando da questão:",
+    alternativas: [
+      "Apenas I e II.",
+      "Apenas II e V.",
+      "Apenas I, II, III e V.",
+      "Apenas I, II, III e IV.",
+      "Todos os itens (I, II, III, IV e V)."
+    ],
+    correta: 2,
+    explicacao: "Baseada na questão real da CETAP (IGEPPS/PA Q47)! Os fatores técnicos de layout de armazenagem são volume, peso, acondicionamento/embalagem, incompatibilidades FÍSICO-QUÍMICAS (não 'culturais'!) e frequência de movimentação (giro)."
+  },
+  {
+    id: "esp-81",
+    topico: "Recursos Materiais — Catalogação e Lote Econômico de Compra (LEC)",
+    materialSecao: "esp-materiais",
+    enunciado: "Acerca da **catalogação** (etapa final da classificação de materiais) e do **Lote Econômico de Compra (LEC)**, assinale a alternativa CORRETA:",
+    alternativas: [
+      "A catalogação tem por objetivo estimular a duplicidade de cadastramento de itens semelhantes no banco de dados para ampliar o catálogo.",
+      "O Lote Econômico de Compra (LEC) corresponde à quantidade de estoque a encomendar de cada vez que MINIMIZA o custo total de estoques por meio do balanceamento entre o custo do pedido e o custo de armazenagem; e a catalogação consolida os dados cadastrais facilitando consultas, conferências e processos licitatórios.",
+      "O LEC busca maximizar o custo total de armazenagem em detrimento do custo do pedido.",
+      "A catalogação impede que os usuários consultem as especificações técnicas do material antes de requisitá-lo.",
+      "O LEC aplica-se exclusivamente à baixa patrimonial de imóveis públicos."
+    ],
+    correta: 1,
+    explicacao: "Integração de duas questões reais da CETAP (IGEPPS/PA Q48 e SEOP/PA Q47)! A catalogação (última fase da classificação) consolida especificações em banco único, EVITANDO duplicidades e facilitando consultas e licitações. O LEC é a quantidade ótima por pedido que MINIMIZA o custo total equilibrando custo de pedido e custo de armazenagem!"
+  },
+  {
+    id: "esp-82",
+    topico: "Administração Pública — Stakeholders e Níveis de Planejamento",
+    materialSecao: "esp-adm-publica",
+    enunciado: "Considere duas situações na gestão de um órgão público estadual:\n1) Ao mapear os **stakeholders** (partes interessadas) da instituição — servidores, fornecedores, usuários e comunidade do entorno —, a equipe classifica os **servidores do órgão**.\n2) A alta direção define Missão, Visão, Valores e objetivos globais para os próximos 5 anos, enquanto as diretorias elaboram o Planejamento Financeiro e o Planejamento de Compras de médio prazo.\nClassificando corretamente (1) os servidores como stakeholders e (2) os dois níveis de planejamento citados, tem-se, respectivamente:",
+    alternativas: [
+      "Stakeholders externos  |  Planejamento Operacional e Planos Estratégicos.",
+      "Não são stakeholders  |  Planejamento Tático e Planos Operacionais.",
+      "Stakeholders internos  |  Planejamento Estratégico (5 anos / Missão-Visão-Valores) e Planos Táticos (Financeiro/Produção/Compras).",
+      "Stakeholders externos  |  Planejamento Estratégico e Planos Operacionais.",
+      "Stakeholders internos  |  Apenas Planos Operacionais de curto prazo."
+    ],
+    correta: 2,
+    explicacao: "Padrão fiel de IGEPPS/PA (Q49 e Q50) e SEOP/PA (Q49)! Servidores/colaboradores são STAKEHOLDERS INTERNOS (fornecedores, usuários e comunidade são externos). Missão, Visão, Valores e horizonte de longo prazo (5 anos) = Planejamento ESTRATÉGICO; desdobramentos setoriais/departamentais (financeiro, produção, marketing) = Planos TÁTICOS."
+  },
+  {
+    id: "esp-83",
+    topico: "Administração Pública — Ferramentas de Gestão (5W2H, Ishikawa e Organograma)",
+    materialSecao: "esp-adm-publica",
+    enunciado: "Relacione corretamente as três ferramentas de gestão abaixo às suas respectivas finalidades:\nI. **5W2H** — plano de ação estruturado nas sete perguntas: O quê (What), Por quê (Why), Onde (Where), Quando (When), Quem (Who), Como (How) e Quanto custa (How much).\nII. **Diagrama de Ishikawa** (Espinha de Peixe / Causa e Efeito) — representação gráfica com ramificações para identificar as causas raízes (das mais gerais às mais específicas) de um problema.\nIII. **Organograma** — representação gráfica da estrutura organizacional formal, evidenciando unidades, hierarquia, linhas de comando e relações entre setores.\nEstão CORRETAS:",
+    alternativas: [
+      "Apenas I.",
+      "Apenas I e II.",
+      "Apenas II e III.",
+      "Apenas I e III.",
+      "Todas (I, II e III)."
+    ],
+    correta: 4,
+    explicacao: "Baseada diretamente em IGEPPS/PA (Q51) e SEOP/PA (Q36, Q44 e Q45)! Todas as três definições estão rigorosamente corretas. (Pegadinha clássica da SEOP Q44: confundir 'When' = Quando com 'Who' = Quem!)."
+  },
+  {
+    id: "esp-84",
+    topico: "Modelos de Gestão — EAP (Projetos), PDCA e Avaliação de Conformidade",
+    materialSecao: "esp-secretaria",
+    enunciado: "À luz dos modelos de gestão por projetos (PMBOK) e por processos/qualidade cobrados em provas da Fundação CETAP, assinale a alternativa CORRETA:",
+    alternativas: [
+      "A Estrutura Analítica do Projeto (EAP / WBS) é a representação visual e hierárquica das entregas e pacotes de trabalho de um projeto, facilitando seu gerenciamento.",
+      "No Ciclo PDCA, o treinamento dos responsáveis pela execução e a definição das metas devem ocorrer somente na fase de Verificação (Check).",
+      "Gerenciar mudanças na linha de base de um projeto é atividade típica da fase de Iniciação, e não de Monitoramento e Controle.",
+      "Auditorias independentes, ensaios específicos e inspeções técnicas NÃO são métodos válidos para avaliar a conformidade de um processo.",
+      "No PMBOK, um projeto caracteriza-se por ser um esforço definitivo e contínuo sem prazo de encerramento."
+    ],
+    correta: 0,
+    explicacao: "Baseada diretamente em IGEPPS/PA (Q52, Q54, Q55, Q56) e SEOP/PA (Q31 e Q37)! A EAP (Estrutura Analítica do Projeto) decompõe visual e hierarquicamente as entregas do projeto. No PDCA, definição de metas e planejamento do treinamento entram no PLANEJAMENTO (Plan); gerenciar mudanças na linha de base é Monitoramento e Controle; e auditorias, ensaios e inspeções avaliam a conformidade de processos."
+  },
+  {
+    id: "esp-85",
+    topico: "Secretaria — MRPR (3ª Edição): Nome de Arquivo, Identificação e Assunto",
+    materialSecao: "esp-secretaria",
+    enunciado: "Nos termos da 3ª edição do Manual de Redação da Presidência da República (MRPR), acerca do Padrão Ofício e da preservação de arquivos digitais, analise as afirmativas abaixo:\nI. Para facilitar a localização do arquivo digital (preferencialmente em formatos editáveis como DOCX, ODT ou RTF), seu nome deve ser formado na ordem: **tipo do documento + número do documento + ano (com 4 dígitos) + palavras-chave do conteúdo**.\nII. Na identificação do expediente, o nome do tipo de documento vem por extenso em letras maiúsculas, alinhado à **margem esquerda**, com ano em 4 dígitos e siglas da maior para a menor hierarquia.\nIII. No campo **Assunto**, todo o texto referente ao assunto — inclusive o título 'Assunto:' — deve ser destacado em **negrito**.\nEstão CORRETAS:",
+    alternativas: [
+      "Apenas I.",
+      "Apenas I e II.",
+      "Apenas II e III.",
+      "Apenas I e III.",
+      "Todas (I, II e III)."
+    ],
+    correta: 4,
+    explicacao: "Três regras detalhadas da 3ª edição do MRPR cobradas diretamente pela CETAP (IGEPPS/PA Q57 e SEOP/PA Q35 e Q39)! Memorize: (1) nome do arquivo = tipo + número + ano (4 dígitos!) + palavras-chave; (2) identificação alinhada à ESQUERDA, ano com 4 dígitos, siglas da MAIOR para a MENOR hierarquia; (3) todo o campo Assunto (inclusive o título) vai em NEGRITO!"
+  },
+  {
+    id: "esp-86",
+    topico: "Secretaria — Endereçamento (MRPR) e Lei nº 13.460/2017",
+    materialSecao: "esp-secretaria",
+    enunciado: "Considerando as regras de endereçamento do Padrão Ofício (MRPR — 3ª edição) e as diretrizes de atendimento ao cidadão previstas na Lei nº 13.460/2017, analise os itens abaixo:\nI. No endereçamento do Padrão Ofício, constam o vocativo (forma de tratamento adequada), o nome e o cargo do destinatário, com alinhamento à **margem esquerda** da página (e não à direita).\nII. Na Lei nº 13.460/2017, o atendimento ao público deve utilizar linguagem simples e compreensível, **evitando** o uso de siglas, jargões e estrangeirismos.\nIII. Na Lei nº 13.460/2017, deve-se respeitar o atendimento por ordem de chegada (ressalvados urgência e agendamento), asseguradas as prioridades legais (PcD, idosos, gestantes, lactantes e pessoas com criança de colo), bem como aplicar soluções tecnológicas para simplificar processos.\nEstão CORRETOS:",
+    alternativas: [
+      "Apenas I e II.",
+      "Apenas II e III.",
+      "Apenas I e III.",
+      "Apenas III.",
+      "Todos os itens (I, II e III)."
+    ],
+    correta: 4,
+    explicacao: "Baseada diretamente em IGEPPS/PA Q58 e Q59 (CETAP)! No MRPR, o endereçamento vai alinhado à ESQUERDA (e o endereço tem na 1ª linha logradouro/setor e na 2ª linha CEP e cidade/UF — na prova do IGEPPS inverteram as duas linhas e colocaram à direita como pegadinha!). E na Lei 13.460/2017 (art. 5º), deve-se EVITAR siglas e jargões (na prova colocaram 'com uso de siglas e jargões' como pegadinha!)."
   }
 ];

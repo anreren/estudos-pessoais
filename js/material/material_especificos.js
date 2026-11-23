@@ -68,6 +68,7 @@ window.MATERIAL_APOIO.especificos_adm = {
           <p><strong>Vacância (Art. 58):</strong> Exoneração, Demissão, Promoção, Aposentadoria, Readaptação, Falecimento, Transferência e Destituição.</p>
           <p><strong>Penalidades Disciplinares (Art. 183):</strong> <strong>Repreensão</strong> (ATENÇÃO: na Lei 5.810/PA é <em>Repreensão</em>, não "advertência"!), <strong>Suspensão</strong> (até 90 dias; pode ser convertida em multa de 50% por dia se conveniência do serviço), <strong>Demissão</strong>, <strong>Destituição de cargo em comissão / função gratificada</strong> e <strong>Cassação de aposentadoria ou disponibilidade</strong>.</p>
           <p><strong>Prescrição Disciplinar (Art. 198):</strong> <strong>5 anos</strong> (demissão, cassação, destituição); <strong>2 anos</strong> (suspensão); <strong>180 dias</strong> (repreensão). Corre da data em que o fato se tornou conhecido. Abertura de sindicância ou PAD <em>interrompe</em> a prescrição.</p>
+          <p><strong>Afastamento Preventivo (Art. 29) e Mandato Eletivo (Art. 94):</strong> Afasta-se até sentença transitada em julgado o servidor preso em flagrante, pronunciado por crime comum, denunciado por crime administrativo ou condenado por crime inafiançável. No mandato eletivo: federal/estadual = afasta; Prefeito = afasta e opta pela remuneração; Vereador com compatibilidade = acumula; sem compatibilidade = afasta e opta.</p>
         </div>
         <h5>Atos Administrativos e Organização Administrativa</h5>
         <ul>
@@ -170,11 +171,19 @@ window.MATERIAL_APOIO.especificos_adm = {
           Des<strong>CO</strong>ncentração = cria <strong>Ó</strong>rgãos (mesma PJ, COM hierarquia).<br>
           Des<strong>CE</strong>ntralização = cria/transfere para <strong>E</strong>ntidades (outra PJ, SEM hierarquia — apenas controle finalístico/tutela).
         </div>
-        <h5>Gestão de Processos (BPM) e Ciclo PDCA</h5>
+        <h5>Gestão de Processos (BPM), Ferramentas de Gestão e Ciclo PDCA</h5>
         <ul>
-          <li><strong>Processo:</strong> conjunto de atividades inter-relacionadas que transformam <em>entradas (inputs)</em> em <em>saídas (outputs)</em> com valor para o cidadão/usuário. Podem ser <em>finalísticos/primários</em> (ex.: legislar), <em>de apoio/suporte</em> (ex.: protocolo, RH, almoxarifado) ou <em>gerenciais</em>.</li>
-          <li><strong>Mapeamento:</strong> usa <strong>Fluxograma</strong> (oval = início/fim; retângulo = atividade; losango = decisão) e notação <strong>BPMN</strong>.</li>
-          <li><strong>Ciclo PDCA (Melhoria Contínua):</strong> <strong>P</strong>lan (Planejar) → <strong>D</strong>o (Executar) → <strong>C</strong>heck (Verificar/Medir) → <strong>A</strong>ct (Agir corretivamente/Padronizar).</li>
+          <li><strong>Processo:</strong> conjunto de atividades inter-relacionadas que transformam <em>entradas (inputs)</em> em <em>saídas (outputs)</em> com valor para o cidadão/usuário. Podem ser <em>finalísticos/primários</em> (ex.: legislar), <em>de apoio/suporte</em> (ex.: protocolo, RH, almoxarifado) ou <em>gerenciais</em>. Avaliação de conformidade ocorre via <strong>auditorias, ensaios específicos e inspeções</strong>.</li>
+          <li><strong>Ferramentas muito cobradas pela CETAP (IGEPPS e SEOP):</strong>
+            <ul>
+              <li><strong>Organograma:</strong> representação gráfica da estrutura organizacional formal e hierarquia.</li>
+              <li><strong>Fluxograma:</strong> oval = início/fim; retângulo = atividade; losango = decisão.</li>
+              <li><strong>5W2H (Plano de Ação):</strong> <em>What</em> (O quê), <em>Why</em> (Por quê), <em>Where</em> (Onde), <em>When</em> (Quando), <em>Who</em> (Quem), <em>How</em> (Como) e <em>How much</em> (Quanto custa).</li>
+              <li><strong>Diagrama de Ishikawa (Espinha de Peixe / Causa e Efeito):</strong> ramifica possíveis causas (das mais gerais às específicas) de um problema.</li>
+              <li><strong>Stakeholders e Níveis de Planejamento:</strong> servidores são <em>stakeholders internos</em>; fornecedores/usuários/comunidade são <em>externos</em>. <em>Planejamento Estratégico</em> = longo prazo (Missão, Visão, Valores, ~5 anos); <em>Planos Táticos</em> = departamentais (Financeiro, Produção, Marketing); <em>Operacionais</em> = rotina de curto prazo.</li>
+            </ul>
+          </li>
+          <li><strong>Ciclo PDCA (Melhoria Contínua):</strong> <strong>P</strong>lan (Planejar — define metas e inclui o <em>treinamento dos responsáveis</em>!) → <strong>D</strong>o (Executar) → <strong>C</strong>heck (Verificar/Medir) → <strong>A</strong>ct (Agir corretivamente/Padronizar).</li>
         </ul>
       `
     },
@@ -196,7 +205,7 @@ window.MATERIAL_APOIO.especificos_adm = {
           <tbody>
             <tr><td><strong>Gestão por Competências</strong></td><td>Alinha o desenvolvimento das pessoas aos objetivos institucionais usando o tripé <strong>CHA</strong>: <strong>C</strong>onhecimentos (saber), <strong>H</strong>abilidades (saber fazer) e <strong>A</strong>titudes (querer fazer/postura). Mapeia lacunas (gaps) de competência.</td></tr>
             <tr><td><strong>Gestão por Processos</strong></td><td>Visão horizontal (de ponta a ponta) quebrando "silos" departamentais, buscando eliminação de retrabalho, padronização e valor ao cidadão.</td></tr>
-            <tr><td><strong>Gestão de Projetos</strong></td><td>Esforço <strong>temporário</strong> (início e fim definidos) para criar produto/serviço/resultado <strong>único</strong> (PMBOK: Iniciação, Planejamento, Execução, Monitoramento/Controle e Encerramento; restrição tripla: escopo, tempo e custo).</td></tr>
+            <tr><td><strong>Gestão de Projetos</strong></td><td>Esforço <strong>temporário</strong> (início e fim definidos) para criar produto/serviço/resultado <strong>único</strong> (PMBOK: Iniciação, Planejamento, Execução, Monitoramento/Controle e Encerramento; <strong>EAP / Estrutura Analítica do Projeto</strong> = decomposição visual e hierárquica das entregas; gerenciar mudanças na linha de base = <em>Monitoramento e Controle</em>!).</td></tr>
             <tr><td><strong>Gestão por Resultados</strong></td><td>Foco nos <strong>impactos e entregas reais</strong> à sociedade (eficácia e efetividade), não apenas no cumprimento burocrático de procedimentos; utiliza indicadores de desempenho e metas pactuadas.</td></tr>
           </tbody>
         </table>
@@ -204,8 +213,15 @@ window.MATERIAL_APOIO.especificos_adm = {
         <ul>
           <li><strong>Pilares da qualidade no atendimento:</strong> <em>Cortesia e urbanidade</em>, <em>presteza</em> (agilidade), <em>escuta ativa</em>, <em>empatia</em>, <em>clareza e objetividade</em>, <em>impessoalidade</em> (sem favorecimentos) e <em>sigilo</em>.</li>
           <li><strong>Atendimento Prioritário (Lei 10.048/2000 e Estatuto da Pessoa Idosa):</strong> pessoas com deficiência, pessoas com TEA, <strong>idosos (60+ anos, com prioridade especial para 80+ anos)</strong>, gestantes, lactantes, pessoas com criança de colo, obesos, mobilidade reduzida e doadores de sangue.</li>
-          <li><strong>Direitos dos Usuários de Serviços Públicos (Lei 13.460/2017):</strong> participação, informação clara (Carta de Serviços ao Usuário), proteção de dados pessoais, eliminação de exigências burocráticas desnecessárias e acesso à Ouvidoria.</li>
+          <li><strong>Direitos dos Usuários de Serviços Públicos (Lei 13.460/2017):</strong> participação, linguagem simples e compreensível <strong>evitando siglas e jargões</strong>, atendimento por ordem de chegada (ressalvadas urgências, agendamentos e prioridades legais), Carta de Serviços ao Usuário, soluções tecnológicas simplificadoras e Ouvidoria.</li>
         </ul>
+        <div class="quadro-atencao">
+          <strong class="quadro-titulo">Detalhes Finos do MRPR (3ª Ed.) Cobrados pela CETAP</strong>
+          • <strong>Nome do arquivo digital (DOCX/ODT/RTF):</strong> <code>tipo do documento + número + ano (4 dígitos) + palavras-chave</code>.<br>
+          • <strong>Identificação do expediente:</strong> tipo por extenso em MAIÚSCULAS, alinhado à <strong>margem esquerda</strong>, ano com 4 dígitos, siglas da <strong>maior para a menor hierarquia</strong>.<br>
+          • <strong>Assunto:</strong> todo o texto do assunto (inclusive o título "Assunto:") vai em <strong>negrito</strong>.<br>
+          • <strong>Endereçamento:</strong> alinhado à <strong>margem esquerda</strong>; endereço em 2 linhas: 1ª = logradouro/setor; 2ª = CEP e cidade/UF.
+        </div>
       `
     },
     {
@@ -243,7 +259,7 @@ window.MATERIAL_APOIO.especificos_adm = {
             </ul>
           </li>
           <li><strong>Tipologia Documental x Espécie Documental:</strong> <em>Espécie</em> = configuração física/formato (ex.: Ofício, Ata, Contrato); <em>Tipo/Tipologia</em> = Espécie + atividade/função (ex.: <em>Ata de Sessão Plenária</em>, <em>Contrato de Prestação de Serviços</em>).</li>
-          <li><strong>Suportes Físicos:</strong> papel, filme, mídia magnética/óptica/digital. Conservação preventiva exige controle de temperatura (~20 °C), umidade relativa (45%–55%), luminosidade (evitar UV) e higienização.</li>
+          <li><strong>Suportes Físicos e Preservação:</strong> papel, filme, mídia magnética/óptica/digital. <em>Conservação preventiva</em> = controle ambiental (~20 °C, 45%–55% UR, proteção UV); <em>Higienização</em> = remoção mecânica de sujidades; <em>Conservação reparadora</em> = estabilização ou reversão de danos físicos/químicos já adquiridos preservando a integridade histórica. Menor unidade arquivística indivisível = <strong>Item documental</strong>. Plano de classificação aplica-se na <strong>fase corrente</strong>!</li>
         </ul>
       `
     },
@@ -279,7 +295,8 @@ window.MATERIAL_APOIO.especificos_adm = {
             <tr><td><strong>Custo Médio Ponderado</strong></td><td>Recalcula o valor médio unitário a cada nova entrada (muito utilizado no setor público).</td></tr>
             <tr><td><strong>Ponto de Pedido (PP)</strong></td><td>Nível de estoque que dispara nova solicitação de compra: <code>PP = (Consumo médio × Tempo de reposição) + Estoque de segurança</code>.</td></tr>
             <tr><td><strong>Recebimento</strong></td><td>Etapas: 1) Entrada/descarga e conferência documental (NF x Empenho); 2) <strong>Conferência Quantitativa</strong> (contagem/pesagem); 3) <strong>Conferência Qualitativa</strong> (especificação técnica); 4) <strong>Regularização</strong> (recebimento definitivo e entrada no sistema/almoxarifado).</td></tr>
-            <tr><td><strong>Armazenagem</strong></td><td>Critérios de estocagem: por agrupamento, tamanho/peso, frequência de movimentação (itens de maior giro ficam mais próximos à saída!), compatibilidade física e segurança.</td></tr>
+            <tr><td><strong>Armazenagem e Layout</strong></td><td>Critérios de estocagem/layout: volume, peso, acondicionamento/embalagem, incompatibilidades físico-químicas e frequência de movimentação (itens de maior giro ficam próximos à saída!).</td></tr>
+            <tr><td><strong>Fornecedores, Custos, Catalogação e LEC</strong></td><td><strong>Critérios qualificadores</strong> (requisitos mínimos exigidos pelo comprador) vs. <strong>classificadores</strong> (ganhadores de pedido). <strong>Custo de oportunidade</strong> = ausência de remuneração do capital empatado em estoque / juros. <strong>Catalogação</strong> = última fase da classificação (banco de dados único que evita duplicidades e facilita licitações). <strong>LEC (Lote Econômico de Compra)</strong> = quantidade ótima por pedido que <strong>minimiza o custo total</strong> balanceando custo de pedido e de armazenagem.</td></tr>
           </tbody>
         </table>
         <h5>Gestão Patrimonial (Bens Permanentes)</h5>

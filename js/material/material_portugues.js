@@ -155,6 +155,55 @@ window.MATERIAL_APOIO.portugues = {
           <li><strong>Integrantes:</strong> Complemento verbal (OD sem preposição obrigatória; OI com preposição obrigatória), Complemento nominal (completa nome — substantivo abstrato, adjetivo ou advérbio — sempre com preposição) e Agente da passiva.</li>
           <li><strong>Acessórios:</strong> Adjunto adnominal (concreto ou abstrato, agente/posse), Adjunto adverbial (circunstância) e Aposto (explica/enumera). <strong>Vocativo</strong> é termo independente (chamamento, sempre isolado por vírgula).</li>
         </ul>
+        <h5>Tipos de Predicado (Todos os Casos e Exemplos)</h5>
+        <table class="tabela-apoio">
+          <thead>
+            <tr><th>Tipo de Predicado</th><th>Estrutura e Núcleo(s)</th><th>Exemplos (todos os casos)</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Predicado Verbal</strong></td>
+              <td><strong>1 núcleo:</strong> verbo significativo (de ação/fenômeno — VI, VTD, VTI ou VTDI). <em>Não</em> possui predicativo.</td>
+              <td>
+                • <em>Com VI:</em> "A sessão <strong>começou</strong> pontualmente."<br>
+                • <em>Com VTD:</em> "O servidor <strong>protocolou</strong> o ofício."<br>
+                • <em>Com VTI:</em> "Todos <strong>obedeceram</strong> ao regimento."<br>
+                • <em>Com VTDI:</em> "A técnica <strong>entregou</strong> o processo ao relator."
+              </td>
+            </tr>
+            <tr>
+              <td><strong>2. Predicado Nominal</strong></td>
+              <td><strong>1 núcleo:</strong> nome (<strong>Predicativo do Sujeito</strong>), ligado ao sujeito por <strong>Verbo de Ligação</strong> (<em>ser, estar, parecer, permanecer, ficar, continuar, tornar-se, andar/virar</em> indicando estado).</td>
+              <td>
+                • <em>Estado permanente:</em> "A lei <strong>é clara</strong>."<br>
+                • <em>Estado transitório/aparente:</em> "A servidora <strong>parecia confiante</strong>."<br>
+                • <em>Verbo de ação usado como ligação:</em> "A relatora <strong>anda atenta</strong> aos prazos." / "Tereza <strong>virou rainha</strong>."
+              </td>
+            </tr>
+            <tr>
+              <td><strong>3A. Predicado Verbo-Nominal</strong><br><em>(com Predicativo do Sujeito)</em></td>
+              <td><strong>2 núcleos:</strong> verbo significativo (ação) + <strong>Predicativo do Sujeito</strong> (estado/qualidade momentânea do sujeito durante a ação).</td>
+              <td>
+                • <em>Com VI:</em> "O candidato <strong>chegou</strong> <strong>otimista</strong> à prova."<br>
+                • <em>Com VTD:</em> "Os assistentes <strong>concluíram</strong> o relatório <strong>satisfeitos</strong>."<br>
+                • <em>Com VTI:</em> "Os deputados <strong>votaram</strong> no projeto <strong>apreensivos</strong>."
+              </td>
+            </tr>
+            <tr>
+              <td><strong>3B. Predicado Verbo-Nominal</strong><br><em>(com Predicativo do Objeto)</em></td>
+              <td><strong>2 núcleos:</strong> verbo significativo (ação/julgamento) + <strong>Predicativo do Objeto</strong> (qualidade atribuída ao objeto direto ou indireto).</td>
+              <td>
+                • <em>Predicativo do OD:</em> "A CCJ <strong>julgou</strong> o projeto <strong>inconstitucional</strong>." / "A Mesa <strong>considerou</strong> a proposta <strong>válida</strong>."<br>
+                • <em>Predicativo do OI:</em> "A equipe <strong>chamou</strong> ao técnico <strong>de competente</strong>."
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="quadro-atencao">
+          <strong class="quadro-titulo">Pegadinha Clássica da CETAP: Adjunto Adnominal × Predicativo</strong>
+          Em <em>"O setor arquivou os processos antigos"</em>, o adjetivo <em>antigos</em> é apenas <strong>adjunto adnominal</strong> dentro do objeto direto (substituindo o objeto por pronome, ele some: <em>"O setor arquivou-os"</em>) → <strong>Predicado Verbal</strong>!<br>
+          Já em <em>"A CCJ julgou o projeto inconstitucional"</em>, ao trocar o objeto por pronome, o predicativo permanece fora dele: <em>"A CCJ julgou-o <strong>inconstitucional</strong>"</em> → <strong>Predicado Verbo-Nominal</strong>!
+        </div>
         <h5>Principais Conjunções (Período Composto — Coordenadas e Subordinadas Adverbiais)</h5>
         <table class="tabela-apoio">
           <thead>

@@ -45,7 +45,7 @@
       });
     })();
   </script>
-  <link rel="stylesheet" href="css/styles.css?v=20261123-banco" />
+  <link rel="stylesheet" href="css/styles.css?v=20261123-solved" />
   <link rel="stylesheet" href="css/material.css?v=20261123-banco" />
 </head>
 <body>
@@ -247,6 +247,23 @@
           <button id="btn-bank-back" class="btn btn-secondary" type="button">← Voltar ao Simulado</button>
         </div>
 
+        <!-- Contador persistente (localStorage) de questões resolvidas / total -->
+        <div id="bank-solved-bar" class="bank-solved-bar" aria-live="polite">
+          <div class="bank-solved-head">
+            <div class="bank-solved-stats">
+              <strong id="bank-solved-counter">Resolvidas: 0 / 0 (0%)</strong>
+              <span id="bank-solved-accuracy" class="bank-solved-accuracy">0 acertos</span>
+              <span id="bank-solved-filtered" class="bank-solved-filtered hidden"></span>
+            </div>
+            <button id="btn-bank-reset-solved" class="btn btn-sm btn-ghost" type="button" title="Zerar contador persistente de questões resolvidas deste cargo">
+              Zerar contador
+            </button>
+          </div>
+          <div class="bank-solved-track">
+            <div id="bank-solved-fill" class="bank-solved-fill" style="width: 0%"></div>
+          </div>
+        </div>
+
         <div class="bank-filters-panel">
           <div class="bank-filter-row">
             <div class="bank-field">
@@ -264,6 +281,16 @@
               <label for="bank-filter-sec">Seção da Apostila / Assunto</label>
               <select id="bank-filter-sec">
                 <option value="all">Todas as seções</option>
+              </select>
+            </div>
+            <div class="bank-field">
+              <label for="bank-filter-status">Status</label>
+              <select id="bank-filter-status">
+                <option value="all">Todas</option>
+                <option value="unsolved">Não resolvidas</option>
+                <option value="solved">Já resolvidas</option>
+                <option value="correct">Acertadas</option>
+                <option value="wrong">Erradas</option>
               </select>
             </div>
             <div class="bank-field bank-field-search">
@@ -390,7 +417,7 @@
   <script src="js/banco/questoes_especificos_manutencao.js?v=20261123-cetap2"></script>
 
   <!-- Material de Consulta (separado por disciplina e por cargo) -->
-  <script src="js/material/material_portugues.js?v=20261123-cetap2"></script>
+  <script src="js/material/material_portugues.js?v=20261123-solved"></script>
   <script src="js/material/material_legislacao.js?v=20261123-cetap2"></script>
   <script src="js/material/material_informatica.js?v=20261123-cetap2"></script>
   <script src="js/material/material_raciocinio.js?v=20261123-cetap2"></script>
@@ -398,6 +425,6 @@
   <script src="js/material/material_especificos_manutencao.js?v=20261123-banco"></script>
 
   <!-- Motor do Simulado -->
-  <script src="js/app.js?v=20261123-keep"></script>
+  <script src="js/app.js?v=20261123-solved"></script>
 </body>
 </html>

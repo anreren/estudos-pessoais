@@ -1374,6 +1374,101 @@ body.drawer-open .fab-material {
   font-size: 13px;
 }
 
+.bank-solved-bar {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 18px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow-sm);
+}
+
+.bank-solved-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.bank-solved-stats {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 13.5px;
+  color: var(--text-main);
+}
+
+.bank-solved-stats strong {
+  color: var(--primary);
+  font-size: 14px;
+}
+
+.bank-solved-accuracy {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--correct-bg);
+  color: var(--correct-text);
+  border: 1px solid var(--correct-border);
+}
+
+.bank-solved-filtered {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.bank-solved-track {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.bank-solved-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), #2b8a5b);
+  border-radius: 999px;
+  transition: width 0.25s ease;
+}
+
+.bank-solved-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+}
+
+.bank-solved-badge.is-solved-ok {
+  background: var(--correct-bg);
+  color: var(--correct-text);
+  border-color: var(--correct-border);
+}
+
+.bank-solved-badge.is-solved-err {
+  background: var(--wrong-bg);
+  color: var(--wrong-text);
+  border-color: var(--wrong-border);
+}
+
+.bank-solved-badge.is-solved-manual {
+  background: var(--primary-soft);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-bank-mark.is-marked {
+  background: var(--correct-bg);
+  color: var(--correct-text);
+  border-color: var(--correct-border);
+}
+
 .bank-filters-panel {
   background: var(--bg-surface);
   border: 1px solid var(--border);
@@ -1385,7 +1480,7 @@ body.drawer-open .fab-material {
 
 .bank-filter-row {
   display: grid;
-  grid-template-columns: 1fr 1fr 1.3fr;
+  grid-template-columns: 1fr 1fr 0.85fr 1.2fr;
   gap: 12px;
   margin-bottom: 12px;
 }
@@ -1844,4 +1939,19 @@ html[data-theme="dark"] code {
   color: #dce8f7;
   padding: 1px 4px;
   border-radius: 3px;
+}
+
+html[data-theme="dark"] .bank-field select,
+html[data-theme="dark"] .bank-field input {
+  background: #141b24;
+  color: var(--text-main);
+  border-color: var(--border-strong);
+}
+
+html[data-theme="dark"] .bank-solved-track {
+  background: #273242;
+}
+
+html[data-theme="dark"] .bank-solved-fill {
+  background: linear-gradient(90deg, #5b9bd5, #38a169);
 }

@@ -38,6 +38,7 @@
   const TIMER_INITIAL_SECONDS = 3 * 60 * 60; // 3 horas (item 11.2.4)
   const STORAGE_SEEN_KEY = "simulado_cetap_seen_v1";
   const STORAGE_KEEP_KEY = "simulado_cetap_keep_v1";
+  const STORAGE_SOLVED_KEY = "simulado_cetap_solved_v1";
   const BANK_KEYS = [
     "portugues",
     "legislacao",
@@ -100,11 +101,13 @@
     bankExplorerOpen: false,
     bankFilterDisc: "all",
     bankFilterSec: "all",
+    bankFilterStatus: "all",
     bankSearch: "",
     bankShowAllAnswers: false,
     bankLimit: 20,
     bankPracticeAnswers: {},
-    bankRevealedIds: new Set()
+    bankRevealedIds: new Set(),
+    solvedById: {}             // Persistido no localStorage: { [qId]: { chosen: number|null, correct: boolean|null } }
   };
 
   /* ========================================================================
@@ -160,9 +163,15 @@
     btnBankBack: document.getElementById("btn-bank-back"),
     bankFilterDisc: document.getElementById("bank-filter-disc"),
     bankFilterSec: document.getElementById("bank-filter-sec"),
+    bankFilterStatus: document.getElementById("bank-filter-status"),
     bankSearchInput: document.getElementById("bank-search-input"),
     bankShowAnswers: document.getElementById("bank-show-answers"),
     bankResultsCount: document.getElementById("bank-results-count"),
+    bankSolvedCounter: document.getElementById("bank-solved-counter"),
+    bankSolvedAccuracy: document.getElementById("bank-solved-accuracy"),
+    bankSolvedFiltered: document.getElementById("bank-solved-filtered"),
+    bankSolvedFill: document.getElementById("bank-solved-fill"),
+    btnBankResetSolved: document.getElementById("btn-bank-reset-solved"),
     btnBankClearFilters: document.getElementById("btn-bank-clear-filters"),
     bankQuestionsList: document.getElementById("bank-questions-list"),
     bankPagination: document.getElementById("bank-pagination"),
@@ -368,6 +377,81 @@
       });
       localStorage.setItem(STORAGE_SEEN_KEY, JSON.stringify(payload));
     } catch (e) {}
+  }
+
+  /* ========================================================================
+     PERSISTÊNCIA DE QUESTÕES RESOLVIDAS (CONTADOR + MARCADOR "JÁ RESOLVIDA")
+     ======================================================================== */
+  function loadSolvedStorage() {
+    try {
+      const raw = localStorage.getItem(STORAGE_SOLVED_KEY);
+      if (!raw) return;
+      const parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== "object") return;
+
+      const validIds = new Set();
+      const banco = window.BANCO_QUESTOES || {};
+      BANK_KEYS.forEach((k) => {
+        (banco[k] || []).forEach((q) => validIds.add(q.id));
+      });
+
+      const clean = {};
+      Object.entries(parsed).forEach(([qId, rec]) => {
+        if (!validIds.has(qId) || !rec || typeof rec !== "object") return;
+        clean[qId] = {
+          chosen: typeof rec.chosen === "number" ? rec.chosen : null,
+          correct: typeof rec.correct === "boolean" ? rec.correct : null
+        };
+      });
+      state.solvedById = clean;
+    } catch (e) {}
+  }
+
+  function saveSolvedStorage() {
+    try {
+      localStorage.setItem(STORAGE_SOLVED_KEY, JSON.stringify(state.solvedById));
+    } catch (e) {}
+  }
+
+  function recordSolvedQuestion(q, optIdx) {
+    if (!q || !q.id) return;
+    state.solvedById[q.id] = {
+      chosen: typeof optIdx === "number" ? optIdx : null,
+      correct: typeof optIdx === "number" ? optIdx === q.correta : null
+    };
+    saveSolvedStorage();
+  }
+
+  function toggleManualSolved(q) {
+    if (!q || !q.id) return;
+    if (state.solvedById[q.id]) {
+      delete state.solvedById[q.id];
+      delete state.bankPracticeAnswers[q.id];
+      state.bankRevealedIds.delete(q.id);
+    } else {
+      state.solvedById[q.id] = { chosen: null, correct: null };
+    }
+    saveSolvedStorage();
+  }
+
+  function resetActiveCargoSolved() {
+    const cargo = getCurrentCargo();
+    const cargoItems = getCargoBankQuestions();
+    const solvedInCargo = cargoItems.filter((q) => Boolean(state.solvedById[q.id])).length;
+    if (solvedInCargo === 0) return;
+
+    const ok = window.confirm(
+      `Deseja zerar o contador de questões resolvidas para ${cargo.nomeCurto} (${solvedInCargo} de ${cargoItems.length})?`
+    );
+    if (!ok) return;
+
+    cargoItems.forEach((q) => {
+      delete state.solvedById[q.id];
+      delete state.bankPracticeAnswers[q.id];
+      state.bankRevealedIds.delete(q.id);
+    });
+    saveSolvedStorage();
+    renderBankExplorer();
   }
 
   function getRemainingUnseenForActiveCargo() {
@@ -933,6 +1017,10 @@
     }
 
     state.answers[qIdx] = optIdx;
+    const activeQ = state.examQuestions[qIdx];
+    if (activeQ) {
+      recordSolvedQuestion(activeQ, optIdx);
+    }
     refreshQuestionVisual(qIdx);
     updateAnswerCardStates();
     updateProgressUI();
@@ -1869,12 +1957,36 @@
     const allItems = getCargoBankQuestions();
 
     el.bankExplorerTitle.textContent = `Banco de Questões — ${cargo.codigo}: ${cargo.nomeCurto}`;
-    el.bankExplorerSubtitle.textContent = `Consulte todas as ${allItems.length} questões disponíveis para ${cargo.nomeCurto} (sem mistura com outros cargos). Clique nas alternativas para praticar ou ative os gabaritos comentados.`;
+    el.bankExplorerSubtitle.textContent = `Consulte todas as ${allItems.length} questões disponíveis para ${cargo.nomeCurto} (sem mistura com outros cargos). Clique nas alternativas para praticar ou marque questões como já resolvidas.`;
+
+    // Contador persistente (localStorage) de resolvidas / total
+    const totalCargo = allItems.length;
+    let solvedCargo = 0;
+    let correctCargo = 0;
+    let answeredWithResultCargo = 0;
+    allItems.forEach((q) => {
+      const rec = state.solvedById[q.id];
+      if (rec) {
+        solvedCargo++;
+        if (rec.correct === true) {
+          correctCargo++;
+          answeredWithResultCargo++;
+        } else if (rec.correct === false) {
+          answeredWithResultCargo++;
+        }
+      }
+    });
+    const pctCargo = totalCargo > 0 ? Math.round((solvedCargo / totalCargo) * 100) : 0;
 
     const query = state.bankSearch.trim().toLowerCase();
     const filtered = allItems.filter((q) => {
       if (state.bankFilterDisc !== "all" && q.disciplinaKey !== state.bankFilterDisc) return false;
       if (state.bankFilterSec !== "all" && q.materialSecao !== state.bankFilterSec) return false;
+      const rec = state.solvedById[q.id];
+      if (state.bankFilterStatus === "unsolved" && rec) return false;
+      if (state.bankFilterStatus === "solved" && !rec) return false;
+      if (state.bankFilterStatus === "correct" && (!rec || rec.correct !== true)) return false;
+      if (state.bankFilterStatus === "wrong" && (!rec || rec.correct !== false)) return false;
       if (query) {
         const haystack = [
           q.id,
@@ -1893,6 +2005,32 @@
       return true;
     });
 
+    // Atualiza barra de progresso persistente
+    if (el.bankSolvedCounter) {
+      el.bankSolvedCounter.textContent = `Resolvidas: ${solvedCargo} / ${totalCargo} (${pctCargo}%)`;
+    }
+    if (el.bankSolvedFill) {
+      el.bankSolvedFill.style.width = `${pctCargo}%`;
+    }
+    if (el.bankSolvedAccuracy) {
+      el.bankSolvedAccuracy.textContent =
+        answeredWithResultCargo > 0
+          ? `${correctCargo}/${answeredWithResultCargo} acertos (${Math.round((correctCargo / answeredWithResultCargo) * 100)}%)`
+          : `${solvedCargo} resolvida(s)`;
+    }
+    if (el.bankSolvedFiltered) {
+      if (filtered.length !== allItems.length) {
+        const solvedFiltered = filtered.filter((q) => Boolean(state.solvedById[q.id])).length;
+        el.bankSolvedFiltered.textContent = `• No filtro atual: ${solvedFiltered} / ${filtered.length} resolvidas`;
+        el.bankSolvedFiltered.classList.remove("hidden");
+      } else {
+        el.bankSolvedFiltered.classList.add("hidden");
+      }
+    }
+    if (el.btnBankResetSolved) {
+      el.btnBankResetSolved.disabled = solvedCargo === 0;
+    }
+
     const visibleItems = filtered.slice(0, state.bankLimit);
     el.bankResultsCount.textContent =
       filtered.length === allItems.length
@@ -1907,9 +2045,22 @@
 
     const fragment = document.createDocumentFragment();
     visibleItems.forEach((q) => {
+      const solvedRec = state.solvedById[q.id] || null;
+      const isSolved = Boolean(solvedRec);
       const chosen = state.bankPracticeAnswers[q.id];
       const hasPractice = chosen !== undefined;
       const revealed = state.bankShowAllAnswers || hasPractice || state.bankRevealedIds.has(q.id);
+
+      let solvedBadgeHtml = "";
+      if (isSolved) {
+        if (solvedRec.correct === true) {
+          solvedBadgeHtml = `<span class="bank-solved-badge is-solved-ok">✔ Já resolvida • Acertou</span>`;
+        } else if (solvedRec.correct === false) {
+          solvedBadgeHtml = `<span class="bank-solved-badge is-solved-err">✘ Já resolvida • Errou</span>`;
+        } else {
+          solvedBadgeHtml = `<span class="bank-solved-badge is-solved-manual">✔ Já resolvida</span>`;
+        }
+      }
 
       const card = document.createElement("article");
       card.className = "question-card";
@@ -1967,12 +2118,14 @@
       }
 
       const toggleBtnLabel = revealed && !state.bankShowAllAnswers ? "Ocultar gabarito" : "Ver gabarito";
+      const markBtnLabel = isSolved ? "☑ Já resolvida" : "☐ Marcar como resolvida";
 
       card.innerHTML = `
         <div class="question-meta">
           <div class="bank-q-badges">
             <span class="bank-id-badge">${escapeHtml(q.id.toUpperCase())}</span>
             <span class="bank-disc-badge">${escapeHtml(q.disciplinaNome)}</span>
+            ${solvedBadgeHtml}
           </div>
           <span class="question-topic-tag">${escapeHtml(q.topico)}</span>
         </div>
@@ -1983,6 +2136,7 @@
         <div class="bank-q-actions">
           <span class="text-muted-inline" style="font-size:12px;">Seção na apostila: ${escapeHtml(q.secaoTitulo)}</span>
           <div style="display:flex; gap:6px; flex-wrap:wrap;">
+            <button type="button" class="btn btn-sm btn-outline btn-bank-mark ${isSolved ? "is-marked" : ""}">${markBtnLabel}</button>
             ${
               !state.bankShowAllAnswers
                 ? `<button type="button" class="btn btn-sm btn-outline btn-bank-reveal">${toggleBtnLabel}</button>`
@@ -1995,14 +2149,24 @@
         </div>
       `;
 
-      // Marcar alternativa para praticar no banco
+      // Marcar alternativa para praticar no banco (também registra no localStorage como resolvida)
       card.querySelectorAll(`input[name="bank-${q.id}"]`).forEach((radio) => {
         radio.addEventListener("change", (ev) => {
-          state.bankPracticeAnswers[q.id] = Number(ev.target.value);
+          const optIdx = Number(ev.target.value);
+          state.bankPracticeAnswers[q.id] = optIdx;
           state.bankRevealedIds.add(q.id);
+          recordSolvedQuestion(q, optIdx);
           renderBankExplorer();
         });
       });
+
+      const markBtn = card.querySelector(".btn-bank-mark");
+      if (markBtn) {
+        markBtn.addEventListener("click", () => {
+          toggleManualSolved(q);
+          renderBankExplorer();
+        });
+      }
 
       const revealBtn = card.querySelector(".btn-bank-reveal");
       if (revealBtn) {
@@ -2235,6 +2399,18 @@
       renderBankExplorer();
     });
 
+    if (el.bankFilterStatus) {
+      el.bankFilterStatus.addEventListener("change", () => {
+        state.bankFilterStatus = el.bankFilterStatus.value;
+        state.bankLimit = 20;
+        renderBankExplorer();
+      });
+    }
+
+    if (el.btnBankResetSolved) {
+      el.btnBankResetSolved.addEventListener("click", resetActiveCargoSolved);
+    }
+
     el.bankSearchInput.addEventListener("input", () => {
       state.bankSearch = el.bankSearchInput.value;
       state.bankLimit = 20;
@@ -2249,9 +2425,11 @@
     el.btnBankClearFilters.addEventListener("click", () => {
       state.bankFilterDisc = "all";
       state.bankFilterSec = "all";
+      state.bankFilterStatus = "all";
       state.bankSearch = "";
       state.bankLimit = 20;
       el.bankFilterDisc.value = "all";
+      if (el.bankFilterStatus) el.bankFilterStatus.value = "all";
       el.bankSearchInput.value = "";
       populateBankSectionFilter();
       renderBankExplorer();
@@ -2287,6 +2465,7 @@
   function init() {
     initTheme();
     loadSeenHistory();
+    loadSolvedStorage();
     loadKeepStorage();
 
     // Sincroniza estado visual dos toggles restaurados

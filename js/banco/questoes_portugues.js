@@ -1014,5 +1014,241 @@ window.BANCO_QUESTOES.portugues = [
     ],
     "correta": 1,
     "explicacao": "Combinação exata das cobranças de SEMAS/PA e Viseu/PA (CETAP)! Apenas II, III e IV estão corretas. Em I, o erro está em 'mecher' (o correto é 'mexer', já listado no início; atenção também a 'enxerto', sempre com X, nunca 'encherto'!)."
+  },
+  {
+    "id": "port-66",
+    "topico": "Verbos — Futuro do Pretérito do Indicativo (Estilo CETAP)",
+    "materialSecao": "port-classes",
+    "contexto": "Excerto de memorando: \"Se a comissão **concluísse** a triagem ainda hoje, a secretaria **publicaria** a lista amanhã; porém, o relator afirmou ontem que o parecer **seria** revisado antes da assinatura.\"",
+    "enunciado": "Acerca do emprego das formas verbais em destaque no excerto acima, analise as afirmativas:\nI. **publicaria** e **seria** estão flexionados no futuro do pretérito do indicativo.\nII. Em 'o parecer seria revisado', o futuro do pretérito indica um fato posterior a um acontecimento passado ('afirmou ontem').\nIII. Em 'Se a comissão concluísse..., a secretaria publicaria...', há correlação verbal adequada entre o pretérito imperfeito do subjuntivo e o futuro do pretérito do indicativo.\nIV. Caso se substituísse 'publicaria' por 'publicava-se', manter-se-ia a colocação pronominal correta para o futuro do pretérito.\nEstão CORRETAS apenas as afirmativas:",
+    "alternativas": [
+      "I e II.",
+      "I, II e III.",
+      "II e IV.",
+      "I, III e IV.",
+      "I, II, III e IV."
+    ],
+    "correta": 1,
+    "explicacao": "Apenas I, II e III estão corretas! O futuro do pretérito (-ria) expressa tanto fato posterior ao passado ('afirmou que seria') quanto hipótese correlacionada ao imperfeito do subjuntivo ('Se concluísse, publicaria'). IV é falsa: 'publicava' é pretérito imperfeito do indicativo, e o futuro do pretérito jamais admite ênclise (exige mesóclise ou próclise)."
+  },
+  {
+    "id": "port-67",
+    "topico": "Verbos — Futuro do Pretérito (Polidez e Dúvida — Estilo CETAP)",
+    "materialSecao": "port-classes",
+    "contexto": "Diálogo no protocolo:\n— \"Você **poderia** conferir se o requerimento já foi autuado?\"\n— \"Ainda não consta no sistema; quantos processos **teriam** dado entrada ontem à tarde?\"",
+    "enunciado": "Nos dois enunciados do diálogo, os verbos destacados no futuro do pretérito do indicativo expressam, respectivamente, os valores semânticos de:",
+    "alternativas": [
+      "Ordem imperativa e certeza absoluta sobre o passado.",
+      "Polidez/cortesia na solicitação e dúvida/suposição sobre fato passado.",
+      "Hábito rotineiro no passado e ação concluída no presente.",
+      "Fato futuro garantido e impossibilidade lógica.",
+      "Condição obrigatória e consequência imediata."
+    ],
+    "correta": 1,
+    "explicacao": "Em 'Você poderia conferir...', o futuro do pretérito atenua o pedido com valor de POLIDEZ/CORTESIA. Em 'quantos processos teriam dado entrada...', expressa DÚVIDA/SUPOSIÇÃO aproximada sobre fato ocorrido no passado."
+  },
+  {
+    "id": "port-68",
+    "topico": "Compreensão e Interpretação — Crônica Institucional (Estilo CETAP)",
+    "materialSecao": "port-interpretacao",
+    "contexto": "TEXTO — A pressa que atrasa\nNa rotina de um órgão público, poucos fenômenos custam tão caro quanto a pressa mal planejada. Protocolar um expediente sem conferir anexos ou redigir um despacho ambíguo economiza dois minutos na saída, mas gera duas semanas de diligências, devoluções e retrabalho. A verdadeira celeridade administrativa não nasce da correria, e sim da precisão na primeira entrega.",
+    "enunciado": "Com base exclusivamente nas ideias defendidas no texto acima, assinale a única alternativa INCORRETA:",
+    "alternativas": [
+      "A economia imediata de tempo obtida à custa de descuido tende a produzir atrasos muito maiores adiante.",
+      "Para o autor, a agilidade autêntica no serviço público está associada à precisão desde a primeira entrega.",
+      "Despachos ambíguos e conferência falha de anexos são apontados como causas de retrabalho administrativo.",
+      "O texto afirma que é melhor reduzir drasticamente o ritmo das atividades e abandonar o compromisso com prazos.",
+      "O título 'A pressa que atrasa' sintetiza o paradoxo central desenvolvido ao longo do parágrafo."
+    ],
+    "correta": 3,
+    "explicacao": "A letra D comete erro de extrapolação/distorção: o texto critica a 'pressa mal planejada' (correria sem precisão), mas defende 'a verdadeira celeridade administrativa', jamais o abandono de prazos."
+  },
+  {
+    "id": "port-69",
+    "topico": "Colocação Pronominal em Locuções Verbais (Estilo CETAP)",
+    "materialSecao": "port-concordancia-regencia",
+    "contexto": "Excerto de resolução interna: \"A diretoria **não deve omitir-se** diante das demandas do público e **pode encaminhar-lhe** a resposta ainda hoje.\"",
+    "enunciado": "Considerando as normas de colocação pronominal em locuções verbais (verbo auxiliar + infinitivo/gerúndio/particípio), assinale a única alternativa INCORRETA:",
+    "alternativas": [
+      "Em 'não deve omitir-se', a colocação após o infinitivo é aceita pela norma culta mesmo havendo palavra atrativa antes do verbo auxiliar.",
+      "Em 'pode encaminhar-lhe', também seria gramaticalmente correta a forma 'pode-lhe encaminhar'.",
+      "Em 'Havia entregado-lhe o ofício', a ênclise ao particípio ('entregado-lhe') desrespeita a norma-padrão.",
+      "Em 'Me poderiam enviar a cópia?', a próclise inicial está inteiramente de acordo com a norma culta escrita.",
+      "Em 'Não se pode ignorar o regimento', a próclise ao verbo auxiliar é plenamente correta."
+    ],
+    "correta": 3,
+    "explicacao": "A letra D está INCORRETA: na norma culta escrita, NUNCA se inicia período com pronome oblíquo átono ('Me poderiam...'). Além disso, atenção à letra C (correta!): o particípio nunca admite ênclise ('havia-lhe entregado' ou 'havia lhe entregado', nunca 'entregado-lhe')."
+  },
+  {
+    "id": "port-70",
+    "topico": "Crase — Pronomes Demonstrativos e Locuções (Estilo CETAP)",
+    "materialSecao": "port-crase",
+    "contexto": "Excerto: \"Refiro-me **àquela** portaria publicada **à noite**, e não **à** que foi revogada na semana passada.\"",
+    "enunciado": "Sobre as três ocorrências do acento grave no excerto acima, analise as afirmativas:\nI. Em **àquela**, ocorre crase pela fusão da preposição 'a' (exigida por 'referir-se') com o 'a' inicial do pronome demonstrativo 'aquela'.\nII. Em **à noite**, o acento grave justifica-se por tratar-se de locução adverbial feminina de tempo.\nIII. Em **à que**, ocorre crase pela fusão da preposição 'a' com o pronome demonstrativo feminino 'a' (= aquela), seguido de 'que'.\nIV. Todas as três ocorrências são meramente facultativas, podendo ser retiradas sem erro.\nEstão CORRETAS apenas as afirmativas:",
+    "alternativas": [
+      "I e II.",
+      "I, II e III.",
+      "II e IV.",
+      "I, III e IV.",
+      "I, II, III e IV."
+    ],
+    "correta": 1,
+    "explicacao": "Apenas I, II e III estão corretas! Em todos os três casos o acento grave é OBRIGATÓRIO ('àquela', locução adverbial feminina 'à noite' e 'à que' = 'àquela que')."
+  },
+  {
+    "id": "port-71",
+    "topico": "Regência Verbal — Verbos que Mudam de Sentido (Estilo CETAP)",
+    "materialSecao": "port-concordancia-regencia",
+    "enunciado": "Assinale a alternativa em que a regência verbal altera ou viola a norma culta da Língua Portuguesa:",
+    "alternativas": [
+      "O candidato aspira à nomeação no concurso da Assembleia Legislativa.",
+      "O servidor visou o passaporte funcional antes da viagem oficial.",
+      "A nova norma visa ao aprimoramento do atendimento ao cidadão.",
+      "O atraso na entrega do relatório implicou em grave prejuízo ao cronograma.",
+      "O técnico lembrou-se do prazo final de protocolo das emendas."
+    ],
+    "correta": 3,
+    "explicacao": "Na letra D há erro clássico de regência: 'implicar' no sentido de acarretar/gerar consequência é VTD e NÃO admite preposição 'em' ('implicou grave prejuízo'). Todas as demais estão corretas ('aspirar a' = desejar; 'visar' sem preposição = dar visto; 'visar a' = almejar; 'lembrar-se de')."
+  },
+  {
+    "id": "port-72",
+    "topico": "Concordância Verbal — Sujeito Composto Posposto e Porcentagem (Estilo CETAP)",
+    "materialSecao": "port-concordancia-regencia",
+    "contexto": "Trecho de balanço anual: \"(1) **Compareceu** à audiência o presidente da comissão e dois técnicos. (2) **Cerca de 35% do acervo** já foi digitalizado. (3) **Os 15% restantes** serão conferidos amanhã.\"",
+    "enunciado": "À luz das regras de concordância verbal da norma culta, analise as frases (1), (2) e (3) do trecho acima:\nI. Em (1), como o sujeito composto está posposto ao verbo, é legítima a concordância atrativa no singular com o núcleo mais próximo ('o presidente'), bem como a concordância no plural ('Compareceram').\nII. Em (2), a concordância no singular ('foi digitalizado') é correta por concordar com o especificador singular ('do acervo').\nIII. Em (3), como a porcentagem vem precedida de determinante plural ('Os 15%'), o verbo deve obrigatoriamente concordar no plural ('serão conferidos').\nEstão CORRETAS:",
+    "alternativas": [
+      "Apenas I.",
+      "Apenas I e II.",
+      "Apenas II e III.",
+      "Apenas I e III.",
+      "Todas (I, II e III)."
+    ],
+    "correta": 4,
+    "explicacao": "Todas as três regras estão 100% corretas! Sujeito composto posposto admite concordância com o núcleo mais próximo ou no plural; porcentagem sem determinante pode concordar com o número ou especificador; porcentagem COM determinante plural ('Os 15%') exige verbo no plural."
+  },
+  {
+    "id": "port-73",
+    "topico": "Emprego de 'Onde', 'Aonde' e 'Em que' (Estilo CETAP)",
+    "materialSecao": "port-classes",
+    "enunciado": "Assinale a única alternativa em que o emprego de **onde** ou **aonde** respeita integralmente a norma-padrão da Língua Portuguesa:",
+    "alternativas": [
+      "A reunião onde aprovamos o plano anual terminou às 18h.",
+      "Não sabemos onde o protocolo foi encaminhado pela chefia.",
+      "O prédio aonde funciona o arquivo intermediário passou por reforma.",
+      "Desconhecemos o endereço aonde o servidor deverá dirigir-se amanhã.",
+      "Vivemos uma época onde a transparência digital é indispensável."
+    ],
+    "correta": 3,
+    "explicacao": "Em D, 'dirigir-se' é verbo de movimento que exige preposição 'a' (quem se dirige, dirige-se A algum lugar) + ideia de lugar físico ('endereço') → 'aonde' perfeito! Erros: A e E (reunião/época não são lugar físico → 'em que'); B ('encaminhado A' → 'aonde'); C ('funciona EM' → 'onde')."
+  },
+  {
+    "id": "port-74",
+    "topico": "Pontuação — Aposto Explicativo e Adjunto Adverbial (Estilo CETAP)",
+    "materialSecao": "port-sintaxe-pontuacao",
+    "contexto": "Excerto: \"Belém**, capital do Estado do Pará,** sediou o encontro legislativo. **Durante a cerimônia de abertura,** os representantes destacaram a importância da gestão documental.\"",
+    "enunciado": "As vírgulas empregadas no primeiro e no segundo períodos do excerto justificam-se, respectivamente, por isolarem:",
+    "alternativas": [
+      "Vocativo e sujeito deslocado.",
+      "Aposto explicativo e adjunto adverbial deslocado de longa extensão.",
+      "Oração adjetiva restritiva e objeto direto antecipado.",
+      "Predicativo do objeto e conjunção adversativa.",
+      "Aposto enumerativo e agente da passiva."
+    ],
+    "correta": 1,
+    "explicacao": "'capital do Estado do Pará' explica o substantivo próprio 'Belém' → Aposto Explicativo (entre vírgulas). 'Durante a cerimônia de abertura' é Adjunto Adverbial de tempo deslocado no início do período com longa extensão (5 palavras) → vírgula obrigatória."
+  },
+  {
+    "id": "port-75",
+    "topico": "Figuras de Linguagem — Paradoxo, Antítese e Eufemismo (Estilo CETAP)",
+    "materialSecao": "port-figuras-redacao",
+    "contexto": "Leia os três fragmentos:\nI. \"O servidor **faltou com a verdade** durante o depoimento à comissão.\"\nII. \"Entre **luzes e sombras**, o debate avançou até a votação final.\"\nIII. \"Diante da notícia, instalou-se no auditório um **silêncio ensurdecedor**.\"",
+    "enunciado": "Os trechos em destaque em I, II e III exemplificam, respectivamente, as figuras de linguagem:",
+    "alternativas": [
+      "Ironia — Metonímia — Hipérbole.",
+      "Eufemismo — Antítese — Paradoxo (oxímoro).",
+      "Paradoxo — Eufemismo — Antítese.",
+      "Eufemismo — Metáfora — Zeugma.",
+      "Prosopopeia — Antítese — Pleonasmo."
+    ],
+    "correta": 1,
+    "explicacao": "I = Eufemismo (suaviza 'mentiu' por 'faltou com a verdade'); II = Antítese (aproximação de termos opostos 'luzes' e 'sombras'); III = Paradoxo/Oxímoro (contradição lógica simultânea num mesmo referente: 'silêncio ensurdecedor')."
+  },
+  {
+    "id": "port-76",
+    "topico": "Parônimos e Homônimos no Cotidiano Público (Estilo CETAP)",
+    "materialSecao": "port-coesao-semantica",
+    "contexto": "Despacho oficial: \"A autoridade (1) _______ confirmou que o prazo de entrega está (2) _______ e resolveu (3) _______ todas as cláusulas do convênio já assinado, sem (4) _______ qualquer dispositivo legal.\"",
+    "enunciado": "Assinale a alternativa que preenche CORRETAMENTE as lacunas (1), (2), (3) e (4), respectivamente:",
+    "alternativas": [
+      "iminente — eminente — retificar — infligir.",
+      "eminente — iminente — ratificar — infringir.",
+      "eminente — iminente — retificar — infligir.",
+      "iminente — eminente — ratificar — infringir.",
+      "eminente — iminente — ratificar — infligir."
+    ],
+    "correta": 1,
+    "explicacao": "Eminente = ilustre/notável; Iminente = prestes a acontecer; Ratificar = confirmar (retificar = corrigir); Infringir = violar/desrespeitar (infligir = aplicar pena)."
+  },
+  {
+    "id": "port-77",
+    "topico": "Acentuação Diferencial — Pôde/Pode e Derivados de Ter/Vir (Estilo CETAP)",
+    "materialSecao": "port-ortografia",
+    "enunciado": "Assinale a única alternativa em que TODAS as formas verbais destacadas respeitam o Acordo Ortográfico vigente quanto ao acento diferencial:",
+    "alternativas": [
+      "Ontem o diretor não **pode** assinar o termo, mas hoje **pôde** despachar todos os processos.",
+      "Os departamentos **contém** arquivos sigilosos que **provém** da legislatura anterior.",
+      "A secretaria **mantém** o registro atualizado, enquanto as comissões **detêm** a guarda dos pareceres.",
+      "Os servidores **vêem** a pauta com antecedência e **lêem** cada relatório na íntegra.",
+      "A chefia **pára** o atendimento às 14h para **por** os processos em ordem."
+    ],
+    "correta": 2,
+    "explicacao": "Em C: 'mantém' (3ª sing. — agudo) e 'detêm' (3ª pl. — circunflexo) estão perfeitos! Erros: A (invertidos: ontem 'pôde', hoje 'pode'); B (plural exige circunflexo: 'contêm', 'provêm'); D ('veem' e 'leem' perderam acento); E ('para' perdeu acento; 'pôr' verbo leva circunflexo)."
+  },
+  {
+    "id": "port-78",
+    "topico": "Formação de Palavras — Derivação Regressiva e Hibridismo (Estilo CETAP)",
+    "materialSecao": "port-classes",
+    "contexto": "Excerto: \"O **combate** ao desperdício, a busca pela **burocracia** enxuta e o **resgate** de registros antigos orientam a nova política interna.\"",
+    "enunciado": "No excerto acima, os substantivos **combate** (de *combater*) e **resgate** (de *resgatar*) são formados pela redução da forma verbal originária, caracterizando o processo denominado:",
+    "alternativas": [
+      "Derivação parassintética.",
+      "Derivação regressiva (ou deverbal).",
+      "Composição por aglutinação.",
+      "Onomatopeia lexical.",
+      "Derivação prefixal pura."
+    ],
+    "correta": 1,
+    "explicacao": "Substantivos abstratos que indicam ação derivados pela redução de verbos (combater → o combate; resgatar → o resgate; debater → o debate) configuram DERIVAÇÃO REGRESSIVA (ou deverbal)!"
+  },
+  {
+    "id": "port-79",
+    "topico": "Reescritura Textual e Equivalência Semântica (Estilo CETAP)",
+    "materialSecao": "port-coesao-semantica",
+    "contexto": "Período original: \"**Conquanto** o orçamento fosse restrito, a diretoria concluiu a digitalização do arquivo dentro do prazo.\"",
+    "enunciado": "Assinale a reescritura que preserva INTEGRALMENTE o sentido original e a correção gramatical do período acima:",
+    "alternativas": [
+      "Portanto o orçamento era restrito, a diretoria concluiu a digitalização do arquivo dentro do prazo.",
+      "Ainda que o orçamento fosse restrito, a diretoria concluiu a digitalização do arquivo dentro do prazo.",
+      "Caso o orçamento seja restrito, a diretoria concluirá a digitalização do arquivo dentro do prazo.",
+      "Visto que o orçamento era restrito, a diretoria concluiu a digitalização do arquivo dentro do prazo.",
+      "À medida que o orçamento era restrito, a diretoria concluiu a digitalização do arquivo dentro do prazo."
+    ],
+    "correta": 1,
+    "explicacao": "'Conquanto' é conjunção subordinativa CONCESSIVA (equivalente a 'embora', 'ainda que', 'mesmo que', 'posto que'). Logo, apenas a letra B mantém exatamente o sentido concessivo e o modo subjuntivo ('fosse')!"
+  },
+  {
+    "id": "port-80",
+    "topico": "Asserção-Razão — Impessoalidade na Redação Oficial (MRPR — Estilo CETAP)",
+    "materialSecao": "port-figuras-redacao",
+    "enunciado": "Analise as duas asserções a seguir e a relação proposta entre elas, segundo a 3ª edição do Manual de Redação da Presidência da República (MRPR):\n\nI. Nas comunicações oficiais, o redator deve evitar impressões individuais, adjetivações subjetivas e promoção pessoal, redigindo sempre em nome do interesse público e da instituição.\n\n**PORQUE**\n\nII. A impessoalidade na redação oficial decorre da ausência de subjetividade de quem comunica (sempre o Serviço Público), do caráter impessoal de quem recebe (um cargo/órgão ou o cidadão) e do tratamento homogêneo e isonômico conferido aos assuntos públicos.\n\nA respeito dessas asserções, assinale a alternativa CORRETA:",
+    "alternativas": [
+      "As asserções I e II são proposições verdadeiras, e a II é uma justificativa correta da I.",
+      "As asserções I e II são proposições verdadeiras, mas a II não é uma justificativa da I.",
+      "A asserção I é uma proposição verdadeira, e a II é uma proposição falsa.",
+      "A asserção I é uma proposição falsa, e a II é uma proposição verdadeira.",
+      "As asserções I e II são proposições falsas."
+    ],
+    "correta": 0,
+    "explicacao": "Ambas as asserções são verdadeiras (MRPR 3ª edição, Capítulo I) e a II fundamenta diretamente a exigência prática descrita em I."
   }
 ];

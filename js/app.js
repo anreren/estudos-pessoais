@@ -39,6 +39,7 @@
   const STORAGE_SEEN_KEY = "simulado_cetap_seen_v1";
   const STORAGE_KEEP_KEY = "simulado_cetap_keep_v1";
   const STORAGE_SOLVED_KEY = "simulado_cetap_solved_v1";
+  const STORAGE_REPEAT_KEY = "simulado_cetap_repeat_v1";
   const BANK_KEYS = [
     "portugues",
     "legislacao",
@@ -63,6 +64,8 @@
     answers: {},               // { [index]: optionIndex0a4 }
     immediateMode: false,      // Correção imediata ON/OFF
     keepQuestions: false,      // Toggle Manter questões ON/OFF (mantém questões e marcações sem randomizar)
+    allowRepeat: false,        // Toggle Repetir questões ON/OFF (OFF = não repete já resolvidas até faltar inéditas)
+    repeatFallbackDiscs: [],   // Disciplinas que precisaram completar com resolvidas por falta de inéditas
     keepSnapshots: {},         // Snapshots por cargo::modo::qty quando keepQuestions está ON
     finished: false,           // Prova/treino finalizado?
     activeFilter: "all",       // Filtro visual de disciplina (modo completo)
@@ -135,6 +138,8 @@
     immediateStatus: document.getElementById("immediate-status"),
     toggleKeepQuestions: document.getElementById("toggle-keep-questions"),
     keepStatus: document.getElementById("keep-status"),
+    toggleAllowRepeat: document.getElementById("toggle-allow-repeat"),
+    repeatStatus: document.getElementById("repeat-status"),
     answeredCounter: document.getElementById("answered-counter"),
     progressFill: document.getElementById("progress-fill"),
 
@@ -345,7 +350,13 @@
     }
 
     const stats = getActiveCargoBankStats();
-    el.bankInfo.textContent = `Banco total: ${stats.allCargosTotal} questões | Disponíveis para ${cargo.nomeCurto}: ${stats.cargoTotal} (${stats.espCount} específicas exclusivas).`;
+    const unsolvedLeft = getRemainingUnsolvedForActiveCargo();
+    const repeatMsg = state.allowRepeat
+      ? "Repetição: ON"
+      : state.repeatFallbackDiscs.length > 0
+      ? `Sem repetir resolvidas (${unsolvedLeft} inéditas restantes • completado c/ resolvidas em: ${state.repeatFallbackDiscs.join(", ")})`
+      : `Sem repetir resolvidas (${unsolvedLeft} inéditas restantes)`;
+    el.bankInfo.textContent = `Banco total: ${stats.allCargosTotal} questões | ${cargo.nomeCurto}: ${stats.cargoTotal} (${stats.espCount} específicas) • ${repeatMsg}.`;
   }
 
   /* ========================================================================
@@ -454,16 +465,33 @@
     renderBankExplorer();
   }
 
-  function getRemainingUnseenForActiveCargo() {
+  function loadRepeatStorage() {
+    try {
+      const raw = localStorage.getItem(STORAGE_REPEAT_KEY);
+      if (raw === "true") state.allowRepeat = true;
+      else if (raw === "false") state.allowRepeat = false;
+    } catch (e) {}
+  }
+
+  function saveRepeatStorage() {
+    try {
+      localStorage.setItem(STORAGE_REPEAT_KEY, String(state.allowRepeat));
+    } catch (e) {}
+  }
+
+  function getRemainingUnsolvedForActiveCargo() {
     const banco = window.BANCO_QUESTOES || {};
-    let unseenCount = 0;
+    let unsolvedCount = 0;
     DISCIPLINAS.forEach((d) => {
       const bk = resolveBankKey(d.key);
       const pool = banco[bk] || [];
-      const seen = state.seenIdsByBankKey[bk];
-      unseenCount += pool.filter((q) => !seen.has(q.id)).length;
+      unsolvedCount += pool.filter((q) => !state.solvedById[q.id]).length;
     });
-    return unseenCount;
+    return unsolvedCount;
+  }
+
+  function getRemainingUnseenForActiveCargo() {
+    return getRemainingUnsolvedForActiveCargo();
   }
 
   function getSnapshotKey(cargoKey, modeKey, qty) {
@@ -691,47 +719,59 @@
   }
 
   /* ========================================================================
-     SORTEIO DE QUESTÕES (SEMPRE DIFERENTES ATÉ ESGOTAR O BANCO)
+     SORTEIO DE QUESTÕES (TOGGLE REPETIR QUESTÕES: ON x OFF BASEADO EM RESOLVIDAS)
      ======================================================================== */
   function pickQuestionsForDiscipline(discKey, count, previousIds) {
     const bankKey = resolveBankKey(discKey);
     const pool = (window.BANCO_QUESTOES && window.BANCO_QUESTOES[bankKey]) || [];
-    const seen = state.seenIdsByBankKey[bankKey];
     const recent = new Set([
       ...(previousIds || []),
       ...Array.from(state.lastIdsByBankKey[bankKey] || [])
     ]);
 
-    const unseen = shuffle(pool.filter((q) => !seen.has(q.id)));
     let chosen;
+    let usedFallback = false;
 
-    if (unseen.length >= count) {
-      chosen = unseen.slice(0, count);
-      chosen.forEach((q) => seen.add(q.id));
+    if (state.allowRepeat) {
+      // Repetir questões = ON: sorteia normalmente de todo o banco da disciplina
+      chosen = shuffle(pool).slice(0, count);
     } else {
-      // Esgotou o ciclo de inéditas: aproveita todas as inéditas restantes primeiro e inicia novo ciclo evitando as imediatamente anteriores
-      const unseenIds = new Set(unseen.map((q) => q.id));
-      const notInRecent = shuffle(pool.filter((q) => !unseenIds.has(q.id) && !recent.has(q.id)));
-      const inRecent = shuffle(pool.filter((q) => !unseenIds.has(q.id) && recent.has(q.id)));
+      // Repetir questões = OFF: exclui questões já resolvidas (localStorage),
+      // só reutilizando resolvidas se o total de não resolvidas for menor que o necessário
+      const unsolved = pool.filter((q) => !state.solvedById[q.id]);
 
-      seen.clear();
-      chosen = [...unseen, ...notInRecent, ...inRecent].slice(0, count);
-      chosen.forEach((q) => seen.add(q.id));
+      if (unsolved.length >= count) {
+        const freshUnsolved = shuffle(unsolved.filter((q) => !recent.has(q.id)));
+        const recentUnsolved = shuffle(unsolved.filter((q) => recent.has(q.id)));
+        chosen = [...freshUnsolved, ...recentUnsolved].slice(0, count);
+      } else {
+        // Não há questões inéditas suficientes: usa TODAS as não resolvidas primeiro
+        // e completa apenas a diferença com resolvidas (evitando as do lote imediatamente anterior)
+        usedFallback = true;
+        const solved = pool.filter((q) => Boolean(state.solvedById[q.id]));
+        const solvedNotRecent = shuffle(solved.filter((q) => !recent.has(q.id)));
+        const solvedRecent = shuffle(solved.filter((q) => recent.has(q.id)));
+        chosen = [...shuffle(unsolved), ...solvedNotRecent, ...solvedRecent].slice(0, count);
+      }
     }
 
     state.lastIdsByBankKey[bankKey] = new Set(chosen.map((q) => q.id));
-    return chosen;
+    return { picked: chosen, usedFallback };
   }
 
   function generateNewExam() {
     const previousIds = new Set(state.examQuestions.map((q) => q.id));
     const list = [];
+    const fallbackDiscs = [];
     let numero = 1;
     const cargo = getCurrentCargo();
 
     DISCIPLINAS.forEach((disc) => {
       const count = getDisciplineQuestionCount(disc);
-      const picked = pickQuestionsForDiscipline(disc.key, count, previousIds);
+      const { picked, usedFallback } = pickQuestionsForDiscipline(disc.key, count, previousIds);
+      if (usedFallback) {
+        fallbackDiscs.push(disc.key === "especificos" ? "Específicos" : disc.nome.split(" ")[0]);
+      }
       const nomeExibicao =
         disc.key === "especificos"
           ? `${disc.nome} (${cargo.nomeCurto})`
@@ -748,6 +788,7 @@
       });
     });
 
+    state.repeatFallbackDiscs = fallbackDiscs;
     saveSeenHistory();
 
     state.examQuestions = list;
@@ -755,6 +796,7 @@
     state.finished = false;
     state.onlyMissedFilter = false;
     state.quickCurrentIndex = 0;
+    updateCargoAndModeHeaderUI();
   }
 
   function resetSameExam() {
@@ -1611,7 +1653,7 @@
     const modoLabel = isQuickMode()
       ? `Modo Questões Rápidas (${totalQ} questões)`
       : "Simulado Completo (50 questões)";
-    el.modalBankSummary.textContent = `${modoLabel} • ${cargo.codigo} — ${cargo.nomeCurto}. Banco disponível: ${stats.cargoTotal} questões (${unseenLeft} inéditas restantes neste ciclo; ${stats.allCargosTotal} no banco total). Ao trocar, o sistema só repete questões após esgotar todas as inéditas.`;
+    el.modalBankSummary.textContent = `${modoLabel} • ${cargo.codigo} — ${cargo.nomeCurto}. Banco disponível: ${stats.cargoTotal} questões (${unseenLeft} ainda não resolvidas; ${stats.allCargosTotal} no banco total). Com "Repetir questões" em OFF, questões já resolvidas não aparecem novamente, salvo quando não houver inéditas suficientes.`;
     el.modalRedo.classList.remove("hidden");
   }
 
@@ -2291,6 +2333,27 @@
       });
     }
 
+    // Repetir questões ON/OFF (OFF = ignora já resolvidas até faltar inéditas; ON = repete normalmente)
+    if (el.toggleAllowRepeat) {
+      el.toggleAllowRepeat.addEventListener("change", () => {
+        state.allowRepeat = el.toggleAllowRepeat.checked;
+        if (el.repeatStatus) el.repeatStatus.textContent = state.allowRepeat ? "ON" : "OFF";
+        saveRepeatStorage();
+        updateCargoAndModeHeaderUI();
+
+        // Se ainda não marcou nenhuma resposta neste simulado e "Manter questões" está OFF,
+        // já aplica a nova regra imediatamente ao caderno atual
+        if (
+          !state.keepQuestions &&
+          !state.bankExplorerOpen &&
+          !state.finished &&
+          Object.keys(state.answers).length === 0
+        ) {
+          rebuildExamForCurrentSettings(false, true);
+        }
+      });
+    }
+
     // Timer opcional
     el.toggleTimerEnable.addEventListener("change", () => {
       state.timerEnabled = el.toggleTimerEnable.checked;
@@ -2466,6 +2529,7 @@
     initTheme();
     loadSeenHistory();
     loadSolvedStorage();
+    loadRepeatStorage();
     loadKeepStorage();
 
     // Sincroniza estado visual dos toggles restaurados
@@ -2474,6 +2538,12 @@
     }
     if (el.keepStatus) {
       el.keepStatus.textContent = state.keepQuestions ? "ON" : "OFF";
+    }
+    if (el.toggleAllowRepeat) {
+      el.toggleAllowRepeat.checked = state.allowRepeat;
+    }
+    if (el.repeatStatus) {
+      el.repeatStatus.textContent = state.allowRepeat ? "ON" : "OFF";
     }
     el.toggleImmediate.checked = state.immediateMode;
     el.immediateStatus.textContent = state.immediateMode ? "ON" : "OFF";

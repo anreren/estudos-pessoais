@@ -757,5 +757,233 @@ window.BANCO_QUESTOES.informatica = [
     ],
     "correta": 1,
     "explicacao": "Apenas I, II e III estão corretos! IV é falsa porque Teams, Meet e Webex são plataformas de comunicação e videoconferência corporativa em nuvem."
+  },
+  {
+    "id": "info-51",
+    "topico": "Windows 10/11 — Histórico da Área de Transferência e Recorte (Estilo CETAP)",
+    "materialSecao": "info-so-hardware",
+    "enunciado": "No Windows 10 e Windows 11 (em português), um assistente precisa (1) capturar rapidamente uma região retangular da tela para colar em um relatório e (2) acessar o Histórico da Área de Transferência contendo os últimos textos copiados. Os atalhos corretos são, respectivamente:",
+    "alternativas": [
+      "`Ctrl + P`  e  `Ctrl + Z`",
+      "`Win + Shift + S`  e  `Win + V`",
+      "`Win + E`  e  `Win + R`",
+      "`Alt + F4`  e  `Ctrl + Shift + V`",
+      "`Win + L`  e  `Win + D`"
+    ],
+    "correta": 1,
+    "explicacao": "`Win + Shift + S` abre a Ferramenta de Captura (recorte de tela) e `Win + V` abre o Histórico da Área de Transferência do Windows 10/11 (permitindo colar itens anteriores e fixar textos frequentes)!"
+  },
+  {
+    "id": "info-52",
+    "topico": "Excel / Calc — PROCV com Correspondência Exata e Referência Mista (Estilo CETAP)",
+    "materialSecao": "info-office",
+    "contexto": "Em uma planilha do Excel, a tabela `A2:C10` contém: Coluna A = Matrícula, Coluna B = Nome do Servidor, Coluna C = Setor. A célula `E2` contém uma matrícula digitada para pesquisa.",
+    "enunciado": "Para retornar exatamente o **Setor** correspondente à matrícula informada em `E2`, sem aceitar correspondência aproximada e fixando o intervalo da tabela ao copiar a fórmula para baixo, a fórmula correta é:",
+    "alternativas": [
+      "`=PROCV(E2; $A$2:$C$10; 2; VERDADEIRO)`",
+      "`=PROCV(E2; $A$2:$C$10; 3; FALSO)`",
+      "`=PROCV(E2; A2:C10; 3; VERDADEIRO)`",
+      "`=PROCH(E2; $A$2:$C$10; 3; FALSO)`",
+      "`=SOMA(E2; $A$2:$C$10)`"
+    ],
+    "correta": 1,
+    "explicacao": "Na função `PROCV(valor_procurado; matriz_tabela; núm_índice_coluna; [procurar_intervalo])`: Setor está na 3ª coluna (`3`), correspondência EXATA exige `FALSO` (ou `0`), e `$A$2:$C$10` fixa a matriz ao arrastar a fórmula!"
+  },
+  {
+    "id": "info-53",
+    "topico": "Excel / Calc — Funções Lógicas SE com E e OU (Estilo CETAP)",
+    "materialSecao": "info-office",
+    "contexto": "Considere os valores em uma planilha de aprovação: `A2 = 6,5` (Nota) e `B2 = 80` (Frequência em %).",
+    "enunciado": "Qual será o resultado exibido pela fórmula `=SE(E(A2>=6; B2>=75); \"Aprovado\"; \"Reprovado\")`?",
+    "alternativas": [
+      "`Reprovado`",
+      "`Aprovado`",
+      "`VERDADEIRO`",
+      "`#VALOR!`",
+      "`6,5`"
+    ],
+    "correta": 1,
+    "explicacao": "A função lógica `E(...)` retorna VERDADEIRO apenas se TODAS as condições forem verdadeiras: `6,5 >= 6` (V) e `80 >= 75` (V) → resultado VERDADEIRO → a função `SE` retorna o segundo argumento: `Aprovado`!"
+  },
+  {
+    "id": "info-54",
+    "topico": "Excel / Calc — Códigos de Erro em Planilhas (Estilo CETAP)",
+    "materialSecao": "info-office",
+    "enunciado": "No Microsoft Excel, quando uma fórmula apresenta problema de sintaxe ou referência, o programa exibe códigos de erro iniciados por `#`. Assinale a única associação INCORRETA:",
+    "alternativas": [
+      "`#DIV/0!` — tentativa de dividir um número por zero ou por célula vazia.",
+      "`#NOME?` — nome de função digitado incorretamente (ex.: `=SOMAA(A1:A5)`) ou texto sem aspas não reconhecido.",
+      "`#REF!` — referência de célula inválida (geralmente após excluir linha ou coluna usada na fórmula).",
+      "`#N/D` — valor não encontrado em funções de pesquisa como `PROCV` ou `CORRESP`.",
+      "`#VALOR!` — indica exclusivamente que a largura da coluna está estreita demais para exibir um número."
+    ],
+    "correta": 4,
+    "explicacao": "A letra E está INCORRETA! Coluna estreita demais para exibir um número mostra `#####` (cerquilhas). Já `#VALOR!` ocorre quando há erro de tipo de dado na operação (ex.: somar texto com número usando `+`)."
+  },
+  {
+    "id": "info-55",
+    "topico": "Microsoft Word — Quebra de Seção, Controle de Alterações e Sumário (Estilo CETAP)",
+    "materialSecao": "info-office",
+    "enunciado": "Sobre recursos avançados do Microsoft Word (2013 a O365) aplicados à elaboração de relatórios oficiais, analise as afirmativas:\nI. A **Quebra de Seção** (guia Layout) permite aplicar orientações diferentes (ex.: página 3 em Paisagem e demais em Retrato) ou cabeçalhos/numerações independentes dentro do mesmo documento.\nII. O recurso **Controlar Alterações** (guia Revisão) registra inserções, exclusões e comentários feitos por revisores, permitindo aceitar ou rejeitar cada modificação posteriormente.\nIII. O **Sumário Automático** (guia Referências) baseia-se nos estilos de título aplicados ao texto (Título 1, Título 2 etc.) e pode ser atualizado automaticamente quando páginas mudam.\nEstão CORRETAS:",
+    "alternativas": [
+      "Apenas I.",
+      "Apenas I e II.",
+      "Apenas II e III.",
+      "Apenas I e III.",
+      "Todas (I, II e III)."
+    ],
+    "correta": 4,
+    "explicacao": "Todas as três funcionalidades do Microsoft Word (Quebra de Seção, Controlar Alterações e Sumário Automático) estão descritas corretamente!"
+  },
+  {
+    "id": "info-56",
+    "topico": "PowerPoint e Impress — Transição, Animação e Modo de Apresentador (Estilo CETAP)",
+    "materialSecao": "info-office",
+    "enunciado": "Acerca do Microsoft PowerPoint e do LibreOffice Impress, assinale a única alternativa INCORRETA:",
+    "alternativas": [
+      "Transições são efeitos visuais aplicados na passagem de um slide para o outro.",
+      "Animações são efeitos aplicados a objetos individuais dentro de um slide (textos, imagens, gráficos e formas).",
+      "O Modo de Apresentador permite que o palestrante visualize em sua tela as anotações do orador e o próximo slide, enquanto o público vê apenas o slide atual no projetor.",
+      "O atalho `Shift + F5` inicia a apresentação a partir do slide atual no Microsoft PowerPoint.",
+      "No PowerPoint, o formato `.pptx` impede a inserção de gráficos, tabelas ou hiperlinks nos slides."
+    ],
+    "correta": 4,
+    "explicacao": "A letra E está INCORRETA! O formato padrão `.pptx` suporta plenamente gráficos, tabelas, hiperlinks, áudio, vídeo e animações."
+  },
+  {
+    "id": "info-57",
+    "topico": "Segurança — Backup Completo, Incremental e Diferencial (Estilo CETAP)",
+    "materialSecao": "info-seguranca",
+    "enunciado": "A equipe de TI da ALEPA utiliza cópias de segurança periódicas para proteger os servidores de arquivos. Analise as afirmativas sobre os tipos de backup:\nI. O **Backup Completo (Full)** copia todos os arquivos selecionados, exigindo mais tempo e espaço de armazenamento, mas permitindo restauração mais rápida a partir de um único conjunto.\nII. O **Backup Incremental** copia apenas os arquivos criados ou alterados desde o **último backup de qualquer tipo** (completo ou incremental anterior), sendo mais rápido e econômico em espaço, porém exigindo o completo + todos os incrementais em ordem na restauração.\nIII. O **Backup Diferencial** copia todos os arquivos criados ou alterados desde o **último backup completo**, exigindo apenas o último completo + o último diferencial na restauração.\nEstão CORRETAS:",
+    "alternativas": [
+      "Apenas I.",
+      "Apenas I e II.",
+      "Apenas II e III.",
+      "Apenas I e III.",
+      "Todas (I, II e III)."
+    ],
+    "correta": 4,
+    "explicacao": "Clássico absoluto de Informática! Completo = tudo; Incremental = desde o último backup (menor/mais rápido, restauração mais longa); Diferencial = desde o último completo (restauração em 2 passos: completo + último diferencial)."
+  },
+  {
+    "id": "info-58",
+    "topico": "Asserção-Razão — Assinatura Digital, Hash e ICP-Brasil (Estilo CETAP)",
+    "materialSecao": "info-seguranca",
+    "enunciado": "Analise as duas asserções a seguir e a relação proposta entre elas sobre certificação e assinatura digital (ICP-Brasil):\n\nI. Um documento oficial assinado digitalmente com certificado ICP-Brasil assegura **autenticidade**, **integridade** e **não repúdio** (irretratabilidade), permitindo detectar imediatamente se apenas um único caractere do texto foi alterado após a assinatura.\n\n**PORQUE**\n\nII. Na assinatura digital, o resumo criptográfico (**hash**) do documento é cifrado com a **chave privada** do signatário e validado por qualquer destinatário mediante a **chave pública** correspondente, de modo que qualquer modificação no documento altera o hash e invalida a assinatura.\n\nA respeito dessas asserções, assinale a alternativa CORRETA:",
+    "alternativas": [
+      "As asserções I e II são proposições verdadeiras, e a II é uma justificativa correta da I.",
+      "As asserções I e II são proposições verdadeiras, mas a II não é uma justificativa da I.",
+      "A asserção I é uma proposição verdadeira, e a II é uma proposição falsa.",
+      "A asserção I é uma proposição falsa, e a II é uma proposição verdadeira.",
+      "As asserções I e II são proposições falsas."
+    ],
+    "correta": 0,
+    "explicacao": "Ambas são verdadeiras e a II explica exatamente o mecanismo criptográfico (hash + par de chaves assimétricas: assina com a PRIVADA, valida com a PÚBLICA) que garante autenticidade, integridade e não repúdio!"
+  },
+  {
+    "id": "info-59",
+    "topico": "Segurança — Engenharia Social, Smishing, Vishing e Spyware (Estilo CETAP)",
+    "materialSecao": "info-seguranca",
+    "enunciado": "Acerca dos golpes digitais e códigos maliciosos frequentes no ambiente corporativo, assinale a única alternativa INCORRETA:",
+    "alternativas": [
+      "Engenharia social consiste na manipulação psicológica de pessoas para induzi-las a divulgar informações confidenciais ou executar ações inseguras.",
+      "Keylogger é um tipo de spyware projetado para capturar e registrar as teclas digitadas pelo usuário (como senhas e dados bancários).",
+      "Smishing é uma variação do phishing realizada por meio de mensagens de texto (SMS), enquanto Vishing utiliza ligações telefônicas/voz.",
+      "Rootkit é um conjunto de técnicas/programas que busca ocultar a presença de invasores ou malwares no sistema operacional, dificultando sua detecção.",
+      "Adware é um software de criptografia militar criado exclusivamente para proteger discos rígidos contra invasões."
+    ],
+    "correta": 4,
+    "explicacao": "A letra E está INCORRETA! Adware (Advertising-supported software) é um programa projetado para exibir anúncios/propagandas indesejadas ou coletar hábitos de navegação para fins publicitários."
+  },
+  {
+    "id": "info-60",
+    "topico": "Redes — VPN, IPv4/IPv6 e Extranet (Estilo CETAP)",
+    "materialSecao": "info-redes-web",
+    "enunciado": "Sobre redes de computadores, endereçamento IP e acesso remoto seguro em órgãos públicos, analise as afirmativas:\nI. Uma **VPN (Virtual Private Network)** cria um túnel criptografado sobre uma rede pública (como a Internet), permitindo que servidores em teletrabalho acessem com segurança os recursos internos da Intranet.\nII. O protocolo **IPv6** utiliza endereços de **128 bits** (em notação hexadecimal), tendo sido criado para superar o esgotamento de endereços do **IPv4** (32 bits).\nIII. Uma **Extranet** estende controladamente parte dos recursos da Intranet a usuários externos autorizados (como fornecedores, parceiros ou cidadãos autenticados).\nIV. O uso de VPN elimina a necessidade de conexão com a Internet para acessar servidores remotos.\nEstão CORRETAS apenas as afirmativas:",
+    "alternativas": [
+      "I e II.",
+      "I, II e III.",
+      "II e IV.",
+      "I, III e IV.",
+      "I, II, III e IV."
+    ],
+    "correta": 1,
+    "explicacao": "Apenas I, II e III estão corretas! IV é falsa porque a VPN opera SOBRE uma rede de transporte (em regra a própria Internet)."
+  },
+  {
+    "id": "info-61",
+    "topico": "Navegadores — Cookies, Cache e Download Seguro (Estilo CETAP)",
+    "materialSecao": "info-redes-web",
+    "enunciado": "No uso diário de navegadores web (Google Chrome, Microsoft Edge e Mozilla Firefox), analise os conceitos abaixo:\nI. **Cookies** são pequenos arquivos armazenados pelo navegador a pedido de sites visitados para manter sessões autenticadas, preferências do usuário ou rastreamento.\nII. O **Cache do navegador** armazena cópias locais temporárias de recursos estáticos (imagens, folhas de estilo, scripts) para acelerar o carregamento em visitas subsequentes.\nIII. O atalho `Ctrl + F5` (ou `Ctrl + Shift + R`) força o recarregamento completo da página ignorando o cache local armazenado.\nEstão CORRETOS:",
+    "alternativas": [
+      "Apenas I.",
+      "Apenas I e II.",
+      "Apenas II e III.",
+      "Apenas I e III.",
+      "Todos os itens (I, II e III)."
+    ],
+    "correta": 4,
+    "explicacao": "Todos os três itens (cookies, cache e recarregamento forçado `Ctrl + F5`) estão perfeitamente corretos!"
+  },
+  {
+    "id": "info-62",
+    "topico": "Correio Eletrônico — Responder a Todos e Boas Práticas (Estilo CETAP)",
+    "materialSecao": "info-redes-web",
+    "enunciado": "Lucas recebeu um e-mail institucional enviado por `diretoria@alepa.pa.gov.br` com os seguintes campos: **Para:** `lucas@alepa.pa.gov.br`; **Cc:** `ana@alepa.pa.gov.br`; **Cco:** `carlos@alepa.pa.gov.br`. Se Lucas clicar em **\"Responder a Todos\"**, quem receberá a resposta enviada por Lucas?",
+    "alternativas": [
+      "Apenas `diretoria@alepa.pa.gov.br`.",
+      "`diretoria@alepa.pa.gov.br` e `ana@alepa.pa.gov.br` (nunca `carlos`, que estava em Cco).",
+      "`diretoria@alepa.pa.gov.br`, `ana@alepa.pa.gov.br` e `carlos@alepa.pa.gov.br`.",
+      "Apenas `ana@alepa.pa.gov.br` e `carlos@alepa.pa.gov.br`.",
+      "Nenhum destinatário, pois e-mails com Cco bloqueiam respostas."
+    ],
+    "correta": 1,
+    "explicacao": "Regra clássica de provas! 'Responder a Todos' envia para o remetente (`diretoria`) e para os demais visíveis em Para/Cc (`ana`), mas JAMAIS envia para quem estava oculto no campo `Cco` (`carlos`), pois o cliente de e-mail de Lucas nem sequer conhece o destinatário oculto!"
+  },
+  {
+    "id": "info-63",
+    "topico": "Hardware — Barramentos, USB, HDMI e Periféricos (Estilo CETAP)",
+    "materialSecao": "info-so-hardware",
+    "enunciado": "Acerca de conexões, interfaces e dispositivos de armazenamento de computadores modernos, assinale a única alternativa INCORRETA:",
+    "alternativas": [
+      "A interface **HDMI** transmite simultaneamente sinais digitais de vídeo e áudio de alta definição por um único cabo.",
+      "O conector **USB-C** possui formato reversível e pode suportar transferência de dados em alta velocidade, vídeo e fornecimento de energia (Power Delivery).",
+      "A memória **Cache** (L1, L2, L3) é mais rápida do que a memória RAM e fica integrada ou muito próxima ao processador para reduzir gargalos de acesso.",
+      "A memória **ROM** (ou memória Flash do BIOS/UEFI) é não volátil e armazena o firmware responsável pela inicialização básica do computador.",
+      "A placa-mãe tem como função exclusiva armazenar permanentemente os documentos do usuário quando o SSD é removido."
+    ],
+    "correta": 4,
+    "explicacao": "A letra E está INCORRETA! A placa-mãe (motherboard) interliga eletricamente todos os componentes (CPU, RAM, armazenamento, periféricos) por meio de barramentos e chipset — ela não armazena os arquivos pessoais do usuário."
+  },
+  {
+    "id": "info-64",
+    "topico": "Excel / Calc — Função CONT.SE e Média Condicional (Estilo CETAP)",
+    "materialSecao": "info-office",
+    "contexto": "Considere a coluna A de uma planilha de status de processos:\n`A1 = \"Concluído\"` | `A2 = \"Pendente\"` | `A3 = \"Concluído\"` | `A4 = \"Em análise\"` | `A5 = \"Concluído\"`",
+    "enunciado": "Qual resultado será retornado pela fórmula `=CONT.SE(A1:A5; \"Concluído\")`?",
+    "alternativas": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "correta": 2,
+    "explicacao": "`CONT.SE(intervalo; critério)` conta quantas células do intervalo atendem ao critério exato `'Concluído'`: A1, A3 e A5 → resultado igual a `3`!"
+  },
+  {
+    "id": "info-65",
+    "topico": "Multimídia, Formatos de Arquivo e Colaboração (Estilo CETAP)",
+    "materialSecao": "info-colaboracao-nuvem",
+    "enunciado": "Considerando os formatos multimídia e ferramentas colaborativas previstos no edital, analise as associações:\nI. `.mp4`, `.mkv` e `.webm` são formatos/contêineres de **vídeo digital**.\nII. `.mp3`, `.wav` e `.ogg` são formatos de **áudio digital**.\nIII. `.png` (com suporte a transparência e compressão sem perdas) e `.jpg`/`.jpeg` são formatos de **imagem digital**.\nIV. O **streaming** permite reproduzir áudio e vídeo continuamente pela rede à medida que os dados chegam, sem necessidade de baixar o arquivo inteiro antes de iniciar a reprodução.\nEstão CORRETAS:",
+    "alternativas": [
+      "Apenas I e II.",
+      "Apenas II e III.",
+      "Apenas I, II e III.",
+      "Apenas I, III e IV.",
+      "Todas (I, II, III e IV)."
+    ],
+    "correta": 4,
+    "explicacao": "Todas as quatro associações sobre formatos multimídia e streaming estão 100% corretas!"
   }
 ];

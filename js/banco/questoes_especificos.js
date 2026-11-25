@@ -1620,5 +1620,410 @@ window.BANCO_QUESTOES.especificos_adm = [
     ],
     "correta": 0,
     "explicacao": "Clássico cobrado na questão Q50 da prova FSCMP/PA (CETAP)! Ambas as asserções são verdadeiras e a II explica exatamente a raiz do trade-off (conflito interdepartamental) que a gestão de estoques precisa equilibrar!"
+  },
+  {
+    "id": "esp-109",
+    "topico": "Licitações — Lei nº 14.133/2021 (Diálogo Competitivo — Estilo CETAP)",
+    "materialSecao": "esp-administrativo",
+    "enunciado": "Acerca da modalidade **Diálogo Competitivo**, introduzida pela Lei Federal nº 14.133/2021 (art. 32), analise as afirmativas:\nI. É cabível em contratações que envolvam inovação tecnológica ou técnica, impossibilidade de atender à necessidade sem adaptação de soluções disponíveis no mercado ou impossibilidade de definir especificações técnicas com precisão suficiente.\nII. Deve ser conduzida por **Comissão de Contratação** composta de pelo menos 3 (três) servidores efetivos ou empregados públicos pertencentes aos quadros permanentes da Administração.\nIII. Durante a fase de diálogo, a Administração pode revelar livremente as soluções propostas e segredos comerciais de um licitante aos demais concorrentes sem o consentimento daquele.\nIV. Encerrado o diálogo, inicia-se a fase competitiva com a divulgação de edital contendo especificação da solução e critérios objetivos para seleção da proposta mais vantajosa.\nEstão CORRETAS apenas as afirmativas:",
+    "alternativas": [
+      "I e II.",
+      "I, II e IV.",
+      "II e III.",
+      "I, III e IV.",
+      "I, II, III e IV."
+    ],
+    "correta": 1,
+    "explicacao": "Apenas I, II e IV estão corretas! III é falsa (art. 32, § 1º, IV): a Administração NÃO poderá revelar a outros licitantes as soluções propostas ou informações sigilosas comunicadas por um licitante SEM O SEU CONSENTIMENTO."
+  },
+  {
+    "id": "esp-110",
+    "topico": "Licitações — Lei nº 14.133/2021 (Leilão e Concurso — Estilo CETAP)",
+    "materialSecao": "esp-administrativo",
+    "enunciado": "Comparando as modalidades **Leilão** e **Concurso** na Nova Lei de Licitações (Lei nº 14.133/2021), assinale a única alternativa INCORRETA:",
+    "alternativas": [
+      "O Leilão destina-se à alienação de bens imóveis ou de bens móveis inservíveis ou legalmente apreendidos a quem oferecer o maior lance.",
+      "No Leilão, não se exige registro cadastral prévio e não há fase de habilitação.",
+      "O Leilão poderá ser cometido a leiloeiro oficial ou a servidor designado pela autoridade competente da Administração.",
+      "O Concurso destina-se à escolha de trabalho técnico, científico ou artístico, cujo critério de julgamento será o de melhor técnica ou conteúdo artístico, para concessão de prêmio ou remuneração ao vencedor.",
+      "Na Lei nº 14.133/2021, a escolha entre Leilão, Concurso, Pregão e Concorrência continua determinada exclusivamente por faixas de valor estimado em reais."
+    ],
+    "correta": 4,
+    "explicacao": "A letra E está INCORRETA! Na Lei nº 14.133/2021, a modalidade licitatória é definida pela NATUREZA DO OBJETO (e não mais por faixas de valor, como ocorria na extinta Lei 8.666/93 com Convite/Tomada de Preços)."
+  },
+  {
+    "id": "esp-111",
+    "topico": "Licitações — Lei nº 14.133/2021 (Pregão e Serviços de Engenharia — Estilo CETAP)",
+    "materialSecao": "esp-administrativo",
+    "enunciado": "Nos termos do art. 29 da Lei nº 14.133/2021, acerca do rito procedimental do **Pregão** e da **Concorrência**, analise os itens:\nI. O Pregão é obrigatório para aquisição de bens e serviços comuns, utilizando apenas os critérios de menor preço ou maior desconto.\nII. O Pregão NÃO se aplica às contratações de serviços técnicos especializados de natureza predominantemente intelectual nem a obras e serviços especiais de engenharia.\nIII. A Concorrência e o Pregão seguem o mesmo rito procedimental comum previsto no art. 17 da Lei nº 14.133/2021.\nIV. Serviços **comuns** de engenharia podem ser contratados mediante Pregão.\nEstão CORRETOS:",
+    "alternativas": [
+      "Apenas I e II.",
+      "Apenas II e III.",
+      "Apenas I, II e III.",
+      "Apenas I, III e IV.",
+      "Todos os itens (I, II, III e IV)."
+    ],
+    "correta": 4,
+    "explicacao": "Todos os quatro itens reproduzem rigorosamente o art. 29, caput e parágrafo único, da Lei nº 14.133/2021! Pegadinha famosa: serviços COMUNS de engenharia admitem Pregão; obras e serviços ESPECIAIS de engenharia exigem Concorrência."
+  },
+  {
+    "id": "esp-112",
+    "topico": "Contratos Administrativos — Lei nº 14.133/2021 (PNCP e Alterações 25%/50% — Estilo CETAP)",
+    "materialSecao": "esp-administrativo",
+    "enunciado": "Sobre a eficácia, alteração unilateral e vigência dos contratos administrativos na Lei nº 14.133/2021, assinale a única alternativa INCORRETA:",
+    "alternativas": [
+      "A divulgação no Portal Nacional de Contratações Públicas (PNCP) é condição indispensável para a eficácia do contrato e de seus aditamentos (20 dias úteis em licitação e 10 dias úteis em contratação direta).",
+      "Nas alterações unilaterais, o contratado é obrigado a aceitar, nas mesmas condições contratuais, acréscimos ou supressões de até 25% do valor inicial atualizado do contrato para obras, serviços ou compras.",
+      "No caso de reforma de edifício ou de equipamento, o limite de acréscimo unilateral obrigatório pelo contratado sobe para até 50% do valor inicial atualizado.",
+      "Os contratos de serviços e fornecimentos contínuos podem ser celebrados com prazo de até 5 anos e prorrogados sucessivamente até a vigência máxima decenal de 10 anos.",
+      "A Administração pode alterar unilateralmente o valor econômico-financeiro inicial do contrato sem garantir o reequilíbrio, reduzindo arbitrariamente a remuneração do contratado em até 70%."
+    ],
+    "correta": 4,
+    "explicacao": "A letra E está INCORRETA! As cláusulas econômico-financeiras e monetárias dos contratos NÃO podem ser alteradas sem prévia concordância do contratado (art. 104, § 1º), devendo sempre ser mantido o equilíbrio econômico-financeiro!"
+  },
+  {
+    "id": "esp-113",
+    "topico": "Licitações — Lei nº 14.133/2021 (Procedimentos Auxiliares e Sanções — Estilo CETAP)",
+    "materialSecao": "esp-administrativo",
+    "enunciado": "À luz dos arts. 78 e 156 da Lei Federal nº 14.133/2021, analise as afirmativas:\nI. São procedimentos auxiliares (e NÃO modalidades de licitação): Credenciamento, Pré-qualificação, Procedimento de Manifestação de Interesse (PMI), Sistema de Registro de Preços (SRP) e Registro Cadastral.\nII. O prazo de vigência da ata de registro de preços (SRP) será de **1 (um) ano** e poderá ser prorrogado, por igual período, desde que comprovado o preço vantajoso.\nIII. A sanção de **impedimento de licitar e contratar** tem prazo máximo de 3 anos no âmbito do ente federativo sancionador, enquanto a **declaração de inidoneidade** varia de 3 a 6 anos e abrange todos os entes federativos.\nIV. A sanção de multa administrativa (0,5% a 30% do valor do contrato) pode ser aplicada cumulativamente com advertência, impedimento ou declaração de inidoneidade.\nEstão CORRETAS:",
+    "alternativas": [
+      "Apenas I e II.",
+      "Apenas II e III.",
+      "Apenas I, II e III.",
+      "Apenas I, III e IV.",
+      "Todas (I, II, III e IV)."
+    ],
+    "correta": 4,
+    "explicacao": "Todas as quatro afirmativas estão 100% de acordo com os arts. 78, 84 e 156 da Lei nº 14.133/2021!"
+  },
+  {
+    "id": "esp-114",
+    "topico": "Licitações — Lei nº 14.133/2021 (Dispensa: Emergência, Deserta e Fracassada — Estilo CETAP)",
+    "materialSecao": "esp-administrativo",
+    "enunciado": "Mariana, Assistente Administrativa da comissão de apoio às compras, analisa hipóteses de **dispensa de licitação** do art. 75 da Lei nº 14.133/2021. Assinale a alternativa CORRETA:",
+    "alternativas": [
+      "Nos casos de emergência ou calamidade pública, o contrato por dispensa pode ter prazo máximo de 1 (um) ano contado da data de ocorrência da emergência/calamidade, vedadas a prorrogação do contrato e a recontratação de empresa já contratada com base nesse dispositivo.",
+      "Licitação fracassada é aquela em que nenhum interessado comparece ao certame, enquanto licitação deserta é aquela em que todos os licitantes são inabilitados.",
+      "O rol de hipóteses de dispensa de licitação do art. 75 é meramente exemplificativo, permitindo ao gestor criar novas hipóteses por portaria.",
+      "Contratação de artista consagrado pela crítica especializada enquadra-se em dispensa por baixo valor, e não em inexigibilidade.",
+      "A dispensa de licitação permite contratar sem qualquer justificativa de preço ou processo formal de contratação direta."
+    ],
+    "correta": 0,
+    "explicacao": "Art. 75, VIII, da Lei 14.133/2021: emergência/calamidade = prazo máximo de 1 ano, VEDADAS prorrogação e recontratação da mesma empresa! Erros: B inverteu deserta (ninguém apareceu) e fracassada (propostas inválidas/inabilitadas); C (rol do art. 75 é TAXATIVO); D (artista consagrado = inexigibilidade art. 74); E (art. 72 exige instrução formal e justificativa de preço)."
+  },
+  {
+    "id": "esp-115",
+    "topico": "Direito Constitucional — Nacionalidade (Cargos Privativos de Nato — Estilo CETAP)",
+    "materialSecao": "esp-constitucional",
+    "enunciado": "De acordo com o art. 12, § 3º, da Constituição Federal de 1988, são privativos de **brasileiro nato** todos os cargos listados abaixo, EXCETO:",
+    "alternativas": [
+      "Presidente e Vice-Presidente da República.",
+      "Presidente da Câmara dos Deputados e Presidente do Senado Federal.",
+      "Ministro do Supremo Tribunal Federal (STF).",
+      "Oficial das Forças Armadas e Ministro de Estado da Defesa.",
+      "Governador de Estado e Deputado Estadual."
+    ],
+    "correta": 4,
+    "explicacao": "Mnemônico MP3.COM (art. 12, § 3º, CF/88): Ministro STF; Presidente/Vice da República, Presidente da Câmara, Presidente do Senado; Carreira diplomática; Oficial das Forças Armadas; Ministro de Estado da Defesa. Governador e Deputado Estadual NÃO são privativos de brasileiro nato (podem ser ocupados por naturalizado!)."
+  },
+  {
+    "id": "esp-116",
+    "topico": "Direito Constitucional — Direitos Políticos e Idades Mínimas (Art. 14 — Estilo CETAP)",
+    "materialSecao": "esp-constitucional",
+    "enunciado": "Nos termos do art. 14 da Constituição Federal de 1988, analise as proposições acerca do alistamento eleitoral e das condições de elegibilidade:\nI. O alistamento eleitoral e o voto são obrigatórios para os maiores de 18 anos e facultativos para os analfabetos, os maiores de 70 anos e os maiores de 16 e menores de 18 anos.\nII. Não podem alistar-se como eleitores os estrangeiros e, durante o período do serviço militar obrigatório, os conscritos.\nIII. As idades mínimas constitucionais de elegibilidade são: 35 anos (Presidente/Vice/Senador), 30 anos (Governador/Vice), 21 anos (Deputado Federal, Deputado Estadual, Prefeito e Vice) e 18 anos (Vereador).\nEstão CORRETAS:",
+    "alternativas": [
+      "Apenas I.",
+      "Apenas I e II.",
+      "Apenas II e III.",
+      "Apenas I e III.",
+      "Todas (I, II e III)."
+    ],
+    "correta": 4,
+    "explicacao": "Todas as três proposições reproduzem exatamente o art. 14, §§ 1º, 2º e 3º, VI, da CF/88 (regra 35-30-21-18)!"
+  },
+  {
+    "id": "esp-117",
+    "topico": "Direito Constitucional — Repartição de Competências (Arts. 21 a 25 — Estilo CETAP)",
+    "materialSecao": "esp-constitucional",
+    "enunciado": "Sobre a repartição constitucional de competências entre União, Estados, Distrito Federal e Municípios, assinale a única alternativa INCORRETA:",
+    "alternativas": [
+      "A competência legislativa privativa da União (art. 22) admite delegação aos Estados por meio de lei complementar para legislar sobre questões específicas das matérias ali relacionadas.",
+      "Na competência legislativa concorrente (art. 24 — União, Estados e DF), a União limita-se a estabelecer normas gerais, sem excluir a competência suplementar dos Estados.",
+      "Inexistindo lei federal sobre normas gerais em matéria de competência concorrente, os Estados exercerão a competência legislativa plena para atender a suas peculiaridades.",
+      "Compete aos Municípios legislar sobre assuntos de interesse local e suplementar a legislação federal e a estadual no que couber (art. 30).",
+      "A superveniência de lei federal sobre normas gerais revoga definitivamente e anula toda a legislação estadual anterior, inclusive nos pontos em que não houver conflito."
+    ],
+    "correta": 4,
+    "explicacao": "A letra E está INCORRETA (pegadinha clássica do art. 24, § 4º, CF/88)! A superveniência de lei federal sobre normas gerais SUSPENDE A EFICÁCIA da lei estadual, APENAS NO QUE LHE FOR CONTRÁRIO (não revoga nem atinge pontos compatíveis!)."
+  },
+  {
+    "id": "esp-118",
+    "topico": "Direito Administrativo — Teoria dos Motivos Determinantes e Extinção de Atos (Estilo CETAP)",
+    "materialSecao": "esp-administrativo",
+    "enunciado": "Rafael, gestor de um departamento, exonerou um ocupante de cargo em comissão (ato em regra discricionário e livre de motivação), mas registrou expressamente no ato que a exoneração decorria de 'falta de verba orçamentária'. Posteriormente, provou-se que havia sobra orçamentária e outro servidor foi nomeado no dia seguinte para o mesmo cargo. À luz do Direito Administrativo, esse ato é:",
+    "alternativas": [
+      "Válido, pois cargos em comissão podem ser exonerados sem motivo e o gestor nunca se vincula ao que escreve.",
+      "Ilegal e passível de ANULAÇÃO (efeitos ex tunc), por violação à **Teoria dos Motivos Determinantes**, segundo a qual os motivos declarados vinculam a validade do ato mesmo quando a motivação era dispensável.",
+      "Passível apenas de REVOGAÇÃO pelo Poder Judiciário por inconveniência administrativa.",
+      "Válido em razão do atributo da autoexecutoriedade absoluta.",
+      "Nulo apenas se o servidor já possuía estabilidade no cargo em comissão."
+    ],
+    "correta": 1,
+    "explicacao": "Clássico do Direito Administrativo! Pela Teoria dos Motivos Determinantes, uma vez declarados os motivos do ato (ainda que a lei não exigisse motivação), a validade do ato fica vinculada à veracidade desses motivos; comprovada a falsidade, o ato é ILEGAL e deve ser ANULADO (ex tunc)!"
+  },
+  {
+    "id": "esp-119",
+    "topico": "RJU-PA (Lei nº 5.810/1994) — Provimento, Reintegração, Reversão e Recondução (Estilo CETAP)",
+    "materialSecao": "esp-administrativo",
+    "enunciado": "De acordo com a Lei Estadual nº 5.810/1994 (RJU-PA), associe corretamente as formas de provimento derivadas e assinale a única alternativa INCORRETA:",
+    "alternativas": [
+      "**Reintegração** é a reinvestidura do servidor estável no cargo anteriormente ocupado quando invalidada a sua demissão por decisão administrativa ou judicial.",
+      "**Reversão** é o retorno à atividade de servidor aposentado por invalidez quando insubsistentes os motivos da aposentadoria (ou no interesse da Administração, conforme disciplina estatutária).",
+      "**Readaptação** é a investidura do servidor em cargo de atribuições e responsabilidades compatíveis com a limitação que tenha sofrido em sua capacidade física ou mental.",
+      "**Aproveitamento** é o retorno à atividade de servidor em disponibilidade em cargo de atribuições e vencimentos compatíveis com o anteriormente ocupado.",
+      "**Recondução** é o retorno à atividade do servidor aposentado compulsoriamente aos 75 anos de idade."
+    ],
+    "correta": 4,
+    "explicacao": "A letra E está INCORRETA! Recondução é o retorno do servidor ESTÁVEL ao cargo anteriormente ocupado em decorrência de inabilitação em estágio probatório relativo a outro cargo ou reintegração do anterior ocupante! (Aposentado retornando = Reversão)."
+  },
+  {
+    "id": "esp-120",
+    "topico": "RJU-PA (Lei nº 5.810/1994) — Prazo de Exercício e Consequências (Estilo CETAP)",
+    "materialSecao": "esp-administrativo",
+    "enunciado": "Nos termos da Lei Estadual nº 5.810/1994 (RJU-PA), após tomar posse regularmente em cargo efetivo estadual, o servidor dispõe do prazo legal de **15 (quinze) dias** para entrar em exercício. Caso o servidor empossado NÃO entre em exercício nesse prazo, qual providência jurídica ocorre?",
+    "alternativas": [
+      "O ato de nomeação é tornado sem efeito.",
+      "O servidor é demitido a bem do serviço público.",
+      "O servidor será **exonerado de ofício**.",
+      "O prazo é prorrogado automaticamente por mais 60 dias.",
+      "O servidor é colocado em disponibilidade remunerada."
+    ],
+    "correta": 2,
+    "explicacao": "Distinção clássica de provas estatutárias! NÃO tomou posse no prazo (30 + 15 dias) → ato de provimento TORNADO SEM EFEITO. Tomou posse, mas NÃO entrou em exercício no prazo (15 dias) → EXONERAÇÃO DE OFÍCIO!"
+  },
+  {
+    "id": "esp-121",
+    "topico": "Orçamento Público — Créditos Adicionais e Princípios (Estilo CETAP)",
+    "materialSecao": "esp-administrativo",
+    "enunciado": "Sobre os princípios orçamentários e o ciclo orçamentário na Constituição Federal de 1988, analise as afirmativas:\nI. Pelo princípio da **Universalidade**, a Lei Orçamentária Anual (LOA) deve compreender todas as receitas e todas as despesas dos Poderes, órgãos e fundos.\nII. Pelo princípio do **Orçamento Bruto**, todas as parcelas da receita e da despesa devem aparecer na LOA em seus valores brutos, vedadas quaisquer deduções.\nIII. Pelo princípio da **Não Afetação (Não Vinculação)**, é vedada a vinculação de receita de impostos a órgão, fundo ou despesa, ressalvadas as exceções expressas na própria Constituição (como saúde e educação).\nIV. O Poder Executivo é o único responsável pela elaboração, votação e julgamento final das contas orçamentárias, sem participação do Poder Legislativo.\nEstão CORRETAS apenas as afirmativas:",
+    "alternativas": [
+      "I e II.",
+      "I, II e III.",
+      "II e IV.",
+      "I, III e IV.",
+      "I, II, III e IV."
+    ],
+    "correta": 1,
+    "explicacao": "Apenas I, II e III estão corretas! IV é falsa porque a discussão, emendamento, votação das leis orçamentárias e o controle externo/julgamento das contas competem ao PODER LEGISLATIVO (ALEPA + CCFO + auxílio do TCE-PA)."
+  },
+  {
+    "id": "esp-122",
+    "topico": "Técnica Legislativa — Revogação, Consolidação e Codificação (Estilo CETAP)",
+    "materialSecao": "esp-tecnica-leg",
+    "enunciado": "Acerca das técnicas de alteração, revogação, consolidação e codificação de normas jurídicas (LC nº 95/1998 e doutrina legislativa), assinale a única alternativa INCORRETA:",
+    "alternativas": [
+      "A revogação total de uma lei denomina-se **ab-rogação**, enquanto a revogação parcial denomina-se **derrogação**.",
+      "A **consolidação** reúne todas as leis pertinentes a determinada matéria em um único diploma legal, **sem alteração do mérito** das disposições consolidadas.",
+      "A **codificação** cria um novo corpo normativo sistemático e inovador para determinado ramo do Direito, podendo alterar substancialmente o conteúdo das normas anteriores.",
+      "A obscuridade, a ambiguidade e a contradição interna são vícios de redação legislativa que comprometem a segurança jurídica.",
+      "Na consolidação de leis prevista na LC nº 95/1998, é obrigatório revogar princípios constitucionais e inovar amplamente o mérito de todas as normas reunidas."
+    ],
+    "correta": 4,
+    "explicacao": "A letra E está INCORRETA! A consolidação das leis (art. 13 da LC nº 95/1998) integra leis pertinentes a uma matéria SEM alteração do alcance nem interrupção da força normativa (sem inovação de mérito!)."
+  },
+  {
+    "id": "esp-123",
+    "topico": "Técnica Legislativa — Parecer, Requerimento, Indicação e Moção (Estilo CETAP)",
+    "materialSecao": "esp-tecnica-leg",
+    "enunciado": "Relacione os quatro documentos legislativos não normativos abaixo às suas funções nas Casas Legislativas:\nI. **Parecer** — pronunciamento de Comissão (composto por relatório, voto do relator e conclusão da comissão) sobre proposição sujeita ao seu exame.\nII. **Indicação** — sugestão dirigida por parlamentar a outro Poder ou autoridade administrativa para adoção de medida ou envio de projeto de iniciativa privativa do Executivo.\nIII. **Requerimento** — pedido formal dirigido à Presidência ou ao Plenário para deliberação sobre ato regimental/administrativo (como pedido de informações ou urgência).\nIV. **Moção** — manifestação oficial da Casa sobre acontecimento relevante (aplauso, apoio, pesar, protesto ou repúdio).\nEstão CORRETAS:",
+    "alternativas": [
+      "Apenas I e II.",
+      "Apenas II e III.",
+      "Apenas I, II e III.",
+      "Apenas I, III e IV.",
+      "Todas (I, II, III e IV)."
+    ],
+    "correta": 4,
+    "explicacao": "Todas as quatro definições de documentos legislativos não normativos estão rigorosamente precisas!"
+  },
+  {
+    "id": "esp-124",
+    "topico": "Administração Pública — Fluxograma e Mapeamento de Processos (Estilo CETAP)",
+    "materialSecao": "esp-adm-publica",
+    "enunciado": "Ao elaborar um **fluxograma** padrão para mapear o protocolo de processos administrativos na ALEPA, o Assistente Administrativo emprega símbolos gráficos padronizados. Os símbolos **oval (elipse)**, **retângulo** e **losango** representam, respectivamente:",
+    "alternativas": [
+      "Decisão — Início/Fim — Atividade/Etapa.",
+      "Início/Fim — Atividade/Processo — Ponto de Decisão (Sim/Não).",
+      "Atividade — Documento impresso — Arquivamento definitivo.",
+      "Início/Fim — Ponto de Decisão — Conector de página.",
+      "Armazenamento — Transporte — Espera."
+    ],
+    "correta": 1,
+    "explicacao": "Simbologia clássica de fluxogramas cobrada pela CETAP: Oval/Elipse = Início ou Fim; Retângulo = Atividade/Operação; Losango = Ponto de Decisão (bifurcação Sim/Não)!"
+  },
+  {
+    "id": "esp-125",
+    "topico": "Administração Pública — Eficácia, Eficiência e Efetividade (Estilo CETAP)",
+    "materialSecao": "esp-adm-publica",
+    "enunciado": "Na Gestão Pública por Resultados, os indicadores de desempenho avaliam três dimensões clássicas: **eficiência**, **eficácia** e **efetividade**. Assinale a alternativa que associa CORRETAMENTE esses três conceitos:",
+    "alternativas": [
+      "Eficiência = impacto social duradouro; Eficácia = economia de recursos; Efetividade = cumprimento de rotina interna.",
+      "Eficiência = foco nos meios/recursos (fazer certo com menor custo/tempo); Eficácia = foco nos resultados/metas (atingir o objetivo previsto); Efetividade = foco no impacto real e transformação gerada na sociedade.",
+      "Eficiência e Efetividade são sinônimos absolutos de burocracia estrita.",
+      "Eficácia refere-se exclusivamente à redução do orçamento anual, independentemente de cumprir metas.",
+      "Efetividade mede apenas a quantidade de processos protocolados por hora no balcão."
+    ],
+    "correta": 1,
+    "explicacao": "Tríade clássica (3 E's): Eficiência = MEIOS (relação insumo/produto, fazer bem com menos recursos); Eficácia = FINS/METAS (atingir o objetivo planejado); Efetividade = IMPACTO SOCIAL (transformação real percebida pela população)!"
+  },
+  {
+    "id": "esp-126",
+    "topico": "Secretaria — Atendimento Prioritário (Lei nº 10.048/2000 e Estatuto da Pessoa Idosa — Estilo CETAP)",
+    "materialSecao": "esp-secretaria",
+    "enunciado": "No balcão de atendimento presencial de um órgão público estadual, apresentam-se simultaneamente cidadãos com direito a atendimento prioritário. À luz da Lei nº 10.048/2000 e do Estatuto da Pessoa Idosa (Lei nº 10.741/2003), analise as afirmativas:\nI. Têm direito a atendimento prioritário pessoas com deficiência, pessoas com transtorno do espectro autista (TEA), pessoas idosas (60 anos ou mais), gestantes, lactantes, pessoas com criança de colo, obesos, pessoas com mobilidade reduzida e doadores de sangue.\nII. Dentre os idosos, é assegurada **prioridade especial aos maiores de 80 (oitenta) anos**, atendendo-se suas necessidades sempre preferencialmente em relação aos demais idosos.\nIII. O servidor pode recusar atendimento prioritário a gestantes quando a fila comum estiver grande.\nEstão CORRETAS apenas:",
+    "alternativas": [
+      "I.",
+      "II.",
+      "I e II.",
+      "II e III.",
+      "I, II e III."
+    ],
+    "correta": 2,
+    "explicacao": "Apenas I e II estão corretas! O Estatuto da Pessoa Idosa (art. 3º, § 2º, incluído pela Lei 13.466/2017) assegura prioridade ESPECIAL aos maiores de 80 anos; e a Lei 10.048/2000 (atualizada) abrange todos os grupos listados em I."
+  },
+  {
+    "id": "esp-127",
+    "topico": "Secretaria — Gestão por Competências (Tripé CHA — Estilo CETAP)",
+    "materialSecao": "esp-secretaria",
+    "enunciado": "No modelo de **Gestão por Competências** aplicado à Administração Pública, o mapeamento de competências estrutura-se no clássico tripé **CHA**. Assinale a alternativa que relaciona CORRETAMENTE os três elementos desse tripé:",
+    "alternativas": [
+      "Controle (fiscalizar) — Hierarquia (comandar) — Autoridade (decidir).",
+      "Conhecimentos (saber teórico/informação) — Habilidades (saber fazer/prática) — Atitudes (querer fazer/postura e comportamento).",
+      "Comunicação (falar) — Harmonia (conviver) — Agilidade (executar).",
+      "Custos (economizar) — Horários (cumprir) — Arquivos (guardar).",
+      "Capacitação (treinar) — Homologação (aprovar) — Avaliação (medir)."
+    ],
+    "correta": 1,
+    "explicacao": "Clássico de Gestão de Pessoas! CHA = Conhecimentos (SABER), Habilidades (SABER FAZER) e Atitudes (QUERER FAZER / comportamento ético e proativo)!"
+  },
+  {
+    "id": "esp-128",
+    "topico": "Secretaria — MRPR (3ª Edição): Local e Data, Signatário e Parágrafo Único (Estilo CETAP)",
+    "materialSecao": "esp-secretaria",
+    "enunciado": "De acordo com a 3ª edição do Manual de Redação da Presidência da República (MRPR), acerca do Padrão Ofício, assinale a única alternativa INCORRETA:",
+    "alternativas": [
+      "O campo 'Local e data' é alinhado à margem direita, com o nome do mês grafado em letra minúscula e ponto final ao término (ex.: `Belém, 13 de dezembro de 2026.`).",
+      "A identificação do signatário traz o nome da autoridade em letras MAIÚSCULAS e em negrito, seguido do cargo abaixo.",
+      "Quando o texto oficial tiver apenas um parágrafo, ele NÃO deve ser numerado; havendo mais de um parágrafo, numeram-se os parágrafos do texto (mas nunca o fecho!).",
+      "O fecho 'Respeitosamente,' é utilizado para autoridades superiores e 'Atenciosamente,' para mesma hierarquia ou inferior.",
+      "O cabeçalho com o brasão/timbre do órgão deve ser repetido obrigatoriamente em todas as páginas do ofício, e o fecho deve receber numeração sequencial após o último parágrafo."
+    ],
+    "correta": 4,
+    "explicacao": "A letra E está INCORRETA! Na 3ª edição do MRPR: o cabeçalho oficial é utilizado APENAS NA PRIMEIRA PÁGINA do documento, e o fecho JAMAIS é numerado!"
+  },
+  {
+    "id": "esp-129",
+    "topico": "Arquivologia — Princípios Arquivísticos (Indivisibilidade, Cumulatividade e Ordem Original — Estilo CETAP)",
+    "materialSecao": "esp-arquivologia",
+    "enunciado": "Na Arquivologia, além da Proveniência e da Organicidade, outros princípios regem a integridade dos arquivos. Analise as definições abaixo:\nI. **Indivisibilidade (ou Integridade Arquivística):** os fundos de arquivo devem ser preservados sem dispersão, mutilação, alienação ou destruição não autorizada.\nII. **Cumulatividade:** o arquivo forma-se de maneira natural e progressiva como sedimento contínuo das atividades diárias da instituição produtora (diferentemente de uma coleção artificial).\nIII. **Ordem Original:** deve-se conservar o arranjo dado aos documentos pela entidade produtora no curso de suas atividades.\nEstão CORRETAS:",
+    "alternativas": [
+      "Apenas I.",
+      "Apenas I e II.",
+      "Apenas II e III.",
+      "Apenas I e III.",
+      "Todas (I, II e III)."
+    ],
+    "correta": 4,
+    "explicacao": "Todas as três definições (Indivisibilidade/Integridade, Cumulatividade e Ordem Original) estão tecnicamente impecáveis!"
+  },
+  {
+    "id": "esp-130",
+    "topico": "Arquivologia — Método Alfabético (Parentesco e Títulos — Estilo CETAP)",
+    "materialSecao": "esp-arquivologia",
+    "enunciado": "Aplicando corretamente as regras oficiais de alfabetação do método alfabético de arquivamento para os nomes: (1) `Deputado João Silva Filho`, (2) `Dra. Maria Costa` e (3) `Antônio de Souza Neto`, a forma correta de entrada (indexação) e a ordem alfabética crescente são:",
+    "alternativas": [
+      "1º DEPUTADO João Silva Filho — 2º DRA. Maria Costa — 3º NETO, Antônio de Souza.",
+      "1º COSTA, Maria (Dra.) — 2º SILVA FILHO, João (Deputado) — 3º SOUZA NETO, Antônio de.",
+      "1º FILHO, João Silva — 2º COSTA, Maria — 3º NETO, Antônio de Souza.",
+      "1º ANTÔNIO de Souza Neto — 2º JOÃO Silva Filho — 3º MARIA Costa.",
+      "1º COSTA, Maria — 2º SOUZA NETO, Antônio de — 3º SILVA FILHO, João."
+    ],
+    "correta": 1,
+    "explicacao": "Regras oficiais de alfabetação: (1) graus de parentesco ('Filho, Júnior, Neto, Sobrinho') NÃO se separam do último sobrenome → `SILVA FILHO, João` e `SOUZA NETO, Antônio de`; (2) títulos/cargos ('Deputado', 'Dra.') vão após o nome entre parênteses e NÃO entram na ordenação! Ordem alfabética: COSTA → SILVA FILHO → SOUZA NETO!"
+  },
+  {
+    "id": "esp-131",
+    "topico": "Arquivologia — Método Numérico Dígito-Terminal e Espécie x Tipo (Estilo CETAP)",
+    "materialSecao": "esp-arquivologia",
+    "enunciado": "Acerca do método numérico dígito-terminal e da distinção entre espécie e tipologia documental, assinale a única alternativa INCORRETA:",
+    "alternativas": [
+      "No método dígito-terminal, os números dos documentos são divididos em grupos de dois dígitos e lidos da **direita para a esquerda**, reduzindo erros de transposição e distribuindo melhor o volume nas estantes.",
+      "A **espécie documental** corresponde à configuração que assume o documento de acordo com a disposição e natureza das informações (ex.: Ofício, Ata, Contrato, Portaria).",
+      "O **tipo (ou tipologia) documental** resulta da espécie documental acrescida da atividade/função que a gerou (ex.: 'Ata de Sessão Plenária', 'Contrato de Locação').",
+      "A conservação preventiva de acervos em papel busca manter temperatura em torno de 20 °C e umidade relativa entre 45% e 55%, com proteção contra radiação UV.",
+      "No método dígito-terminal, a leitura e ordenação dos grupos numéricos é feita estritamente da esquerda para a direita, de forma idêntica ao método numérico simples."
+    ],
+    "correta": 4,
+    "explicacao": "A letra E está INCORRETA! A característica definidora do método dígito-terminal é justamente a leitura em pares de dígitos da DIREITA PARA A ESQUERDA (grupo primário = últimos 2 dígitos)!"
+  },
+  {
+    "id": "esp-132",
+    "topico": "Recursos Materiais — Classificação XYZ (Criticidade — Estilo CETAP)",
+    "materialSecao": "esp-materiais",
+    "enunciado": "Em um almoxarifado público, o gestor combinou a Curva ABC com a **Classificação XYZ** (grau de criticidade/imprescindibilidade operacional). Assinale a alternativa que identifica CORRETAMENTE um item **Classe Z**:",
+    "alternativas": [
+      "Item de baixíssima criticidade, com diversos substitutos imediatos no mercado e cuja falta não afeta o funcionamento do órgão.",
+      "Item de criticidade máxima, imprescindível à continuidade das atividades essenciais, sem substituto imediato e cuja falta provoca paralisação grave dos serviços.",
+      "Item de criticidade intermediária, que pode ser substituído facilmente em curto prazo.",
+      "Exclusivamente material de limpeza de baixo custo unitário.",
+      "Qualquer bem imóvel tombado com mais de 20 anos de uso."
+    ],
+    "correta": 1,
+    "explicacao": "Classificação XYZ (Criticidade): X = baixa criticidade (fácil substituição); Y = criticidade média; Z = MÁXIMA criticidade (imprescindível, sem substituto imediato, cuja ruptura paralisa operações essenciais)!"
+  },
+  {
+    "id": "esp-133",
+    "topico": "Recursos Materiais — PEPS, UEPS e Custo Médio Ponderado (Estilo CETAP)",
+    "materialSecao": "esp-materiais",
+    "enunciado": "Um almoxarifado recebeu duas entradas de um mesmo insumo: 1º lote de 10 unidades a R$ 20,00 cada; 2º lote de 10 unidades a R$ 30,00 cada. Em seguida, houve saída (consumo) de 10 unidades. Comparando os métodos **PEPS (FIFO)** e **Custo Médio Ponderado**, o valor total do estoque remanescente (10 unidades finais) em cada método será, respectivamente:",
+    "alternativas": [
+      "R$ 200,00 (PEPS) e R$ 250,00 (Custo Médio).",
+      "R$ 300,00 (PEPS) e R$ 250,00 (Custo Médio).",
+      "R$ 250,00 (PEPS) e R$ 300,00 (Custo Médio).",
+      "R$ 300,00 (PEPS) e R$ 200,00 (Custo Médio).",
+      "R$ 250,00 em ambos os métodos."
+    ],
+    "correta": 1,
+    "explicacao": "No PEPS (Primeiro que Entra, Primeiro que Sai), saem primeiro as 10 unidades de R$ 20,00 → sobram no estoque as 10 unidades mais recentes de R$ 30,00 = **R$ 300,00**! No Custo Médio Ponderado: valor médio = (10×20 + 10×30) / 20 = 500 / 20 = R$ 25,00/un → sobram 10 × 25 = **R$ 250,00**!"
+  },
+  {
+    "id": "esp-134",
+    "topico": "Recursos Materiais — Inventário Patrimonial e Desfazimento de Bens (Estilo CETAP)",
+    "materialSecao": "esp-materiais",
+    "enunciado": "Acerca da Gestão Patrimonial de bens móveis permanentes na Administração Pública, analise as afirmativas:\nI. O **tombamento** consiste no registro analítico do bem permanente, atribuição de número patrimonial (plaqueta/etiqueta) e vinculação a um Termo de Responsabilidade.\nII. O **inventário físico** verifica periodicamente a existência física, o estado de conservação e a localização real dos bens em confronto com os registros contábeis/patrimoniais.\nIII. Para fins de desfazimento (alienação, cessão, permuta ou inutilização), os bens inservíveis classificam-se em: **ocioso**, **recuperável**, **antieconômico** e **irrecuperável**.\nIV. Um bem permanente cujo custo de reparo ultrapasse 50% do seu valor de mercado classifica-se como **irrecuperável**.\nEstão CORRETAS:",
+    "alternativas": [
+      "Apenas I e II.",
+      "Apenas II e III.",
+      "Apenas I, II e III.",
+      "Apenas I, III e IV.",
+      "Todas (I, II, III e IV)."
+    ],
+    "correta": 4,
+    "explicacao": "Todas as quatro afirmativas sobre tombamento, inventário e classificação de bens inservíveis estão 100% corretas!"
+  },
+  {
+    "id": "esp-135",
+    "topico": "Asserção-Razão — Licitações (Lei nº 14.133/2021 — Julgamento Antes da Habilitação — Estilo CETAP)",
+    "materialSecao": "esp-administrativo",
+    "enunciado": "Analise as duas asserções a seguir e a relação proposta entre elas, conforme o art. 17 da Lei nº 14.133/2021:\n\nI. Na Nova Lei de Licitações e Contratos Administrativos (Lei nº 14.133/2021), a regra geral é que a fase de **julgamento das propostas** preceda a fase de **habilitação** (analisando-se os documentos de habilitação apenas do licitante vencedor).\n\n**PORQUE**\n\nII. Conferir a documentação de habilitação somente após definir a melhor proposta reduz burocracia, diminui o volume de recursos protelatórios e aumenta a celeridade e a eficiência do certame, admitindo-se a inversão (habilitação antes) apenas excepcionalmente, mediante ato motivado e previsão expressa no edital.\n\nA respeito dessas asserções, assinale a alternativa CORRETA:",
+    "alternativas": [
+      "As asserções I e II são proposições verdadeiras, e a II é uma justificativa correta da I.",
+      "As asserções I e II são proposições verdadeiras, mas a II não é uma justificativa da I.",
+      "A asserção I é uma proposição verdadeira, e a II é uma proposição falsa.",
+      "A asserção I é uma proposição falsa, e a II é uma proposição verdadeira.",
+      "As asserções I e II são proposições falsas."
+    ],
+    "correta": 0,
+    "explicacao": "Ambas as asserções são verdadeiras (art. 17, caput e § 1º, da Lei nº 14.133/2021) e a II justifica perfeitamente por que a chamada 'inversão de fases' tornou-se o rito ordinário da nova lei!"
   }
 ];

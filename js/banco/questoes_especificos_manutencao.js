@@ -1125,5 +1125,305 @@ window.BANCO_QUESTOES.especificos_manutencao = [
     ],
     "correta": 4,
     "explicacao": "A letra E está INCORRETA! A movimentação informal de bens permanentes sem registro patrimonial quebra a cadeia de responsabilidade dos Termos de Guarda e gera divergências graves no inventário anual."
+  },
+  {
+    "id": "man-76",
+    "topico": "Eletricidade — Interruptor Intermediário (Four-Way — Estilo CETAP)",
+    "materialSecao": "man-eletricidade",
+    "enunciado": "No grande auditório da ALEPA, a equipe precisa comandar o mesmo circuito de luminárias a partir de **TRÊS pontos distintos** (entrada principal, cabine de som e saída lateral). Qual combinação de interruptores deve ser instalada no circuito?",
+    "alternativas": [
+      "Três interruptores simples ligados em série.",
+      "Dois interruptores paralelos (three-way) nas extremidades e um interruptor intermediário (four-way) entre eles.",
+      "Três interruptores intermediários (four-way) sem nenhum paralelo.",
+      "Apenas um disjuntor bipolar no quadro de luz.",
+      "Dois interruptores simples e um dispositivo DR de 30 mA."
+    ],
+    "correta": 1,
+    "explicacao": "Para comandar uma carga de 3 ou mais pontos: usam-se sempre DOIS interruptores paralelos (three-way) nas pontas + um ou mais interruptores intermediários (four-way) no meio (ligando sempre no condutor FASE)!"
+  },
+  {
+    "id": "man-77",
+    "topico": "ABNT NBR 5410 — Seção Mínima de Condutores de Cobre (Estilo CETAP)",
+    "materialSecao": "man-eletricidade",
+    "enunciado": "Segundo a ABNT NBR 5410 (Tabela 47), para circuitos de **iluminação** e para circuitos de **força (tomadas de uso geral)** executados com condutores de cobre isolados em instalações prediais de baixa tensão, as seções nominais mínimas permitidas são, respectivamente:",
+    "alternativas": [
+      "`0,75 mm²` (iluminação) e `1,0 mm²` (força/tomadas).",
+      "`1,5 mm²` (iluminação) e `2,5 mm²` (força/tomadas).",
+      "`2,5 mm²` (iluminação) e `1,5 mm²` (força/tomadas).",
+      "`4,0 mm²` (iluminação) e `6,0 mm²` (força/tomadas).",
+      "`1,0 mm²` para ambos os circuitos."
+    ],
+    "correta": 1,
+    "explicacao": "Regra clássica da ABNT NBR 5410 (Tabela 47): condutores de cobre mínimos → `1,5 mm²` para circuitos de iluminação e `2,5 mm²` para circuitos de força (tomadas)!"
+  },
+  {
+    "id": "man-78",
+    "topico": "NR-10 — Zonas de Risco, Controlada e Prontuário (Estilo CETAP)",
+    "materialSecao": "man-eletricidade",
+    "enunciado": "Considerando a Norma Regulamentadora nº 10 (NR-10), acerca da segurança em instalações e serviços em eletricidade, analise as afirmativas:\nI. A **Zona de Risco** é o entorno de parte condutora energizada não segregada, acessível inclusive acidentalmente, onde somente profissionais autorizados com técnicas e equipamentos apropriados podem ingressar.\nII. A **Zona Controlada** envolve a zona de risco e tem acesso restrito a trabalhadores autorizados.\nIII. O trabalhador que atua em instalações elétricas deve usar vestimentas adequadas às atividades (proibido o uso de adornos metálicos pessoais como anéis, pulseiras, correntes e relógios metálicos!).\nIV. É permitido realizar manutenção em painéis elétricos energizados usando alianças de ouro e relógio metálico desde que o técnico use bota de borracha.\nEstão CORRETAS apenas as afirmativas:",
+    "alternativas": [
+      "I e II.",
+      "I, II e III.",
+      "II e IV.",
+      "I, III e IV.",
+      "I, II, III e IV."
+    ],
+    "correta": 1,
+    "explicacao": "Apenas I, II e III estão corretas! O item 10.2.9.3 da NR-10 proíbe expressamente o uso de adornos pessoais (anéis, pulseiras, relógios metálicos, correntes) nos trabalhos com instalações elétricas ou em suas proximidades!"
+  },
+  {
+    "id": "man-79",
+    "topico": "Eletricidade — Potência, Corrente e Disjuntor (Cálculo Prático — Estilo CETAP)",
+    "materialSecao": "man-eletricidade",
+    "enunciado": "Um aquecedor de água de copa de potência nominal **4.400 W** será instalado em circuito exclusivo de tensão **220 V**. Desprezando perdas e considerando carga puramente resistiva (`I = P / V`), qual é a corrente elétrica nominal consumida por esse aparelho?",
+    "alternativas": [
+      "10 A.",
+      "15 A.",
+      "20 A.",
+      "25 A.",
+      "44 A."
+    ],
+    "correta": 2,
+    "explicacao": "Pela relação `P = V · I` → `I = P / V = 4.400 / 220 = 20 A` (exigindo circuito dedicado, condutor compatível e tomada/conexão de 20 A ou superior conforme NBR 5410)!"
+  },
+  {
+    "id": "man-80",
+    "topico": "Hidráulica — Golpe de Aríete e Válvulas (NBR 5626 — Estilo CETAP)",
+    "materialSecao": "man-hidraulica",
+    "enunciado": "Em um edifício público de vários andares, ao fechar bruscamente uma válvula de descarga ou registro de fechamento rápido, ouve-se forte estrondo e vibração nas tubulações de água fria. Esse fenômeno hidráulico — causado pela variação súbita de pressão decorrente da interrupção brusca do escoamento — denomina-se:",
+    "alternativas": [
+      "Sifonamento sanitário.",
+      "Golpe de aríete.",
+      "Cavitação térmica.",
+      "Capilaridade reversa.",
+      "Decantação hidráulica."
+    ],
+    "correta": 1,
+    "explicacao": "O Golpe de Aríete é o choque de sobrepressão que percorre a tubulação quando o fluxo de líquido é interrompido abruptamente (ex.: fechamento rápido de registros ou parada súbita de bombas), podendo romper conexões e juntas!"
+  },
+  {
+    "id": "man-81",
+    "topico": "Hidráulica — Registro de Pressão x Registro de Gaveta x Válvula de Retenção (Estilo CETAP)",
+    "materialSecao": "man-hidraulica",
+    "enunciado": "Sobre os componentes de controle de fluxo em instalações hidráulicas prediais (ABNT NBR 5626), assinale a única alternativa INCORRETA:",
+    "alternativas": [
+      "O **registro de pressão** (como o de chuveiros) permite controlar e graduar a vazão de água em posições intermediárias.",
+      "O **registro de gaveta** é projetado para operar totalmente aberto ou totalmente fechado, servindo para isolar sub-ramais e colunas durante manutenção.",
+      "A **válvula de retenção** permite o fluxo da água em apenas um sentido, impedindo o retorno (refluxo) na tubulação de recalque.",
+      "A **válvula de pé com crivo**, instalada na extremidade inferior da tubulação de sucção dentro da cisterna, mantém a tubulação cheia d'água (escorvada) e filtra sólidos grosseiros.",
+      "O registro de gaveta deve ser mantido permanentemente semiaberto para regular a pressão fina de torneiras e chuveiros."
+    ],
+    "correta": 4,
+    "explicacao": "A letra E está INCORRETA! Manter um registro de gaveta semiaberto provoca desgaste acelerado da cunha/vedação por erosão e vibração; para regular vazão usa-se registro de PRESSÃO!"
+  },
+  {
+    "id": "man-82",
+    "topico": "Esgoto Sanitário — Caixa de Inspeção, Caixa Sifonada e Inclinação (NBR 8160 — Estilo CETAP)",
+    "materialSecao": "man-hidraulica",
+    "enunciado": "Acerca dos dispositivos e traçado das tubulações de esgoto sanitário predial (ABNT NBR 8160), analise as afirmativas:\nI. As tubulações horizontais de esgoto sanitário devem possuir declividade (caimento) mínima adequada no sentido do escoamento para garantir o escoamento por gravidade sem deposição de sólidos.\nII. A **caixa de inspeção** permite a verificação, limpeza e desobstrução da rede coletora predial em mudanças de direção, declividade ou trechos longos.\nIII. O **ralo seco** (sem fecho hídrico) NÃO deve ser ligado diretamente ao esgoto primário sem antes passar por um desconector (como a caixa sifonada), sob pena de retorno de mau cheiro.\nEstão CORRETAS:",
+    "alternativas": [
+      "Apenas I.",
+      "Apenas I e II.",
+      "Apenas II e III.",
+      "Apenas I e III.",
+      "Todas (I, II e III)."
+    ],
+    "correta": 4,
+    "explicacao": "Todas as três afirmativas seguem rigorosamente a ABNT NBR 8160!"
+  },
+  {
+    "id": "man-83",
+    "topico": "Climatização — Unidades Evaporadora e Condensadora do Split (Estilo CETAP)",
+    "materialSecao": "man-maquinas-climatizacao",
+    "enunciado": "Na manutenção básica de condicionadores de ar do tipo **Split** instalados nos gabinetes da ALEPA, assinale a única alternativa INCORRETA:",
+    "alternativas": [
+      "A unidade interna (**evaporadora**) absorve o calor do ambiente interno, resfriando e desumidificando o ar.",
+      "A unidade externa (**condensadora**) rejeita o calor absorvido para o ambiente externo e abriga o compressor e o ventilador externo.",
+      "O entupimento da mangueira/tubulação de dreno ou da bandeja de condensado causa gotejamento de água pela unidade evaporadora dentro da sala.",
+      "Filtros de ar obstruídos por poeira reduzem a troca térmica, aumentam o consumo elétrico e podem provocar congelamento da serpentina interna.",
+      "A unidade condensadora deve ser instalada dentro de armários fechados sem ventilação para proteger o equipamento do ar externo."
+    ],
+    "correta": 4,
+    "explicacao": "A letra E está INCORRETA! A condensadora precisa obrigatoriamente de área externa bem ventilada para dissipar o calor; confiná-la causa superaquecimento, desarme por alta pressão e queima do compressor!"
+  },
+  {
+    "id": "man-84",
+    "topico": "Ferramentas Manuais e Elétricas — Isolamento e Segurança (Estilo CETAP)",
+    "materialSecao": "man-maquinas-climatizacao",
+    "enunciado": "Sobre o uso seguro e a conservação de ferramentas na manutenção patrimonial, analise os itens:\nI. Para intervenções em instalações elétricas de baixa tensão, devem ser empregadas ferramentas manuais com **isolamento elétrico certificado (1.000 V)** em perfeito estado.\nII. Antes de trocar brocas de furadeira ou discos de esmerilhadeira, o equipamento deve ser desconectado da tomada (ou ter a bateria removida).\nIII. A **chave de boca/estrela** deve corresponder exatamente à medida da porca ou parafuso para evitar espanar o sextavado e provocar escorregamento com ferimento.\nIV. É recomendável utilizar chave de fenda comum como talhadeira ou alavanca pesada batendo com martelo no cabo plástico.\nEstão CORRETOS apenas os itens:",
+    "alternativas": [
+      "I e II.",
+      "I, II e III.",
+      "II e IV.",
+      "I, III e IV.",
+      "I, II, III e IV."
+    ],
+    "correta": 1,
+    "explicacao": "Apenas I, II e III estão corretos! IV é prática incorreta e perigosa que quebra o cabo isolante, inutiliza a ferramenta e causa acidentes."
+  },
+  {
+    "id": "man-85",
+    "topico": "Mecânica Básica — Lubrificação, Rolamentos e Correias (Estilo CETAP)",
+    "materialSecao": "man-maquinas-climatizacao",
+    "enunciado": "Na manutenção mecânica básica de portões eletrônicos, exaustores, bombas e compressores prediais, analise as afirmativas:\nI. A lubrificação adequada (com graxa ou óleo especificado) reduz o atrito, o desgaste prematuro, a temperatura de operação e a corrosão de peças móveis.\nII. Ruído metálico anormal, vibração excessiva e aquecimento no mancal de um motor elétrico são indícios clássicos de desgaste ou falha nos **rolamentos**.\nIII. Correias frouxas deslizam (patinam) perdendo transmissão de potência; correias excessivamente tensionadas sobrecarregam os rolamentos e os eixos.\nEstão CORRETAS:",
+    "alternativas": [
+      "Apenas I.",
+      "Apenas I e II.",
+      "Apenas II e III.",
+      "Apenas I e III.",
+      "Todas (I, II e III)."
+    ],
+    "correta": 4,
+    "explicacao": "Todas as três afirmativas refletem conceitos essenciais de mecânica básica e conservação de máquinas prediais!"
+  },
+  {
+    "id": "man-86",
+    "topico": "Asserção-Razão — Manutenção Preventiva x Corretiva Não Planejada (Estilo CETAP)",
+    "materialSecao": "man-maquinas-climatizacao",
+    "enunciado": "Analise as duas asserções a seguir e a relação proposta entre elas sobre gestão da manutenção predial:\n\nI. Priorizar programas estruturados de **manutenção preventiva e preditiva** reduz o custo global de conservação do patrimônio público e amplia a vida útil dos equipamentos em comparação com operar apenas sob manutenção corretiva não planejada.\n\n**PORQUE**\n\nII. A manutenção corretiva não planejada atua somente após a quebra do equipamento, provocando paradas inesperadas, compras emergenciais mais caras, risco de danos secundários a outros componentes e prejuízo à continuidade dos serviços públicos.\n\nA respeito dessas asserções, assinale a alternativa CORRETA:",
+    "alternativas": [
+      "As asserções I e II são proposições verdadeiras, e a II é uma justificativa correta da I.",
+      "As asserções I e II são proposições verdadeiras, mas a II não é uma justificativa da I.",
+      "A asserção I é uma proposição verdadeira, e a II é uma proposição falsa.",
+      "A asserção I é uma proposição falsa, e a II é uma proposição verdadeira.",
+      "As asserções I e II são proposições falsas."
+    ],
+    "correta": 0,
+    "explicacao": "Ambas as asserções são verdadeiras e a II explica exatamente por que a prevenção e a predição são tecnicamente e economicamente superiores à corretiva emergencial!"
+  },
+  {
+    "id": "man-87",
+    "topico": "Combate a Incêndios — Classes D e K e Inspeção de Extintores (Estilo CETAP)",
+    "materialSecao": "man-seguranca-incendio",
+    "enunciado": "Considerando as classes de incêndio e a manutenção periódica de extintores portáteis (NR-23 e normas ABNT), assinale a única alternativa INCORRETA:",
+    "alternativas": [
+      "Incêndios **Classe A** envolvem combustíveis sólidos fibrosos (papel, madeira, tecido) que queimam em superfície e profundidade, deixando resíduos/brasas.",
+      "Incêndios **Classe B** envolvem líquidos e gases inflamáveis (gasolina, álcool, óleo diesel, GLP), queimando em superfície sem deixar brasas.",
+      "Incêndios **Classe D** envolvem metais pirofóricos combustíveis (como magnésio, titânio e sódio), exigindo agente extintor especial (pó químico especial), nunca água.",
+      "Incêndios **Classe K** ocorrem em óleos e gorduras vegetais/animais em cozinhas industriais/copas, exigindo extintor específico de acetato de potássio (saponificação).",
+      "Se o ponteiro do manômetro de um extintor de água ou pó químico estiver na faixa **vermelha** (despressurizado) ou o lacre rompido, o extintor pode permanecer normalmente em uso por mais dois anos."
+    ],
+    "correta": 4,
+    "explicacao": "A letra E está INCORRETA! Ponteiro na faixa vermelha (baixa pressão), lacre violado, validade vencida ou avaria física exigem a IMEDIATA retirada do extintor para recarga/manutenção em empresa certificada (e substituição por unidade reserva)!"
+  },
+  {
+    "id": "man-88",
+    "topico": "Segurança do Trabalho — NR-35 (Análise de Risco e Permissão de Trabalho — Estilo CETAP)",
+    "materialSecao": "man-seguranca-incendio",
+    "enunciado": "Conforme a Norma Regulamentadora nº 35 (Trabalho em Altura — acima de 2,00 m), analise as proposições:\nI. Todo trabalho em altura deve ser planejado, organizado e executado por trabalhador capacitado e autorizado (com exame médico apto no ASO).\nII. Todo trabalho em altura deve ser precedido de **Análise de Risco (AR)** e, para atividades não rotineiras, emissão de **Permissão de Trabalho (PT)**.\nIII. O ponto de ancoragem do sistema de proteção individual contra quedas deve resistir às cargas aplicáveis e, sempre que possível, situar-se acima do nível da cabeça do trabalhador para reduzir o fator de queda.\nEstão CORRETAS:",
+    "alternativas": [
+      "Apenas I.",
+      "Apenas I e II.",
+      "Apenas II e III.",
+      "Apenas I e III.",
+      "Todas (I, II e III)."
+    ],
+    "correta": 4,
+    "explicacao": "Todas as três exigências reproduzem fielmente os requisitos operacionais da NR-35!"
+  },
+  {
+    "id": "man-89",
+    "topico": "Segurança do Trabalho — NR-26 (Cores de Sinalização — Estilo CETAP)",
+    "materialSecao": "man-seguranca-incendio",
+    "enunciado": "Na sinalização de segurança em oficinas e prédios públicos (NR-26 / ABNT NBR 7195), assinale a associação **INCORRETA** entre cor e significado:",
+    "alternativas": [
+      "**Vermelho:** equipamentos de proteção e combate a incêndio (hidrantes, extintores, alarmes) e botões de parada de emergência.",
+      "**Amarelo:** cuidado, atenção, corrimãos, degraus com risco de queda, faixas de advertência e obstáculos baixos.",
+      "**Verde:** segurança, caixas de primeiros socorros, chuveiros de emergência e sinalização de rotas seguras.",
+      "**Azul:** ação obrigatória (ex.: obrigatoriedade do uso de EPI) e avisos de 'não ligue / equipamento em manutenção'.",
+      "**Branco:** identificação exclusiva de alta tensão elétrica acima de 13.800 V e risco radioativo."
+    ],
+    "correta": 4,
+    "explicacao": "A letra E está INCORRETA! Na sinalização de segurança, o **branco** é usado para demarcação de passarelas/corredores de circulação e localização de coletores/bebedouros; já **púrpura/roxo** identifica radiações ionizantes e **laranja/amarelo** alerta perigos mecânicos/elétricos."
+  },
+  {
+    "id": "man-90",
+    "topico": "Primeiros Socorros — Parada Cardiorrespiratória e Acionamento de Socorro (Estilo CETAP)",
+    "materialSecao": "man-seguranca-incendio",
+    "enunciado": "Ao encontrar um colega caído, inconsciente e sem respiração normal no depósito de manutenção da ALEPA, qual sequência inicial de primeiros socorros é tecnicamente CORRETA?",
+    "alternativas": [
+      "Garantir a segurança da cena, verificar responsividade e respiração, acionar imediatamente o socorro especializado (SAMU 192 / Bombeiros 193) pedindo um DEA se disponível e iniciar compressões torácicas (RCP) firmes e contínuas no centro do peito.",
+      "Dar tapas no rosto, jogar água gelada e aguardar 15 minutos antes de ligar para o SAMU.",
+      "Colocar a vítima sentada e oferecer água com açúcar imediatamente.",
+      "Movimentar bruscamente o pescoço da vítima para testar reflexos.",
+      "Aguardar a chegada da ambulância sem iniciar qualquer compressão torácica mesmo diante de parada cardiorrespiratória."
+    ],
+    "correta": 0,
+    "explicacao": "Protocolo universal de suporte básico de vida: 1) Segurança da cena; 2) Checar responsividade/respiração; 3) Chamar ajuda (192/193) + DEA; 4) Iniciar compressões torácicas rápidas e firmes (100 a 120/min) imediatamente!"
+  },
+  {
+    "id": "man-91",
+    "topico": "ALEPA — Estrutura Institucional e Funções Constitucionais (Estilo CETAP)",
+    "materialSecao": "man-alepa-gestao-patrimonio",
+    "enunciado": "Sobre a Assembleia Legislativa do Estado do Pará (ALEPA), órgão onde atua o Auxiliar Técnico Legislativo — Manutenção de Patrimônio, analise as afirmativas:\nI. A ALEPA é o órgão unicameral que exerce o Poder Legislativo do Estado do Pará, com sede em Belém (Palácio Cabanagem), composto por 41 Deputados Estaduais.\nII. Além da função típica de **legislar**, a ALEPA exerce função típica de **fiscalizar** (controle externo contábil, financeiro e orçamentário com auxílio do TCE-PA) e funções atípicas de administrar sua estrutura interna.\nIII. A conservação preventiva do patrimônio predial, elétrico, hidráulico e de climatização da Casa assegura a continuidade e segurança das sessões plenárias, comissões e atendimento ao público.\nEstão CORRETAS:",
+    "alternativas": [
+      "Apenas I.",
+      "Apenas I e II.",
+      "Apenas II e III.",
+      "Apenas I e III.",
+      "Todas (I, II e III)."
+    ],
+    "correta": 4,
+    "explicacao": "Todas as três afirmativas descrevem com fidelidade o papel institucional da ALEPA e a relevância estratégica da manutenção patrimonial para o funcionamento da Casa!"
+  },
+  {
+    "id": "man-92",
+    "topico": "Gestão de Manutenção — Priorização por Risco e Ciclo PDCA (Estilo CETAP)",
+    "materialSecao": "man-alepa-gestao-patrimonio",
+    "enunciado": "Na segunda-feira pela manhã, a equipe de Manutenção de Patrimônio recebe quatro chamados simultâneos: (1) pintura estética de uma parede de arquivo; (2) cheiro de queimado e faísca em disjuntor do quadro elétrico de um andar ocupado; (3) ajuste em dobradiça de armário; (4) troca de placa identificadora de sala. Aplicando critérios técnicos de criticidade e segurança patrimonial, qual chamado deve ser atendido com **PRIORIDADE MÁXIMA IMEDIATA**?",
+    "alternativas": [
+      "Chamado (1), por ser o mais rápido de iniciar.",
+      "Chamado (2), pois envolve risco iminente de incêndio, choque elétrico e paralisação grave de todo o pavimento.",
+      "Chamado (3), se for de uma chefia conhecida.",
+      "Chamado (4), por envolver atendimento ao público.",
+      "Todos devem aguardar estritamente a ordem cronológica de abertura do e-mail, mesmo havendo risco de incêndio."
+    ],
+    "correta": 1,
+    "explicacao": "Na gestão de manutenção, a priorização segue critérios objetivos de **segurança de vidas, risco de incêndio/danos graves ao patrimônio e continuidade de serviços essenciais** — emergências elétricas (chamado 2) têm prioridade absoluta!"
+  },
+  {
+    "id": "man-93",
+    "topico": "Relacionamento Interpessoal, Ética e Gestão de Conflitos (Estilo CETAP)",
+    "materialSecao": "man-alepa-gestao-patrimonio",
+    "enunciado": "Durante a substituição de um disjuntor que exige desligar a energia de um gabinete por 20 minutos, um servidor reclama de forma exaltada temendo perder arquivos não salvos. A postura mais adequada, ética e colaborativa do técnico de manutenção é:",
+    "alternativas": [
+      "Desligar a chave geral imediatamente sem avisar para terminar rápido o serviço.",
+      "Responder em tom igualmente agressivo para impor autoridade técnica.",
+      "Manter a calma e a urbanidade, explicar com clareza o motivo de segurança do desligamento, conceder alguns minutos para que o setor salve os arquivos e desligue os equipamentos com segurança, e combinar o horário exato do corte.",
+      "Abandonar o serviço sem registrar na Ordem de Serviço e deixar o defeito elétrico exposto.",
+      "Culpar outros colegas de trabalho na frente do usuário."
+    ],
+    "correta": 2,
+    "explicacao": "Urbanidade, escuta ativa, comunicação clara e coordenação segura (permitindo salvar arquivos antes de desenergizar circuitos não emergenciais) representam excelência no relacionamento interpessoal no serviço público!"
+  },
+  {
+    "id": "man-94",
+    "topico": "Sustentabilidade — Gestão de Resíduos e Coleta Seletiva (CONAMA / PNRS — Estilo CETAP)",
+    "materialSecao": "man-alepa-gestao-patrimonio",
+    "enunciado": "No gerenciamento ambientalmente adequado de resíduos gerados nas oficinas e obras de manutenção predial (Política Nacional de Resíduos Sólidos — Lei nº 12.305/2010 e Resolução CONAMA nº 275/2001), analise as afirmativas:\nI. Na padronização de cores da coleta seletiva (CONAMA 275), **azul** identifica papel/papelão, **vermelho** plástico, **verde** vidro, **amarelo** metal e **laranja** resíduos perigosos.\nII. Pilhas, baterias, lâmpadas fluorescentes, óleos lubrificantes e equipamentos eletroeletrônicos inservíveis sujeitam-se à **logística reversa** e não devem ser misturados ao lixo comum.\nIII. A ordem de prioridade na gestão de resíduos sólidos prevista na Lei nº 12.305/2010 começa por: **não geração → redução → reutilização → reciclagem → tratamento → disposição final ambientalmente adequada**.\nEstão CORRETAS:",
+    "alternativas": [
+      "Apenas I.",
+      "Apenas I e II.",
+      "Apenas II e III.",
+      "Apenas I e III.",
+      "Todas (I, II e III)."
+    ],
+    "correta": 4,
+    "explicacao": "Todas as três afirmativas sobre coleta seletiva (CONAMA 275), logística reversa e hierarquia dos resíduos sólidos (art. 9º da Lei nº 12.305/2010) estão corretíssimas!"
+  },
+  {
+    "id": "man-95",
+    "topico": "Asserção-Razão — Inventário Patrimonial e Controle de Bens Permanentes (Estilo CETAP)",
+    "materialSecao": "man-alepa-gestao-patrimonio",
+    "enunciado": "Analise as duas asserções a seguir e a relação proposta entre elas sobre controle patrimonial em órgãos públicos:\n\nI. Todo equipamento permanente novo recebido pela manutenção (como condicionadores de ar, furadeiras industriais e motores reserva) deve passar por **tombamento** com fixação de plaqueta patrimonial e assinatura de Termo de Responsabilidade antes de sua distribuição aos setores.\n\n**PORQUE**\n\nII. O controle patrimonial formal — somado ao registro de movimentações e ao inventário físico periódico — assegura rastreabilidade, responsabilização pela guarda, planejamento de manutenções e prevenção contra extravios e desvios de bens públicos.\n\nA respeito dessas asserções, assinale a alternativa CORRETA:",
+    "alternativas": [
+      "As asserções I e II são proposições verdadeiras, e a II é uma justificativa correta da I.",
+      "As asserções I e II são proposições verdadeiras, mas a II não é uma justificativa da I.",
+      "A asserção I é uma proposição verdadeira, e a II é uma proposição falsa.",
+      "A asserção I é uma proposição falsa, e a II é uma proposição verdadeira.",
+      "As asserções I e II são proposições falsas."
+    ],
+    "correta": 0,
+    "explicacao": "Ambas as asserções são verdadeiras e a II justifica plenamente a obrigatoriedade do tombamento e do controle formal dos bens permanentes na Administração Pública!"
   }
 ];
